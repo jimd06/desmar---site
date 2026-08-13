@@ -1,0 +1,634 @@
+/* ============================================================
+   Desmar — marketing site v1
+   Λευκή βάση · Emerald #0B6E4F ΜΟΝΟ σε CTA/accents · Navy #1E2A55
+   Γραμματοσειρά: Commissioner (self-hosted, variable, Latin+Greek)
+   ============================================================ */
+
+@font-face {
+  font-family: "Commissioner";
+  src: url("../fonts/Commissioner-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --emerald: #0B6E4F;
+  --emerald-dark: #095A41;
+  --emerald-soft: #E6F1ED;
+  --navy: #1E2A55;
+  --ink: #1E2A55;
+  --muted: #5C6580;
+  --line: #E3E7F0;
+  --bg: #FFFFFF;
+  --bg-soft: #F6F8FB;
+  --radius: 14px;
+  --shadow: 0 12px 32px rgba(30, 42, 85, 0.10);
+  --shadow-sm: 0 2px 10px rgba(30, 42, 85, 0.08);
+}
+
+/* ---------- Βάση ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Commissioner", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+h1, h2, h3 { margin: 0 0 0.6em; line-height: 1.15; font-weight: 800; letter-spacing: -0.015em; }
+h1 { font-size: clamp(2.05rem, 5.6vw, 3.25rem); line-height: 1.1; }
+h2 { font-size: clamp(1.55rem, 4vw, 2.25rem); }
+h3 { font-size: 1.15rem; letter-spacing: 0; }
+p  { margin: 0 0 1em; }
+
+a { color: var(--emerald); }
+
+:focus-visible {
+  outline: 3px solid var(--emerald);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  z-index: 100;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }
+
+.container {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: clamp(1.1rem, 4vw, 1.5rem);
+}
+
+.section { padding-block: clamp(3.4rem, 9vw, 5.8rem); }
+.section--soft { background: var(--bg-soft); }
+.section--navy { background: var(--navy); color: #fff; }
+.section--emerald { background: var(--emerald); color: #fff; }
+
+.eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 0.7rem;
+}
+.section--navy .eyebrow, .section--emerald .eyebrow { color: rgba(255, 255, 255, 0.75); }
+
+.section-head { max-width: 640px; margin-bottom: clamp(1.8rem, 4vw, 2.6rem); }
+.section-head p { color: var(--muted); font-size: 1.05rem; }
+
+/* ---------- Κουμπιά ---------- */
+.btn {
+  display: inline-block;
+  background: var(--emerald);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0.85em 1.5em;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.18s ease;
+}
+.btn:hover { background: var(--emerald-dark); }
+.btn--sm { padding: 0.6em 1.1em; font-size: 0.92rem; }
+.btn--block { display: block; width: 100%; }
+
+.btn-ghost {
+  display: inline-block;
+  background: #fff;
+  color: var(--emerald);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.65em 1.2em;
+  border: 1.5px solid var(--emerald);
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.18s ease;
+}
+.btn-ghost:hover { background: var(--emerald-soft); }
+.btn-ghost[aria-disabled="true"] {
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: default;
+}
+.btn-ghost[aria-disabled="true"]:hover { background: #fff; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.7rem;
+}
+.brand { display: inline-flex; align-items: center; }
+.brand img { height: 27px; width: auto; }
+
+/* ---------- 1. Hero ---------- */
+.hero { padding-block: clamp(2.6rem, 7vw, 4.6rem); }
+.hero .container {
+  display: grid;
+  gap: clamp(1.8rem, 4vw, 3rem);
+  align-items: start;
+}
+@media (min-width: 920px) {
+  .hero .container { grid-template-columns: 1.05fr 0.95fr; }
+}
+.hero-copy .lead {
+  font-size: clamp(1.05rem, 2.4vw, 1.2rem);
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.form-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  margin-top: 1.6rem;
+}
+.form-card h2, .form-card h3 { font-size: 1.12rem; margin-bottom: 0.9rem; letter-spacing: 0; }
+
+.field { margin-bottom: 0.85rem; }
+.field label {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.field input, .field select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 0.68em 0.85em;
+}
+.field input:focus-visible, .field select:focus-visible {
+  outline: none;
+  border-color: var(--emerald);
+  box-shadow: 0 0 0 3px rgba(11, 110, 79, 0.16);
+}
+.field--optional label span { color: var(--muted); font-weight: 400; }
+
+/* Honeypot — αόρατο για ανθρώπους */
+.hp { display: none !important; }
+
+.microcopy {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin: 0.7rem 0 0;
+  text-align: center;
+}
+
+.form-error {
+  background: #FBEDED;
+  color: #8C2F2F;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  margin: 0 0 0.85rem;
+}
+
+.form-success h3 { margin-bottom: 0.5rem; }
+.form-success p { color: var(--muted); font-size: 0.95rem; }
+.form-success ol { margin: 0.6rem 0 0; padding-left: 1.3rem; }
+.form-success li { margin-bottom: 0.35rem; font-weight: 600; }
+.form-success li::marker { color: var(--emerald); font-weight: 800; }
+
+/* ---------- Mockup συνομιλίας ---------- */
+.chat {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.chat-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.chat-head img { width: 36px; height: 36px; border-radius: 10px; }
+.chat-id { line-height: 1.25; }
+.chat-id strong { display: block; font-size: 0.95rem; }
+.chat-status { font-size: 0.78rem; color: var(--muted); }
+.chat-status::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--emerald);
+  margin-right: 0.35rem;
+  vertical-align: 1px;
+}
+.chat-time { margin-left: auto; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  background: var(--bg-soft);
+  padding: 1rem;
+  height: 335px;
+  overflow-y: auto;
+}
+.msg {
+  max-width: 84%;
+  padding: 0.55rem 0.85rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.msg--bot {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 5px;
+}
+.msg--user {
+  align-self: flex-end;
+  background: var(--emerald);
+  color: #fff;
+  border-bottom-right-radius: 5px;
+}
+
+/* Κατάσταση animation: τα μηνύματα κρύβονται και εμφανίζονται διαδοχικά */
+.chat-body.is-anim .msg { display: none; }
+.chat-body.is-anim .msg.is-in { display: block; animation: msg-in 0.3s ease both; }
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(7px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 5px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  border-bottom-left-radius: 5px;
+  padding: 0.72rem 0.85rem;
+}
+.typing i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #A9B2C6;
+  animation: typing-dot 1s infinite ease-in-out;
+}
+.typing i:nth-child(2) { animation-delay: 0.15s; }
+.typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.55; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.chat-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0.7rem 0 0;
+}
+
+/* ---------- 2. Μπάρα κλάδων ---------- */
+.industries-bar {
+  background: var(--bg-soft);
+  border-block: 1px solid var(--line);
+  padding-block: 0.9rem;
+}
+.industries-bar p {
+  margin: 0;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ---------- 3. Demo gallery ---------- */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 1rem;
+}
+.demo-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+.demo-card img { width: 42px; height: 42px; }
+.demo-card h3 { font-size: 1rem; margin: 0; }
+.demo-card .btn-ghost { margin-top: auto; width: 100%; }
+
+/* ---------- 4. Πώς δουλεύει — χρονοδιάγραμμα ---------- */
+.timeline {
+  display: grid;
+  gap: 1.6rem;
+}
+@media (min-width: 860px) {
+  .timeline { grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+}
+.t-mark { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
+.t-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--emerald);
+  flex: 0 0 auto;
+}
+.t-line { display: none; }
+@media (min-width: 860px) {
+  .t-line { display: block; flex: 1; height: 2px; background: var(--line); }
+  .t-step:last-child .t-line { visibility: hidden; }
+}
+.t-day {
+  display: inline-block;
+  background: var(--emerald-soft);
+  color: var(--emerald-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 99px;
+  padding: 0.2em 0.75em;
+  margin-bottom: 0.5rem;
+}
+.t-step h3 { font-size: 1.02rem; margin-bottom: 0.3rem; }
+.t-step p { font-size: 0.93rem; color: var(--muted); margin: 0; }
+.t-step strong { color: var(--emerald); }
+
+/* ---------- 5. Navy μπάντα done-for-you ---------- */
+.band-statement {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+  font-size: clamp(1.4rem, 3.6vw, 2.05rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: clamp(1.8rem, 4vw, 2.6rem);
+}
+.band-statement .dim { color: rgba(255, 255, 255, 0.62); display: block; }
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+.metric-num {
+  font-size: clamp(1.5rem, 4.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.metric-label { font-size: 0.88rem; color: #C9D3E6; }
+
+/* ---------- 6. Υπολογιστής χαμένων εσόδων ---------- */
+.calc-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: clamp(1.2rem, 3.5vw, 1.8rem);
+  max-width: 660px;
+}
+.calc-fields { display: grid; gap: 0.85rem; }
+@media (min-width: 580px) {
+  .calc-fields { grid-template-columns: 1fr 1fr; }
+  .calc-fields .field--wide { grid-column: 1 / -1; }
+}
+.calc-fields .field { margin: 0; }
+.calc-result {
+  margin-top: 1.2rem;
+  background: var(--emerald-soft);
+  border-left: 4px solid var(--emerald);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+.calc-result .calc-amount {
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  font-weight: 800;
+  color: var(--emerald-dark);
+  letter-spacing: -0.01em;
+}
+.calc-result p { margin: 0.15rem 0 0; font-size: 0.98rem; }
+.calc-note { font-size: 0.83rem; color: var(--muted); margin: 0.8rem 0 0; }
+
+/* ---------- 7. Testimonials ---------- */
+.testi-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 820px) { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
+.testi-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+.testi-metric {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--emerald);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.testi-metric small { display: block; font-size: 0.82rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.testi-quote { font-size: 0.97rem; margin: 0.9rem 0 1.1rem; }
+.testi-who { margin-top: auto; font-size: 0.88rem; }
+.testi-who strong { display: block; }
+.testi-who span { color: var(--muted); }
+
+/* ---------- 8. Τιμές ---------- */
+.pricing-grid {
+  display: grid;
+  gap: 1.1rem;
+  align-items: stretch;
+}
+@media (min-width: 860px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+.price-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+.price-card--featured {
+  border: 2px solid var(--emerald);
+  box-shadow: var(--shadow);
+}
+.price-badge {
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--emerald);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 99px;
+  padding: 0.28em 0.9em;
+  white-space: nowrap;
+}
+.price-name { font-size: 1.05rem; margin-bottom: 0.2rem; }
+.price-amount { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
+.price-amount span { font-size: 0.95rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.price-for { font-size: 0.88rem; color: var(--muted); margin: 0.3rem 0 1rem; }
+.price-feats { list-style: none; margin: 0 0 1.3rem; padding: 0; }
+.price-feats li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  font-size: 0.93rem;
+  padding-block: 0.32rem;
+}
+.price-feats svg { flex: 0 0 auto; margin-top: 0.22rem; }
+.price-card .btn, .price-card .btn-ghost { margin-top: auto; }
+
+.setup-note { text-align: center; font-size: 0.95rem; margin: 1.4rem 0 0; }
+.setup-note strong { color: var(--emerald-dark); }
+
+.no-charge {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem clamp(1.2rem, 3vw, 1.8rem);
+  margin-top: 2rem;
+}
+.no-charge h3 { margin-bottom: 0.8rem; }
+.no-charge ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+@media (min-width: 720px) { .no-charge ul { grid-template-columns: 1fr 1fr; } }
+.no-charge li { display: flex; gap: 0.55rem; align-items: flex-start; font-size: 0.95rem; font-weight: 600; }
+.no-charge svg { flex: 0 0 auto; margin-top: 0.25rem; }
+.pricing-fineprint { text-align: center; font-size: 0.85rem; color: var(--muted); margin: 1.4rem 0 0; }
+
+/* ---------- 9. GDPR ---------- */
+.trust-grid { display: grid; gap: 1rem; }
+@media (min-width: 720px) { .trust-grid { grid-template-columns: 1fr 1fr; } }
+.trust-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+}
+.trust-item svg { flex: 0 0 auto; margin-top: 0.15rem; }
+.trust-item strong { display: block; margin-bottom: 0.15rem; }
+.trust-item p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.trust-item--wide { grid-column: 1 / -1; }
+
+/* ---------- 10. FAQ ---------- */
+.faq { max-width: 760px; }
+.faq details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 0.7rem;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.95rem 2.6rem 0.95rem 1.1rem;
+  position: relative;
+  border-radius: 12px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--emerald);
+}
+.faq details[open] summary::after { content: "–"; }
+.faq details > p { padding: 0 1.1rem 1rem; margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+/* ---------- 11. Τελικό CTA ---------- */
+.final-cta .section-head { max-width: 620px; }
+.final-cta h2 { color: #fff; }
+.final-cta .section-head p { color: rgba(255, 255, 255, 0.85); }
+.final-cta .form-card { margin-top: 0; max-width: 560px; }
+.final-cta .microcopy { color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--navy); color: #C9D3E6; padding-block: 2rem; }
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+.site-footer img { height: 22px; width: auto; }
+.site-footer p { margin: 0; font-size: 0.85rem; }
+
+/* ---------- Κίνηση: σεβασμός prefers-reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}

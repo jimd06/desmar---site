@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desmar — AI chatbot για ελληνικές επιχειρήσεις, έτοιμο σε 5 ημέρες</title>
+  <meta name="description" content="Το Desmar παραδίδει έτοιμο AI chatbot εκπαιδευμένο στο site της επιχείρησής σας: απαντά σε πελάτες 24/7, μαζεύει ραντεβού και leads. Για ιατρεία, κομμωτήρια, ξενοδοχεία, γυμναστήρια και σκάφη. Από 69 €/μήνα.">
+
+  <!-- ΠΡΟΣΩΡΙΝΟ DOMAIN: όταν κλειδώσει το domain, αντικατάστησε παντού το https://desmar.gr -->
+  <link rel="canonical" href="https://desmar.gr/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:site_name" content="Desmar">
+  <meta property="og:title" content="Desmar — AI chatbot για ελληνικές επιχειρήσεις">
+  <meta property="og:description" content="Έτοιμο chatbot, εκπαιδευμένο στο site σας, παραδομένο σε 5 ημέρες. Απαντά 24/7, χωρίς quota συνομιλιών. Από 69 €/μήνα.">
+  <meta property="og:url" content="https://desmar.gr/">
+  <meta property="og:image" content="https://desmar.gr/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#" aria-label="Desmar — αρχική">
+        <img src="assets/img/logo.svg" alt="Desmar" width="171" height="27">
+      </a>
+      <a class="btn btn--sm" href="#demo">Δωρεάν demo</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" id="demo">
+      <div class="container">
+        <div class="hero-copy">
+          <h1>Το chatbot της επιχείρησής σας. Έτοιμο, παραδομένο, σε 5 ημέρες.</h1>
+          <p class="lead">Απαντά στους πελάτες σας 24/7 με βάση το δικό σας site — τιμές, ωράρια, ραντεβού — και σας στέλνει τα στοιχεία τους. Εσείς δεν στήνετε τίποτα.</p>
+
+          <div class="form-wrap">
+            <form class="lead-form form-card" novalidate>
+              <h2>Δωρεάν demo με το δικό σας περιεχόμενο</h2>
+
+              <p class="form-error" role="alert" hidden></p>
+
+              <div class="field">
+                <label for="hero-site">Το site της επιχείρησής σας</label>
+                <input type="text" id="hero-site" name="site_url" inputmode="url" autocomplete="url" placeholder="www.example.gr" required>
+              </div>
+              <div class="field">
+                <label for="hero-name">Επωνυμία επιχείρησης</label>
+                <input type="text" id="hero-name" name="business_name" autocomplete="organization" required>
+              </div>
+              <div class="field">
+                <label for="hero-industry">Κλάδος</label>
+                <select id="hero-industry" name="industry" required>
+                  <option value="" selected disabled>Επιλέξτε κλάδο</option>
+                  <option value="iatreio">Ιατρείο / Οδοντιατρείο</option>
+                  <option value="kommotirio">Κομμωτήριο / Beauty</option>
+                  <option value="xenodocheio">Ξενοδοχείο / Καταλύματα</option>
+                  <option value="gymnastirio">Γυμναστήριο</option>
+                  <option value="skafi">Σκάφη / Charter</option>
+                  <option value="allo">Άλλο</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="hero-email">Email</label>
+                <input type="email" id="hero-email" name="email" autocomplete="email" required>
+              </div>
+              <div class="field field--optional">
+                <label for="hero-phone">Τηλέφωνο <span>(προαιρετικό)</span></label>
+                <input type="tel" id="hero-phone" name="phone" autocomplete="tel">
+              </div>
+
+              <!-- Honeypot κατά των bots — αόρατο πεδίο -->
+              <div class="hp" aria-hidden="true">
+                <label for="hero-website">Website</label>
+                <input type="text" id="hero-website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <button type="submit" class="btn btn--block">Φτιάξτε το demo μου δωρεάν</button>
+              <p class="microcopy">Χωρίς κάρτα. Χωρίς εγκατάσταση. Το demo φτιάχνεται αυτόματα από το site σας.</p>
+            </form>
+
+            <div class="form-success form-card" hidden tabindex="-1">
+              <h3>Το chatbot σας ετοιμάζεται</h3>
+              <p>Τι γίνεται τώρα:</p>
+              <ol>
+                <li>Διαβάζουμε το site σας</li>
+                <li>Εκπαιδεύουμε το chatbot στα δεδομένα σας</li>
+                <li>Θα λάβετε email με το προσωπικό σας link</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Mockup συνομιλίας ιατρείου — «ζωντανεύει» με JS, στατικό χωρίς JS ή με reduced motion -->
+          <div class="chat" aria-label="Παράδειγμα συνομιλίας πελάτη με το chatbot ενός ιατρείου">
+            <div class="chat-head">
+              <img src="assets/img/favicon.svg" alt="" width="36" height="36">
+              <div class="chat-id">
+                <strong>Βοηθός ιατρείου</strong>
+                <span class="chat-status">Online — απαντά 24/7</span>
+              </div>
+              <span class="chat-time">23:47</span>
+            </div>
+            <div class="chat-body" id="chat-body">
+              <div class="msg msg--user">Καλησπέρα! Κλείνετε ραντεβού για καθαρισμό δοντιών; Πόσο κοστίζει;</div>
+              <div class="msg msg--bot">Καλησπέρα σας! Ο καθαρισμός κοστίζει 50 € και διαρκεί περίπου 45 λεπτά.</div>
+              <div class="msg msg--user">Τέλεια. Την Τρίτη το απόγευμα υπάρχει κάτι;</div>
+              <div class="msg msg--bot">Την Τρίτη έχουμε διαθεσιμότητα στις 17:30 και στις 19:00. Να κρατήσω προσωρινά μία από τις δύο;</div>
+              <div class="msg msg--user">Στις 19:00, στο όνομα Μαρία Κ.</div>
+              <div class="msg msg--bot">Έγινε! Προσωρινή κράτηση για Τρίτη στις 19:00. Θα σας καλέσουμε το πρωί για επιβεβαίωση.</div>
+              <div class="typing" hidden aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <p class="chat-note">Ώρα 23:47 — το ιατρείο είναι κλειστό. Το chatbot όχι.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. ΜΠΑΡΑ ΚΛΑΔΩΝ ============ -->
+    <div class="industries-bar">
+      <div class="container">
+        <p>Σχεδιασμένο για: ιατρεία · κομμωτήρια · ξενοδοχεία · γυμναστήρια · σκάφη</p>
+      </div>
+    </div>
+
+    <!-- ============ 3. DEMO GALLERY ============ -->
+    <section class="section" id="demos">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Ζωντανά demos</span>
+          <h2>Δείτε το σε δράση, στον δικό σας κλάδο</h2>
+          <p>Κάθε demo είναι πραγματικό chatbot, εκπαιδευμένο σε υλικό μιας τυπικής επιχείρησης του κλάδου.</p>
+        </div>
+        <div class="demo-grid">
+          <div class="demo-card">
+            <img src="assets/img/icon-iatreio.svg" alt="" width="42" height="42">
+            <h3>Ιατρείο</h3>
+            <a class="btn-ghost" href="#" data-demo-link="iatreio">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="assets/img/icon-kommotirio.svg" alt="" width="42" height="42">
+            <h3>Κομμωτήριο</h3>
+            <a class="btn-ghost" href="#" data-demo-link="kommotirio">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="assets/img/icon-xenodocheio.svg" alt="" width="42" height="42">
+            <h3>Ξενοδοχείο</h3>
+            <a class="btn-ghost" href="#" data-demo-link="xenodocheio">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="assets/img/icon-gymnastirio.svg" alt="" width="42" height="42">
+            <h3>Γυμναστήριο</h3>
+            <a class="btn-ghost" href="#" data-demo-link="gymnastirio">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="assets/img/icon-skafi.svg" alt="" width="42" height="42">
+            <h3>Σκάφη / Charter</h3>
+            <a class="btn-ghost" href="#" data-demo-link="skafi">Δείτε το demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. ΠΩΣ ΔΟΥΛΕΥΕΙ ============ -->
+    <section class="section section--soft" id="pos-douleuei">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Πώς δουλεύει</span>
+          <h2>Από το ερωτηματολόγιο στο live, σε 5 ημέρες</h2>
+        </div>
+        <div class="timeline">
+          <div class="t-step">
+            <div class="t-mark"><span class="t-dot"></span><span class="t-line"></span></div>
+            <span class="t-day">Ημέρα 1</span>
+            <h3>Ερωτηματολόγιο 15 λεπτών</h3>
+            <p>Μας λέτε πώς μιλάτε στους πελάτες σας, τι απαντάτε συνέχεια και πότε θέλετε να ειδοποιείστε.</p>
+          </div>
+          <div class="t-step">
+            <div class="t-mark"><span class="t-dot"></span><span class="t-line"></span></div>
+            <span class="t-day">Ημέρες 2–3</span>
+            <h3>Το στήνουμε εμείς</h3>
+            <p>Εκπαίδευση στο υλικό σας, χρώματα και ύφος της επιχείρησής σας. Εσείς: τίποτα.</p>
+          </div>
+          <div class="t-step">
+            <div class="t-mark"><span class="t-dot"></span><span class="t-line"></span></div>
+            <span class="t-day">Ημέρα 4</span>
+            <h3>Το δοκιμάζετε</h3>
+            <p>Στο προσωπικό σας link, με πραγματικές ερωτήσεις. Και το <strong>εγκρίνετε</strong> εσείς.</p>
+          </div>
+          <div class="t-step">
+            <div class="t-mark"><span class="t-dot"></span><span class="t-line"></span></div>
+            <span class="t-day">Ημέρα 5</span>
+            <h3>Live στο site σας</h3>
+            <p>Μία γραμμή κώδικα — τη βάζουμε εμείς ή ο τεχνικός σας. Από εκείνη τη στιγμή, απαντά.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. NAVY ΜΠΑΝΤΑ DONE-FOR-YOU ============ -->
+    <section class="section section--navy">
+      <div class="container">
+        <p class="band-statement">
+          <span class="dim">Δεν σας δίνουμε εργαλείο να φτιάξετε chatbot.</span>
+          Σας παραδίδουμε chatbot έτοιμο.
+        </p>
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-num">24/7</div>
+            <div class="metric-label">απαντά, και όταν εσείς κοιμάστε</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">&lt;1 εβδομάδα</div>
+            <div class="metric-label">από το ερωτηματολόγιο στο live</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">0 quota</div>
+            <div class="metric-label">απεριόριστες συνομιλίες</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. ΥΠΟΛΟΓΙΣΤΗΣ ΧΑΜΕΝΩΝ ΕΣΟΔΩΝ ============ -->
+    <section class="section" id="ypologistis">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Υπολογιστής</span>
+          <h2>Πόσα σας κοστίζουν οι αναπάντητες επαφές;</h2>
+          <p>Βάλτε τα δικά σας νούμερα — τα πεδία προσυμπληρώνονται με τυπικές τιμές ανά κλάδο, αλλά αλλάζουν ελεύθερα.</p>
+        </div>
+        <div class="calc-card">
+          <div class="calc-fields">
+            <div class="field field--wide">
+              <label for="calc-industry">Κλάδος</label>
+              <select id="calc-industry">
+                <option value="iatreio" selected>Ιατρείο / Οδοντιατρείο</option>
+                <option value="kommotirio">Κομμωτήριο / Beauty</option>
+                <option value="xenodocheio">Ξενοδοχείο / Καταλύματα</option>
+                <option value="gymnastirio">Γυμναστήριο</option>
+                <option value="skafi">Σκάφη / Charter</option>
+                <option value="allo">Άλλο</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="calc-missed">Αναπάντητες κλήσεις / μηνύματα την εβδομάδα</label>
+              <input type="number" id="calc-missed" min="0" step="1" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="calc-value">Μέση αξία πελάτη (€)</label>
+              <input type="number" id="calc-value" min="0" step="5" inputmode="numeric">
+            </div>
+          </div>
+          <div class="calc-result" role="status" aria-live="polite">
+            <span class="calc-amount" id="calc-amount">—</span>
+            <p id="calc-text">Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας.</p>
+            <p><strong>Το Desmar ξεκινά από 69 €/μήνα.</strong></p>
+          </div>
+          <p class="calc-note">Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. TESTIMONIALS ============ -->
+    <!-- PLACEHOLDERS: αντικατάσταση με πραγματικά στοιχεία από τους πρώτους design partners πριν το launch -->
+    <section class="section section--soft" id="apotelesmata">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Αποτελέσματα</span>
+          <h2>Νούμερα πρώτα, λόγια μετά</h2>
+        </div>
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="testi-metric">−70% <small>λιγότερα αναπάντητα μηνύματα</small></div>
+            <p class="testi-quote">«[Quote πελάτη — 1–2 προτάσεις για το πριν και το μετά.]»</p>
+            <p class="testi-who"><strong>[Όνομα Επώνυμο]</strong><span>[Επιχείρηση] · [Πόλη]</span></p>
+          </div>
+          <div class="testi-card">
+            <div class="testi-metric">+38% <small>περισσότερα αιτήματα ραντεβού</small></div>
+            <p class="testi-quote">«[Quote πελάτη — τι άλλαξε στην καθημερινότητά του.]»</p>
+            <p class="testi-who"><strong>[Όνομα Επώνυμο]</strong><span>[Επιχείρηση] · [Πόλη]</span></p>
+          </div>
+          <div class="testi-card">
+            <div class="testi-metric">24/7 <small>κάλυψη εκτός ωραρίου</small></div>
+            <p class="testi-quote">«[Quote πελάτη — παράδειγμα πελάτη που εξυπηρετήθηκε νύχτα ή Κυριακή.]»</p>
+            <p class="testi-who"><strong>[Όνομα Επώνυμο]</strong><span>[Επιχείρηση] · [Πόλη]</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. ΤΙΜΕΣ ============ -->
+    <section class="section" id="times">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Τιμές</span>
+          <h2>Απλή μηνιαία συνδρομή. Χωρίς εκπλήξεις.</h2>
+        </div>
+
+        <!-- ΠΡΟΣΧΕΔΙΟ χαρακτηριστικών ανά πακέτο — προς επιβεβαίωση πριν το launch -->
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3 class="price-name">Βασικό</h3>
+            <div class="price-amount">69 € <span>/ μήνα</span></div>
+            <p class="price-for">Για να ξεκινήσετε</p>
+            <ul class="price-feats">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Chatbot εκπαιδευμένο στο site και στα αρχεία σας</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Απεριόριστες συνομιλίες</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ελληνικά και Αγγλικά</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ενημέρωση περιεχομένου 1 φορά τον μήνα</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ειδοποίηση email για κάθε νέο lead</li>
+            </ul>
+            <a class="btn-ghost" href="#demo">Ξεκινήστε με demo</a>
+          </div>
+
+          <div class="price-card price-card--featured">
+            <span class="price-badge">Δημοφιλές</span>
+            <h3 class="price-name">Ανάπτυξη</h3>
+            <div class="price-amount">149 € <span>/ μήνα</span></div>
+            <p class="price-for">Για επιχειρήσεις με συνεχή ροή πελατών</p>
+            <ul class="price-feats">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Όλα του Βασικού</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Φόρμα lead μέσα στη συνομιλία</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ειδοποίηση όταν το bot δεν ξέρει την απάντηση</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ενημέρωση περιεχομένου κάθε εβδομάδα</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Προτεραιότητα στην υποστήριξη</li>
+            </ul>
+            <a class="btn" href="#demo">Ξεκινήστε με demo</a>
+          </div>
+
+          <div class="price-card">
+            <h3 class="price-name">Pro</h3>
+            <div class="price-amount">299 € <span>/ μήνα</span></div>
+            <p class="price-for">Για πολλά αιτήματα και αυτόματη ενημέρωση</p>
+            <ul class="price-feats">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Όλα της Ανάπτυξης</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Αυτόματη επανεκπαίδευση από το site σας</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Μηνιαία αναφορά χρήσης</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Προσαρμογές εμφάνισης στο brand σας</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Άμεση τηλεφωνική υποστήριξη</li>
+            </ul>
+            <a class="btn-ghost" href="#demo">Ξεκινήστε με demo</a>
+          </div>
+        </div>
+
+        <!-- ΕΦΑΠΑΞ ΕΓΚΑΤΑΣΤΑΣΗ: άλλαξε το ποσό εδώ — οριστικοποιείται αργότερα -->
+        <p class="setup-note">Συν εφάπαξ κόστος εγκατάστασης <strong>100 €</strong> — μία φορά, περιλαμβάνει το στήσιμο και την εκπαίδευση στο υλικό σας.</p>
+
+        <div class="no-charge">
+          <h3>Τι ΔΕΝ χρεώνουμε</h3>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="#1E2A55" stroke-width="2" stroke-linecap="round"/></svg>Χρέωση ανά συνομιλία</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="#1E2A55" stroke-width="2" stroke-linecap="round"/></svg>Quota που κόβει το chatbot στη μέση του μήνα</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="#1E2A55" stroke-width="2" stroke-linecap="round"/></svg>Κόστος ανά χρήστη</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="#1E2A55" stroke-width="2" stroke-linecap="round"/></svg>Κρυφά add-ons</li>
+          </ul>
+        </div>
+
+        <p class="pricing-fineprint">Τιμές σε ευρώ, με ελληνικό τιμολόγιο.</p>
+      </div>
+    </section>
+
+    <!-- ============ 9. GDPR & ΕΜΠΙΣΤΟΣΥΝΗ ============ -->
+    <section class="section section--soft" id="gdpr">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">GDPR &amp; εμπιστοσύνη</span>
+          <h2>Τα δεδομένα των πελατών σας, με ευρωπαϊκούς κανόνες</h2>
+        </div>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2 18.5 4.8v5.4c0 4.6-3.1 7.7-7.5 9.3-4.4-1.6-7.5-4.7-7.5-9.3V4.8L11 2z" stroke="#0B6E4F" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 11.1l2.3 2.3 4.5-4.8" stroke="#0B6E4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Δεδομένα εντός ΕΕ</strong>
+              <p>Φιλοξενία και επεξεργασία σε υποδομές εντός Ευρωπαϊκής Ένωσης.</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2 18.5 4.8v5.4c0 4.6-3.1 7.7-7.5 9.3-4.4-1.6-7.5-4.7-7.5-9.3V4.8L11 2z" stroke="#0B6E4F" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 11.1l2.3 2.3 4.5-4.8" stroke="#0B6E4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>DPA στα ελληνικά, έτοιμο για υπογραφή</strong>
+              <p>Σύμβαση επεξεργασίας δεδομένων στη γλώσσα σας — όχι νομικά αγγλικά.</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2 18.5 4.8v5.4c0 4.6-3.1 7.7-7.5 9.3-4.4-1.6-7.5-4.7-7.5-9.3V4.8L11 2z" stroke="#0B6E4F" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 11.1l2.3 2.3 4.5-4.8" stroke="#0B6E4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Δικαίωμα διαγραφής επισκέπτη</strong>
+              <p>Ενσωματωμένη διαδικασία διαγραφής των δεδομένων συνομιλίας, με ένα αίτημα.</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2 18.5 4.8v5.4c0 4.6-3.1 7.7-7.5 9.3-4.4-1.6-7.5-4.7-7.5-9.3V4.8L11 2z" stroke="#0B6E4F" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 11.1l2.3 2.3 4.5-4.8" stroke="#0B6E4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Οι συνομιλίες δεν εκπαιδεύουν κανένα μοντέλο</strong>
+              <p>Οι συνομιλίες των πελατών σας χρησιμοποιούνται μόνο για να τους εξυπηρετούν.</p>
+            </div>
+          </div>
+          <div class="trust-item trust-item--wide">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2 18.5 4.8v5.4c0 4.6-3.1 7.7-7.5 9.3-4.4-1.6-7.5-4.7-7.5-9.3V4.8L11 2z" stroke="#0B6E4F" stroke-width="1.8" stroke-linejoin="round"/><path d="M11 7v5M11 14.6v.4" stroke="#0B6E4F" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div>
+              <strong>Ειδικά για ιατρεία</strong>
+              <p>Το chatbot δεν δίνει ιατρικές συμβουλές και δεν ζητά ευαίσθητα δεδομένα υγείας. Απαντά μόνο σε πρακτικά θέματα: ωράρια, υπηρεσίες, τιμές, ραντεβού.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Συχνές ερωτήσεις</span>
+          <h2>Αυτά που ρωτούν όλοι πριν ξεκινήσουν</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Κι αν πει κάτι λάθος σε πελάτη;</summary>
+            <p>Το chatbot απαντά μόνο με βάση το δικό σας υλικό — όχι «ό,τι βρει στο internet». Έχει guardrails για θέματα εκτός αντικειμένου, και όταν δεν ξέρει κάτι, το λέει καθαρά και ειδοποιεί εσάς αντί να αυτοσχεδιάσει.</p>
+          </details>
+          <details>
+            <summary>Το site μου είναι WordPress / Wix / Squarespace — παίζει;</summary>
+            <p>Ναι. Η εγκατάσταση είναι μία γραμμή κώδικα που μπαίνει σε οποιαδήποτε πλατφόρμα δέχεται προσαρμοσμένο κώδικα — WordPress, Wix, Squarespace, custom site. Αν θέλετε, τη βάζουμε εμείς.</p>
+          </details>
+          <details>
+            <summary>Δεσμεύομαι με συμβόλαιο;</summary>
+            <!-- Προς επιβεβαίωση με τους όρους της σύμβασης SaaS πριν το launch -->
+            <p>Η συνδρομή είναι μηνιαία. Τους όρους συνεργασίας τους βλέπετε γραπτά και καθαρά πριν την ενεργοποίηση — χωρίς ψιλά γράμματα.</p>
+          </details>
+          <details>
+            <summary>Ποιος το ενημερώνει όταν αλλάξω τιμές ή ωράριο;</summary>
+            <p>Εμείς. Μας στέλνετε τις αλλαγές — ή τις τραβάμε απευθείας από το site σας — και το chatbot ενημερώνεται. Καμία τεχνική δουλειά από εσάς.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. ΤΕΛΙΚΟ CTA ============ -->
+    <section class="section section--emerald final-cta" id="cta">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Ξεκινήστε τώρα</span>
+          <h2>Δείτε το chatbot σας πριν πληρώσετε οτιδήποτε</h2>
+          <p>Συμπληρώστε το site σας — το demo φτιάχνεται αυτόματα από το δικό σας περιεχόμενο.</p>
+        </div>
+
+        <div class="form-wrap">
+          <form class="lead-form form-card" novalidate>
+            <h3>Δωρεάν demo με το δικό σας περιεχόμενο</h3>
+
+            <p class="form-error" role="alert" hidden></p>
+
+            <div class="field">
+              <label for="cta-site">Το site της επιχείρησής σας</label>
+              <input type="text" id="cta-site" name="site_url" inputmode="url" autocomplete="url" placeholder="www.example.gr" required>
+            </div>
+            <div class="field">
+              <label for="cta-name">Επωνυμία επιχείρησης</label>
+              <input type="text" id="cta-name" name="business_name" autocomplete="organization" required>
+            </div>
+            <div class="field">
+              <label for="cta-industry">Κλάδος</label>
+              <select id="cta-industry" name="industry" required>
+                <option value="" selected disabled>Επιλέξτε κλάδο</option>
+                <option value="iatreio">Ιατρείο / Οδοντιατρείο</option>
+                <option value="kommotirio">Κομμωτήριο / Beauty</option>
+                <option value="xenodocheio">Ξενοδοχείο / Καταλύματα</option>
+                <option value="gymnastirio">Γυμναστήριο</option>
+                <option value="skafi">Σκάφη / Charter</option>
+                <option value="allo">Άλλο</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cta-email">Email</label>
+              <input type="email" id="cta-email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field field--optional">
+              <label for="cta-phone">Τηλέφωνο <span>(προαιρετικό)</span></label>
+              <input type="tel" id="cta-phone" name="phone" autocomplete="tel">
+            </div>
+
+            <!-- Honeypot κατά των bots — αόρατο πεδίο -->
+            <div class="hp" aria-hidden="true">
+              <label for="cta-website">Website</label>
+              <input type="text" id="cta-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn--block">Φτιάξτε το demo μου δωρεάν</button>
+            <p class="microcopy">Χωρίς κάρτα. Χωρίς εγκατάσταση. Το demo φτιάχνεται αυτόματα από το site σας.</p>
+          </form>
+
+          <div class="form-success form-card" hidden tabindex="-1">
+            <h3>Το chatbot σας ετοιμάζεται</h3>
+            <p>Τι γίνεται τώρα:</p>
+            <ol>
+              <li>Διαβάζουμε το site σας</li>
+              <li>Εκπαιδεύουμε το chatbot στα δεδομένα σας</li>
+              <li>Θα λάβετε email με το προσωπικό σας link</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
+      <p>© 2026 Desmar. Chatbot για ελληνικές επιχειρήσεις.</p>
+      <!-- TODO: link Όρων / Πολιτικής Απορρήτου όταν ετοιμαστούν οι σελίδες -->
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
