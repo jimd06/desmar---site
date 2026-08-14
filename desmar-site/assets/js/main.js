@@ -8,8 +8,8 @@
    ============================================================ */
 
 const CONFIG = {
-  // TODO: το URL της πλατφόρμας στο Render (χωρίς / στο τέλος)
-  API_BASE: "https://REPLACE-ME.onrender.com",
+  // Το URL της πλατφόρμας στο Render (χωρίς / στο τέλος)
+  API_BASE: "https://core-chatbot-platform.onrender.com",
 
   // Το client_id με το οποίο καταχωρούνται τα leads του site
   DESMAR_CLIENT_ID: "desmar",
@@ -24,8 +24,9 @@ const CONFIG = {
     skafi: "#",
   },
 
-  // Ακριβή ονόματα πεδίων που περιμένει το backend στο POST /api/lead.
-  // Θα επιβεβαιωθούν στη φάση σύνδεσης — αλλάζουν ΜΟΝΟ εδώ.
+  // Ακριβή ονόματα πεδίων που περιμένει το backend στο
+  // POST /api/v1/lead/<client_id> — αλλάζουν ΜΟΝΟ εδώ.
+  // (Το client_id μπαίνει στο URL· το ίδιο πεδίο στο body αγνοείται.)
   LEAD_FIELDS: {
     clientId: "client_id",
     businessName: "business_name",
@@ -126,11 +127,14 @@ function initLeadForm(form) {
     }
 
     try {
-      const response = await fetch(CONFIG.API_BASE + "/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        CONFIG.API_BASE + "/api/v1/lead/" + encodeURIComponent(CONFIG.DESMAR_CLIENT_ID),
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
       if (!response.ok) throw new Error("HTTP " + response.status);
       showSuccess();
     } catch (error) {
