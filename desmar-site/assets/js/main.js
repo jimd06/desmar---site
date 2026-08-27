@@ -1,7 +1,7 @@
 "use strict";
 
 /* ============================================================
-   Desmar — main.js
+   Desmar — main.js (δίγλωσσο ΕΛ/ΕΝ)
    ΟΛΕΣ οι ρυθμίσεις που θα αλλάξουν στη φάση σύνδεσης με το
    backend βρίσκονται ΕΔΩ, στο CONFIG. Τίποτα άλλο δεν χρειάζεται
    να πειραχτεί μέσα στο αρχείο.
@@ -22,11 +22,11 @@ const CONFIG = {
     xenodocheio: "#",
     gymnastirio: "#",
     skafi: "#",
+    allo: "#",
   },
 
   // Ακριβή ονόματα πεδίων που περιμένει το backend στο
   // POST /api/v1/lead/<client_id> — αλλάζουν ΜΟΝΟ εδώ.
-  // (Το client_id μπαίνει στο URL· το ίδιο πεδίο στο body αγνοείται.)
   LEAD_FIELDS: {
     clientId: "client_id",
     businessName: "business_name",
@@ -40,7 +40,7 @@ const CONFIG = {
     utmCampaign: "utm_campaign",
   },
 
-  // Presets υπολογιστή ανά κλάδο: [αναπάντητες/εβδομάδα, μέση αξία €]
+  // Presets υπολογιστή ανά κλάδο (backend keys): [αναπάντητες/εβδομάδα, μέση αξία €]
   CALC_PRESETS: {
     iatreio:     { missed: 8,  value: 150 },
     kommotirio:  { missed: 10, value: 40 },
@@ -53,10 +53,100 @@ const CONFIG = {
   // Παραδοχή μετατροπής: 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες
   CALC_CONVERSION: 0.30,
   WEEKS_PER_MONTH: 4.33,
+
+  // Γλώσσα
+  DEFAULT_LANG: "el",
+  LANG_COOKIE: "desmar_lang",
 };
 
-const ERROR_MESSAGE =
-  "Κάτι πήγε στραβά και το αίτημα δεν στάλθηκε. Δοκιμάστε ξανά σε λίγο.";
+/* ============================================================
+   ΓΛΩΣΣΑ — δίγλωσσο toggle ΕΛ/ΕΝ
+   Κάθε element με data-el / data-en παίρνει το σωστό κείμενο.
+   Για πεδία με placeholder: data-el-ph / data-en-ph.
+   Η επιλογή θυμάται σε cookie (δουλεύει και μέσα σε iframe).
+   ============================================================ */
+
+const I18N = {
+  // κείμενα που ζουν στο JS (μηνύματα, δυναμικά)
+  el: {
+    errorMessage: "Κάτι πήγε στραβά και το αίτημα δεν στάλθηκε. Δοκιμάστε ξανά σε λίγο.",
+    sending: "Αποστολή…",
+    calcEmpty: "Συμπληρώστε τα νούμερά σας για να δείτε την εκτίμηση.",
+    calcResult: "Εκτίμηση χαμένων εσόδων, με βάση τα νούμερά σας.",
+    calcSuffix: " € / μήνα",
+    calcPrefix: "~",
+    demoSoon: "Το demo θα ενεργοποιηθεί σύντομα",
+  },
+  en: {
+    errorMessage: "Something went wrong and your request wasn't sent. Please try again shortly.",
+    sending: "Sending…",
+    calcEmpty: "Enter your numbers to see the estimate.",
+    calcResult: "Estimated lost revenue, based on your numbers.",
+    calcSuffix: " € / month",
+    calcPrefix: "~",
+    demoSoon: "The demo will be enabled soon",
+  },
+};
+
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + days * 864e5);
+  document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + d.toUTCString() + "; path=/; SameSite=Lax";
+}
+
+let currentLang = CONFIG.DEFAULT_LANG;
+
+function t(key) {
+  return (I18N[currentLang] && I18N[currentLang][key]) || I18N.el[key] || "";
+}
+
+function applyLang(lang) {
+  currentLang = lang === "en" ? "en" : "el";
+  document.documentElement.setAttribute("lang", currentLang);
+
+  // Κείμενα
+  document.querySelectorAll("[data-el]").forEach((el) => {
+    const val = el.getAttribute("data-" + currentLang);
+    if (val !== null) el.innerHTML = val;
+  });
+  // Placeholders
+  document.querySelectorAll("[data-el-ph]").forEach((el) => {
+    const val = el.getAttribute("data-" + currentLang + "-ph");
+    if (val !== null) el.setAttribute("placeholder", val);
+  });
+  // aria-labels
+  document.querySelectorAll("[data-el-aria]").forEach((el) => {
+    const val = el.getAttribute("data-" + currentLang + "-aria");
+    if (val !== null) el.setAttribute("aria-label", val);
+  });
+
+  // Ενημέρωση κατάστασης κουμπιών toggle
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    const isActive = btn.getAttribute("data-lang-btn") === currentLang;
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    btn.classList.toggle("is-active", isActive);
+  });
+
+  setCookie(CONFIG.LANG_COOKIE, currentLang, 365);
+
+  // Ξαναϋπολόγισε calculator για να αλλάξει το κείμενο αποτελέσματος
+  if (typeof window.__recalcCalculator === "function") window.__recalcCalculator();
+}
+
+(function initLangToggle() {
+  const saved = getCookie(CONFIG.LANG_COOKIE);
+  const initial = saved === "en" || saved === "el" ? saved : CONFIG.DEFAULT_LANG;
+
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang-btn")));
+  });
+
+  applyLang(initial);
+})();
 
 /* ---------- Βοηθητικά ---------- */
 
@@ -92,7 +182,6 @@ function initLeadForm(form) {
 
     if (errorBox) errorBox.hidden = true;
 
-    // Native validation με ελληνικά μηνύματα του browser
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
@@ -120,10 +209,10 @@ function initLeadForm(form) {
       [F.utmCampaign]: utm.campaign,
     };
 
-    const originalLabel = submitBtn ? submitBtn.textContent : "";
+    const originalLabel = submitBtn ? submitBtn.innerHTML : "";
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = "Αποστολή…";
+      submitBtn.textContent = t("sending");
     }
 
     try {
@@ -139,13 +228,13 @@ function initLeadForm(form) {
       showSuccess();
     } catch (error) {
       if (errorBox) {
-        errorBox.textContent = ERROR_MESSAGE;
+        errorBox.textContent = t("errorMessage");
         errorBox.hidden = false;
       }
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
+        submitBtn.innerHTML = originalLabel;
       }
     }
   });
@@ -170,9 +259,8 @@ document.querySelectorAll("[data-demo-link]").forEach((link) => {
   if (url && url !== "#") {
     link.href = url;
   } else {
-    // Placeholder: το κουμπί μένει ορατό αλλά ανενεργό μέχρι να μπουν τα links
     link.setAttribute("aria-disabled", "true");
-    link.title = "Το demo θα ενεργοποιηθεί σύντομα";
+    link.title = t("demoSoon");
     link.addEventListener("click", (event) => event.preventDefault());
   }
 });
@@ -189,7 +277,6 @@ document.querySelectorAll("[data-demo-link]").forEach((link) => {
 
   const fmt = new Intl.NumberFormat("el-GR");
 
-  // Τα presets ΜΟΝΟ προσυμπληρώνουν — τα πεδία μένουν πλήρως επεξεργάσιμα
   function applyPreset() {
     const preset = CONFIG.CALC_PRESETS[industry.value] || CONFIG.CALC_PRESETS.allo;
     missed.value = preset.missed;
@@ -203,21 +290,24 @@ document.querySelectorAll("[data-demo-link]").forEach((link) => {
 
     if (!isFinite(m) || !isFinite(v) || m <= 0 || v <= 0) {
       amount.textContent = "—";
-      if (text) text.textContent = "Συμπληρώστε τα νούμερά σας για να δείτε την εκτίμηση.";
+      if (text) text.textContent = t("calcEmpty");
       return;
     }
 
     const monthly = m * CONFIG.WEEKS_PER_MONTH * CONFIG.CALC_CONVERSION * v;
     const rounded = Math.round(monthly / 10) * 10;
-    amount.textContent = "~" + fmt.format(rounded) + " € / μήνα";
-    if (text) text.textContent = "Εκτίμηση χαμένων εσόδων, με βάση τα νούμερά σας.";
+    amount.textContent = t("calcPrefix") + fmt.format(rounded) + t("calcSuffix");
+    if (text) text.textContent = t("calcResult");
   }
+
+  // Εκθέτουμε το recalc ώστε να ξανατρέχει όταν αλλάζει η γλώσσα
+  window.__recalcCalculator = recalc;
 
   industry.addEventListener("change", applyPreset);
   missed.addEventListener("input", recalc);
   value.addEventListener("input", recalc);
 
-  applyPreset(); // αρχική προσυμπλήρωση για τον προεπιλεγμένο κλάδο
+  applyPreset();
 })();
 
 /* ---------- Animation συνομιλίας στο hero ---------- */
@@ -229,12 +319,11 @@ document.querySelectorAll("[data-demo-link]").forEach((link) => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const messages = Array.from(chat.querySelectorAll(".msg"));
   const typing = chat.querySelector(".typing");
-  if (reduceMotion || messages.length === 0) return; // μένει στατικό
+  if (reduceMotion || messages.length === 0) return;
 
   chat.classList.add("is-anim");
 
   async function playLoop() {
-    // eslint-disable-next-line no-constant-condition
     while (true) {
       for (const msg of messages) {
         const isBot = msg.classList.contains("msg--bot");
