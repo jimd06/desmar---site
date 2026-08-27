@@ -623,6 +623,67 @@ a { color: var(--emerald); }
 .site-footer img { height: 22px; width: auto; }
 .site-footer p { margin: 0; font-size: 0.85rem; }
 
+
+/* ============================================================
+   ΠΡΟΣΘΗΚΕΣ v2 — δίγλωσσο toggle, header actions, γιατί Desmar
+   ============================================================ */
+
+/* ---------- Header actions + lang toggle ---------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.lang-btn {
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.25em 0.4em;
+  border-radius: 6px;
+  line-height: 1;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.lang-btn:hover { color: var(--emerald); }
+.lang-btn.is-active { color: var(--emerald); }
+.lang-sep { color: var(--line); font-weight: 400; }
+
+/* ---------- 7. Γιατί Desmar ---------- */
+.why-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 640px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .why-grid { grid-template-columns: repeat(3, 1fr); } }
+.why-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.3rem;
+}
+.why-ic {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--emerald-soft);
+  border-radius: 12px;
+  margin-bottom: 0.9rem;
+}
+.why-card h3 { font-size: 1.04rem; margin-bottom: 0.4rem; }
+.why-card p { font-size: 0.93rem; color: var(--muted); margin: 0; }
+
 /* ---------- Κίνηση: σεβασμός prefers-reduced-motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
