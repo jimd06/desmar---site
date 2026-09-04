@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desmar — Animations preview</title>
+<style>
+:root{
+  --emerald:#0B6E4F;--emerald-dark:#095A41;--emerald-soft:#E6F1ED;
+  --navy:#1E2A55;--ink:#1E2A55;--muted:#5C6580;--line:#E3E7F0;
+  --bg:#FFFFFF;--bg-soft:#F6F8FB;--radius:14px;
+  --shadow:0 12px 32px rgba(30,42,85,.10);--shadow-sm:0 2px 10px rgba(30,42,85,.08);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;padding-block:.7rem}
+.brand{font-weight:700;font-size:1.4rem;color:var(--emerald);display:flex;align-items:center;gap:.4rem}
+.brand .dot{width:22px;height:22px;border-radius:50%;background:var(--emerald)}
+.header-actions{display:flex;gap:1rem;align-items:center;color:var(--muted)}
+.btn{background:var(--emerald);color:#fff;border:0;border-radius:10px;padding:.55rem 1rem;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.btn--sm{padding:.4rem .8rem;font-size:.9rem}
+.section{padding-block:clamp(3rem,7vw,5rem)}
+.section--soft{background:var(--bg-soft)}
+.section--navy{background:var(--navy);color:#fff}
+.section-head{text-align:center;max-width:640px;margin:0 auto 2.4rem}
+.eyebrow{color:var(--emerald);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.section-head h2{font-size:clamp(1.5rem,3.5vw,2.1rem);margin:.4rem 0}
+.section--navy .eyebrow{color:#8FC9B4}
+.why-grid,.demo-grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.why-card,.demo-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;box-shadow:var(--shadow-sm)}
+.demo-card{text-align:center}
+.why-ic{width:44px;height:44px;border-radius:12px;background:var(--emerald-soft);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.why-ic svg{width:24px;height:24px}
+.why-card h3,.demo-card h3{margin:.2rem 0 .5rem;font-size:1.1rem}
+.why-card p{color:var(--muted);font-size:.95rem;margin:0}
+.demo-card img{width:42px;height:42px;display:block;margin:0 auto .6rem}
+.btn-ghost{display:inline-block;margin-top:.6rem;color:var(--emerald);font-weight:600;text-decoration:none;border:1px solid var(--emerald-soft);border-radius:10px;padding:.4rem .9rem;background:var(--emerald-soft)}
+.metrics{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.metric{text-align:center}
+.metric-num{font-size:2.4rem;font-weight:800}
+.metric-label{color:#C9D3E6;font-size:.9rem;max-width:180px}
+.band-statement{text-align:center;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700;max-width:720px;margin:0 auto}
+.hero{padding-block:4rem}
+.hero h1{font-size:clamp(1.8rem,4.5vw,2.6rem);margin:0 0 1rem;max-width:16ch}
+.hero .lead{color:var(--muted);max-width:52ch;font-size:1.1rem}
+.spacer{height:30vh}
+.note{background:#FFF7E6;border:1px solid #F0E0B8;border-radius:12px;padding:1rem 1.2rem;margin:1.5rem auto;max-width:760px;color:#6b5a20;font-size:.95rem}
+</style>
+<link rel="stylesheet" href="data:text/css;base64,LyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CiAgIERlc21hciDigJQgYW5pbWF0aW9ucy5jc3MKICAgU2Nyb2xsIHJldmVhbCArIGhvdmVyIHpvb20gKyBzdGlja3ktaGVhZGVyIHNoYWRvdy4KICAgQWRkaXRpdmUgb25seS4gU2FmZTogaWYgSlMgbmV2ZXIgcnVucywgbm90aGluZyBpcyBoaWRkZW4uCiAgID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqLwoKLyogLS0tLS0tLS0tLSAxLiBTY3JvbGwgcmV2ZWFsIC0tLS0tLS0tLS0KICAgRWxlbWVudHMgYXJlIGhpZGRlbiBPTkxZIHdoZW4gPGh0bWw+IGhhcyAuYW5pbS1yZWFkeQogICAoYWRkZWQgYnkgYW5pbWF0aW9ucy5qcykuIE5vIEpTIC0+IGV2ZXJ5dGhpbmcgdmlzaWJsZS4gKi8KOnJvb3QgeyAtLXJldmVhbC1lYXNlOiBjdWJpYy1iZXppZXIoMC4xNiwgMC44NCwgMC40NCwgMSk7IH0KCmh0bWwuYW5pbS1yZWFkeSAuaGVyby1jb3B5LApodG1sLmFuaW0tcmVhZHkgLmhlcm8tdmlzdWFsLApodG1sLmFuaW0tcmVhZHkgLnNlY3Rpb24taGVhZCwKaHRtbC5hbmltLXJlYWR5IC5pbmR1c3RyaWVzLWJhciBwLApodG1sLmFuaW0tcmVhZHkgLmJhbmQtc3RhdGVtZW50LApodG1sLmFuaW0tcmVhZHkgLmNhbGMtY2FyZCwKaHRtbC5hbmltLXJlYWR5IC53aHktY2FyZCwKaHRtbC5hbmltLXJlYWR5IC5kZW1vLWNhcmQsCmh0bWwuYW5pbS1yZWFkeSAucHJpY2UtY2FyZCwKaHRtbC5hbmltLXJlYWR5IC50cnVzdC1pdGVtLApodG1sLmFuaW0tcmVhZHkgLnQtc3RlcCwKaHRtbC5hbmltLXJlYWR5IC5tZXRyaWMsCmh0bWwuYW5pbS1yZWFkeSAuZmFxIGRldGFpbHMgewogIG9wYWNpdHk6IDA7CiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDI0cHgpOwogIHRyYW5zaXRpb246IG9wYWNpdHkgMC42cyB2YXIoLS1yZXZlYWwtZWFzZSksIHRyYW5zZm9ybSAwLjZzIHZhcigtLXJldmVhbC1lYXNlKTsKfQoKaHRtbC5hbmltLXJlYWR5IC5pcy1pbiB7CiAgb3BhY2l0eTogMSAhaW1wb3J0YW50OwogIHRyYW5zZm9ybTogbm9uZSAhaW1wb3J0YW50Owp9CgovKiAtLS0tLS0tLS0tIDIuIEhvdmVyIHpvb20gLyBsaWZ0IC0tLS0tLS0tLS0gKi8KLndoeS1jYXJkLCAuZGVtby1jYXJkLCAudHJ1c3QtaXRlbSB7CiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMjVzIGVhc2UsIGJveC1zaGFkb3cgMC4yNXMgZWFzZTsKfQoud2h5LWNhcmQ6aG92ZXIsIC5kZW1vLWNhcmQ6aG92ZXIsIC50cnVzdC1pdGVtOmhvdmVyIHsKICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTRweCk7CiAgYm94LXNoYWRvdzogdmFyKC0tc2hhZG93KTsKfQoKLnByaWNlLWNhcmQgeyB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4yNXMgZWFzZSwgYm94LXNoYWRvdyAwLjI1cyBlYXNlOyB9Ci5wcmljZS1jYXJkOmhvdmVyIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC02cHgpOyBib3gtc2hhZG93OiB2YXIoLS1zaGFkb3cpOyB9CgovKiBpY29ucy9pbWFnZXMgem9vbSBzbGlnaHRseSB3aGVuIHRoZWlyIGNhcmQgaXMgaG92ZXJlZCAqLwoud2h5LWljIHN2ZywgLmRlbW8tY2FyZCBpbWcgewogIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjI1cyB2YXIoLS1yZXZlYWwtZWFzZSk7Cn0KLndoeS1jYXJkOmhvdmVyIC53aHktaWMgc3ZnLAouZGVtby1jYXJkOmhvdmVyIGltZyB7CiAgdHJhbnNmb3JtOiBzY2FsZSgxLjEyKTsKfQoKLyogZ2hvc3QgYnV0dG9ucyBpbnNpZGUgY2FyZHMgbnVkZ2Ugb24gY2FyZCBob3ZlciAqLwouZGVtby1jYXJkIC5idG4tZ2hvc3QgeyB0cmFuc2l0aW9uOiBjb2xvciAwLjE4cyBlYXNlLCBiYWNrZ3JvdW5kIDAuMThzIGVhc2U7IH0KCi8qIC0tLS0tLS0tLS0gMy4gU3RpY2t5IGhlYWRlciBzaGFkb3cgb24gc2Nyb2xsIC0tLS0tLS0tLS0gKi8KLnNpdGUtaGVhZGVyIHsKICB0cmFuc2l0aW9uOiBib3gtc2hhZG93IDAuMjVzIGVhc2UsIGJhY2tncm91bmQgMC4yNXMgZWFzZTsKfQouc2l0ZS1oZWFkZXIuc2Nyb2xsZWQgewogIGJveC1zaGFkb3c6IDAgNnB4IDI0cHggcmdiYSgzMCwgNDIsIDg1LCAwLjA5KTsKICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuOTcpOwp9CgovKiAtLS0tLS0tLS0tIFJlc3BlY3QgcmVkdWNlZCBtb3Rpb24gLS0tLS0tLS0tLQogICBOZXZlciBoaWRlIGNvbnRlbnQgYW5kIHNraXAgaG92ZXIgdHJhbnNmb3Jtcy4gKi8KQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiByZWR1Y2UpIHsKICBodG1sLmFuaW0tcmVhZHkgLmhlcm8tY29weSwKICBodG1sLmFuaW0tcmVhZHkgLmhlcm8tdmlzdWFsLAogIGh0bWwuYW5pbS1yZWFkeSAuc2VjdGlvbi1oZWFkLAogIGh0bWwuYW5pbS1yZWFkeSAuaW5kdXN0cmllcy1iYXIgcCwKICBodG1sLmFuaW0tcmVhZHkgLmJhbmQtc3RhdGVtZW50LAogIGh0bWwuYW5pbS1yZWFkeSAuY2FsYy1jYXJkLAogIGh0bWwuYW5pbS1yZWFkeSAud2h5LWNhcmQsCiAgaHRtbC5hbmltLXJlYWR5IC5kZW1vLWNhcmQsCiAgaHRtbC5hbmltLXJlYWR5IC5wcmljZS1jYXJkLAogIGh0bWwuYW5pbS1yZWFkeSAudHJ1c3QtaXRlbSwKICBodG1sLmFuaW0tcmVhZHkgLnQtc3RlcCwKICBodG1sLmFuaW0tcmVhZHkgLm1ldHJpYywKICBodG1sLmFuaW0tcmVhZHkgLmZhcSBkZXRhaWxzIHsKICAgIG9wYWNpdHk6IDE7CiAgICB0cmFuc2Zvcm06IG5vbmU7CiAgfQogIC53aHktY2FyZDpob3ZlciwgLmRlbW8tY2FyZDpob3ZlciwgLnRydXN0LWl0ZW06aG92ZXIsCiAgLnByaWNlLWNhcmQ6aG92ZXIgeyB0cmFuc2Zvcm06IG5vbmU7IH0KICAud2h5LWNhcmQ6aG92ZXIgLndoeS1pYyBzdmcsIC5kZW1vLWNhcmQ6aG92ZXIgaW1nIHsgdHJhbnNmb3JtOiBub25lOyB9Cn0K">
+<script src="data:text/javascript;base64,LyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CiAgIERlc21hciDigJQgYW5pbWF0aW9ucy5qcwogICBTY3JvbGwgcmV2ZWFsIChzdGFnZ2VyZWQpICsgc3RpY2t5LWhlYWRlciBzaGFkb3cuCiAgIExvYWRlZCBpbiA8aGVhZD46IHNldHMgLmFuaW0tcmVhZHkgYmVmb3JlIGZpcnN0IHBhaW50IHNvCiAgIHRoZXJlIGlzIG5vIGZsYXNoLCB0aGVuIHdpcmVzIG9ic2VydmVycyBvbiBET01Db250ZW50TG9hZGVkLgogICBTZWxmLWNvbnRhaW5lZDsgZG9lcyBub3QgdG91Y2ggbWFpbi5qcy4KICAgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovCihmdW5jdGlvbiAoKSB7CiAgInVzZSBzdHJpY3QiOwogIHZhciBkb2MgPSBkb2N1bWVudDsKICB2YXIgcm9vdCA9IGRvYy5kb2N1bWVudEVsZW1lbnQ7CgogIC8vIE1hcmsgZWFybHkgc28gQ1NTIGNhbiBoaWRlIHJldmVhbCB0YXJnZXRzIGJlZm9yZSBwYWludC4KICByb290LmNsYXNzTGlzdC5hZGQoImFuaW0tcmVhZHkiKTsKCiAgZnVuY3Rpb24gcmVhZHkoZm4pIHsKICAgIGlmIChkb2MucmVhZHlTdGF0ZSAhPT0gImxvYWRpbmciKSB7IGZuKCk7IH0KICAgIGVsc2UgeyBkb2MuYWRkRXZlbnRMaXN0ZW5lcigiRE9NQ29udGVudExvYWRlZCIsIGZuKTsgfQogIH0KCiAgcmVhZHkoZnVuY3Rpb24gKCkgewogICAgdmFyIHJlZHVjZSA9IHdpbmRvdy5tYXRjaE1lZGlhICYmCiAgICAgIHdpbmRvdy5tYXRjaE1lZGlhKCIocHJlZmVycy1yZWR1Y2VkLW1vdGlvbjogcmVkdWNlKSIpLm1hdGNoZXM7CiAgICB2YXIgbm9JTyA9ICEoIkludGVyc2VjdGlvbk9ic2VydmVyIiBpbiB3aW5kb3cpOwoKICAgIC8vIFN0YW5kYWxvbmUgZWxlbWVudHMgKHJldmVhbGVkIGluZGl2aWR1YWxseSkKICAgIHZhciBzaW5nbGVzID0gIi5oZXJvLWNvcHksLmhlcm8tdmlzdWFsLC5zZWN0aW9uLWhlYWQsLmluZHVzdHJpZXMtYmFyIHAsIiArCiAgICAgICAgICAgICAgICAgICIuYmFuZC1zdGF0ZW1lbnQsLmNhbGMtY2FyZCwuZmFxIGRldGFpbHMiOwogICAgLy8gR3JvdXBzOiBjb250YWluZXIgLT4gY2hpbGRyZW4gY2FzY2FkZSBpbiB3aXRoIGEgc3RhZ2dlcgogICAgdmFyIGdyb3VwcyA9IFsKICAgICAgIi53aHktZ3JpZCA+IC53aHktY2FyZCIsCiAgICAgICIuZGVtby1ncmlkID4gLmRlbW8tY2FyZCIsCiAgICAgICIucHJpY2luZy1ncmlkID4gLnByaWNlLWNhcmQiLAogICAgICAiLnRydXN0LWdyaWQgPiAudHJ1c3QtaXRlbSIsCiAgICAgICIudGltZWxpbmUgPiAudC1zdGVwIiwKICAgICAgIi5tZXRyaWNzID4gLm1ldHJpYyIKICAgIF07CgogICAgZnVuY3Rpb24gc2hvdyhlbCkgeyBlbC5jbGFzc0xpc3QuYWRkKCJpcy1pbiIpOyB9CgogICAgLy8gRmFsbGJhY2s6IG5vIGZhbmN5IHN1cHBvcnQgLT4ganVzdCBzaG93IGV2ZXJ5dGhpbmcuCiAgICBpZiAocmVkdWNlIHx8IG5vSU8pIHsKICAgICAgQXJyYXkucHJvdG90eXBlLmZvckVhY2guY2FsbChkb2MucXVlcnlTZWxlY3RvckFsbChzaW5nbGVzKSwgc2hvdyk7CiAgICAgIGdyb3Vwcy5mb3JFYWNoKGZ1bmN0aW9uIChzZWwpIHsKICAgICAgICBBcnJheS5wcm90b3R5cGUuZm9yRWFjaC5jYWxsKGRvYy5xdWVyeVNlbGVjdG9yQWxsKHNlbCksIHNob3cpOwogICAgICB9KTsKICAgICAgd2lyZUhlYWRlcigpOwogICAgICByZXR1cm47CiAgICB9CgogICAgdmFyIGlvID0gbmV3IEludGVyc2VjdGlvbk9ic2VydmVyKGZ1bmN0aW9uIChlbnRyaWVzKSB7CiAgICAgIGVudHJpZXMuZm9yRWFjaChmdW5jdGlvbiAoZSkgewogICAgICAgIGlmICghZS5pc0ludGVyc2VjdGluZykgcmV0dXJuOwogICAgICAgIHZhciBlbCA9IGUudGFyZ2V0OwogICAgICAgIGlvLnVub2JzZXJ2ZShlbCk7CiAgICAgICAgaWYgKGVsLl9fZ3JvdXApIHsKICAgICAgICAgIC8vIGNhc2NhZGUgY2hpbGRyZW4gd2l0aCBhIHNtYWxsIHN0YWdnZXIKICAgICAgICAgIHZhciBraWRzID0gZWwuX19raWRzOwogICAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBraWRzLmxlbmd0aDsgaSsrKSB7CiAgICAgICAgICAgIChmdW5jdGlvbiAoa2lkLCBpZHgpIHsKICAgICAgICAgICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uICgpIHsgc2hvdyhraWQpOyB9LCBpZHggKiA5MCk7CiAgICAgICAgICAgIH0pKGtpZHNbaV0sIGkpOwogICAgICAgICAgfQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBzaG93KGVsKTsKICAgICAgICB9CiAgICAgIH0pOwogICAgfSwgeyB0aHJlc2hvbGQ6IDAuMTIsIHJvb3RNYXJnaW46ICIwcHggMHB4IC04JSAwcHgiIH0pOwoKICAgIC8vIG9ic2VydmUgc2luZ2xlcwogICAgQXJyYXkucHJvdG90eXBlLmZvckVhY2guY2FsbChkb2MucXVlcnlTZWxlY3RvckFsbChzaW5nbGVzKSwgZnVuY3Rpb24gKGVsKSB7CiAgICAgIGlvLm9ic2VydmUoZWwpOwogICAgfSk7CgogICAgLy8gb2JzZXJ2ZSBncm91cCBjb250YWluZXJzIChzbyBjaGlsZHJlbiByZXZlYWwgdG9nZXRoZXIsIHN0YWdnZXJlZCkKICAgIGdyb3Vwcy5mb3JFYWNoKGZ1bmN0aW9uIChzZWwpIHsKICAgICAgdmFyIGtpZHMgPSBBcnJheS5wcm90b3R5cGUuc2xpY2UuY2FsbChkb2MucXVlcnlTZWxlY3RvckFsbChzZWwpKTsKICAgICAgaWYgKCFraWRzLmxlbmd0aCkgcmV0dXJuOwogICAgICB2YXIgY29udGFpbmVyID0ga2lkc1swXS5wYXJlbnROb2RlOwogICAgICBpZiAoIWNvbnRhaW5lciB8fCBjb250YWluZXIuX19ncm91cCkgcmV0dXJuOwogICAgICBjb250YWluZXIuX19ncm91cCA9IHRydWU7CiAgICAgIGNvbnRhaW5lci5fX2tpZHMgPSBraWRzOwogICAgICBpby5vYnNlcnZlKGNvbnRhaW5lcik7CiAgICB9KTsKCiAgICB3aXJlSGVhZGVyKCk7CiAgfSk7CgogIGZ1bmN0aW9uIHdpcmVIZWFkZXIoKSB7CiAgICB2YXIgaGVhZGVyID0gZG9jLnF1ZXJ5U2VsZWN0b3IoIi5zaXRlLWhlYWRlciIpOwogICAgaWYgKCFoZWFkZXIpIHJldHVybjsKICAgIHZhciBvblNjcm9sbCA9IGZ1bmN0aW9uICgpIHsKICAgICAgaGVhZGVyLmNsYXNzTGlzdC50b2dnbGUoInNjcm9sbGVkIiwgd2luZG93LnNjcm9sbFkgPiA4KTsKICAgIH07CiAgICBvblNjcm9sbCgpOwogICAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoInNjcm9sbCIsIG9uU2Nyb2xsLCB7IHBhc3NpdmU6IHRydWUgfSk7CiAgfQp9KSgpOwo="></script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+  <span class="brand"><span class="dot"></span>desmar</span>
+  <span class="header-actions">ΕΛ / EN <a class="btn btn--sm" href="#">Δωρεάν demo</a></span>
+</div></header>
+
+<section class="hero"><div class="container">
+  <div class="hero-copy">
+    <h1>Preview κινήσεων — σκρόλαρε προς τα κάτω</h1>
+    <p class="lead">Πρόσεξε: (1) οι κάρτες εμφανίζονται με fade-up η μία μετά την άλλη, (2) πέρνα το ποντίκι πάνω τους για zoom/ανασήκωμα, (3) το header ρίχνει σκιά μόλις σκρολάρεις.</p>
+  </div>
+  <div class="note">⚠️ Αυτό είναι ΤΟΠΙΚΟ preview — δεν είναι το πραγματικό site. Η γραμματοσειρά εδώ είναι system font· στο site μένει Commissioner. Σημασία έχει η <b>κίνηση</b>.</div>
+</div></section>
+
+<div class="spacer"></div>
+
+<section class="section"><div class="container">
+  <div class="section-head"><span class="eyebrow">Γιατί Desmar</span><h2>Κάρτες με reveal + hover zoom</h2></div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0B6E4F" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Τίτλος κάρτας 1</h3>
+      <p>Μικρό κείμενο που περιγράφει το όφελος. Πέρνα το ποντίκι για να δεις το zoom στο εικονίδιο.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0B6E4F" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Τίτλος κάρτας 2</h3>
+      <p>Μικρό κείμενο που περιγράφει το όφελος. Πέρνα το ποντίκι για να δεις το zoom στο εικονίδιο.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0B6E4F" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Τίτλος κάρτας 3</h3>
+      <p>Μικρό κείμενο που περιγράφει το όφελος. Πέρνα το ποντίκι για να δεις το zoom στο εικονίδιο.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0B6E4F" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Τίτλος κάρτας 4</h3>
+      <p>Μικρό κείμενο που περιγράφει το όφελος. Πέρνα το ποντίκι για να δεις το zoom στο εικονίδιο.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0B6E4F" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Τίτλος κάρτας 5</h3>
+      <p>Μικρό κείμενο που περιγράφει το όφελος. Πέρνα το ποντίκι για να δεις το zoom στο εικονίδιο.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0B6E4F" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Τίτλος κάρτας 6</h3>
+      <p>Μικρό κείμενο που περιγράφει το όφελος. Πέρνα το ποντίκι για να δεις το zoom στο εικονίδιο.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="spacer"></div>
+
+<section class="section section--soft"><div class="container">
+  <div class="section-head"><span class="eyebrow">Ζωντανά demos</span><h2>Grid με stagger</h2></div>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <img src="data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 42%27><circle cx=%2721%27 cy=%2721%27 r=%2719%27 fill=%27none%27 stroke=%27%230B6E4F%27 stroke-width=%272%27/></svg>">
+      <h3>Demo 1</h3>
+      <a class="btn-ghost" href="#">Δείτε το demo</a>
+    </div>
+    <div class="demo-card">
+      <img src="data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 42%27><circle cx=%2721%27 cy=%2721%27 r=%2719%27 fill=%27none%27 stroke=%27%230B6E4F%27 stroke-width=%272%27/></svg>">
+      <h3>Demo 2</h3>
+      <a class="btn-ghost" href="#">Δείτε το demo</a>
+    </div>
+    <div class="demo-card">
+      <img src="data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 42%27><circle cx=%2721%27 cy=%2721%27 r=%2719%27 fill=%27none%27 stroke=%27%230B6E4F%27 stroke-width=%272%27/></svg>">
+      <h3>Demo 3</h3>
+      <a class="btn-ghost" href="#">Δείτε το demo</a>
+    </div>
+    <div class="demo-card">
+      <img src="data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 42%27><circle cx=%2721%27 cy=%2721%27 r=%2719%27 fill=%27none%27 stroke=%27%230B6E4F%27 stroke-width=%272%27/></svg>">
+      <h3>Demo 4</h3>
+      <a class="btn-ghost" href="#">Δείτε το demo</a>
+    </div>
+    <div class="demo-card">
+      <img src="data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 42%27><circle cx=%2721%27 cy=%2721%27 r=%2719%27 fill=%27none%27 stroke=%27%230B6E4F%27 stroke-width=%272%27/></svg>">
+      <h3>Demo 5</h3>
+      <a class="btn-ghost" href="#">Δείτε το demo</a>
+    </div>
+  </div>
+</div></section>
+
+<div class="spacer"></div>
+
+<section class="section section--navy"><div class="container">
+  <p class="band-statement">Δεν σας δίνουμε εργαλείο. Σας παραδίδουμε chatbot έτοιμο.</p>
+  <div class="metrics">
+    <div class="metric"><div class="metric-num">24/7</div><div class="metric-label">απαντά όσο κοιμάστε</div></div>
+    <div class="metric"><div class="metric-num">&lt;1 εβδ.</div><div class="metric-label">από ερωτηματολόγιο στο live</div></div>
+    <div class="metric"><div class="metric-num">0 quota</div><div class="metric-label">απεριόριστες συνομιλίες</div></div>
+  </div>
+</div></section>
+
+<div class="spacer"></div>
+</body>
+</html>
