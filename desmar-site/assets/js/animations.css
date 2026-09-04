@@ -1,0 +1,90 @@
+/* ============================================================
+   Desmar — animations.css
+   Scroll reveal + hover zoom + sticky-header shadow.
+   Additive only. Safe: if JS never runs, nothing is hidden.
+   ============================================================ */
+
+/* ---------- 1. Scroll reveal ----------
+   Elements are hidden ONLY when <html> has .anim-ready
+   (added by animations.js). No JS -> everything visible. */
+:root { --reveal-ease: cubic-bezier(0.16, 0.84, 0.44, 1); }
+
+html.anim-ready .hero-copy,
+html.anim-ready .hero-visual,
+html.anim-ready .section-head,
+html.anim-ready .industries-bar p,
+html.anim-ready .band-statement,
+html.anim-ready .calc-card,
+html.anim-ready .why-card,
+html.anim-ready .demo-card,
+html.anim-ready .price-card,
+html.anim-ready .trust-item,
+html.anim-ready .t-step,
+html.anim-ready .metric,
+html.anim-ready .faq details {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--reveal-ease), transform 0.6s var(--reveal-ease);
+}
+
+html.anim-ready .is-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ---------- 2. Hover zoom / lift ---------- */
+.why-card, .demo-card, .trust-item {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.why-card:hover, .demo-card:hover, .trust-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.price-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.price-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+
+/* icons/images zoom slightly when their card is hovered */
+.why-ic svg, .demo-card img {
+  transition: transform 0.25s var(--reveal-ease);
+}
+.why-card:hover .why-ic svg,
+.demo-card:hover img {
+  transform: scale(1.12);
+}
+
+/* ghost buttons inside cards nudge on card hover */
+.demo-card .btn-ghost { transition: color 0.18s ease, background 0.18s ease; }
+
+/* ---------- 3. Sticky header shadow on scroll ---------- */
+.site-header {
+  transition: box-shadow 0.25s ease, background 0.25s ease;
+}
+.site-header.scrolled {
+  box-shadow: 0 6px 24px rgba(30, 42, 85, 0.09);
+  background: rgba(255, 255, 255, 0.97);
+}
+
+/* ---------- Respect reduced motion ----------
+   Never hide content and skip hover transforms. */
+@media (prefers-reduced-motion: reduce) {
+  html.anim-ready .hero-copy,
+  html.anim-ready .hero-visual,
+  html.anim-ready .section-head,
+  html.anim-ready .industries-bar p,
+  html.anim-ready .band-statement,
+  html.anim-ready .calc-card,
+  html.anim-ready .why-card,
+  html.anim-ready .demo-card,
+  html.anim-ready .price-card,
+  html.anim-ready .trust-item,
+  html.anim-ready .t-step,
+  html.anim-ready .metric,
+  html.anim-ready .faq details {
+    opacity: 1;
+    transform: none;
+  }
+  .why-card:hover, .demo-card:hover, .trust-item:hover,
+  .price-card:hover { transform: none; }
+  .why-card:hover .why-ic svg, .demo-card:hover img { transform: none; }
+}
