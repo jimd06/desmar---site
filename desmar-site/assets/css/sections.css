@@ -1,0 +1,20 @@
+/* ============================================================
+   Desmar — sections.css
+   Stronger light/dark rhythm between sections.
+   Additive only; overrides a few colors. Safe to remove.
+   ============================================================ */
+
+/* 1) Make the light-gray sections read clearly distinct from white
+      (was #F6F8FB — almost identical to white). */
+:root { --bg-soft: #ECF0F7; }
+
+/* 2) "Πώς δουλεύει" becomes a dark navy chapter that joins the
+      navy band right below it — one strong dark moment. */
+#pos-douleuei { background: var(--navy); color: #fff; }
+#pos-douleuei .eyebrow { color: rgba(255, 255, 255, 0.75); }
+#pos-douleuei h2 { color: #fff; }
+#pos-douleuei .t-step h3 { color: #fff; }
+#pos-douleuei .t-step p { color: rgba(255, 255, 255, 0.74); }
+#pos-douleuei .t-step strong { color: #8FD3B8; }
+#pos-douleuei .t-line { background: rgba(255, 255, 255, 0.18); }
+/* emerald dots + light day-chips already pop on navy — left as-is */
