@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demos — Desmar</title>
+  <meta name="description" content="Δείτε πραγματικά AI chatbots σε δράση, ανά κλάδο.">
+  <link rel="canonical" href="https://desmar.ai/demos">
+  <meta name="theme-color" content="#1E2A55">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <link rel="stylesheet" href="/assets/css/sections.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    .main-nav{display:flex;gap:1.6rem;align-items:center;flex:1;justify-content:center}
+    .main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .18s ease}
+    .main-nav a:hover{color:var(--gold-dark)}
+    .site-header .container{gap:1.4rem}
+    .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
+    .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
+    .footer-links a:hover{color:#fff}
+    @media (max-width:900px){ .main-nav{display:none} }
+  </style>
+  <script src="/assets/js/animations.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Desmar">
+        <img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27">
+      </a>
+    <nav class="main-nav" aria-label="Κύριο μενού">
+      <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+      <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+      <a href="/demos" aria-current="page" data-el="Demos" data-en="Demos">Demos</a>
+      <a href="/faq" data-el="FAQ" data-en="FAQ">FAQ</a>
+      <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+    </nav>
+      <div class="header-actions">
+        <div class="lang-toggle" role="group" data-el-aria="Επιλογή γλώσσας" data-en-aria="Language selector" aria-label="Επιλογή γλώσσας">
+          <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="true">ΕΛ</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn--sm" href="/#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 3. DEMO GALLERY ============ -->
+    <section class="section" id="demos">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Ζωντανά demos" data-en="Live demos">Ζωντανά demos</span>
+          <h2 data-el="Δείτε το σε δράση" data-en="See it in action">Δείτε το σε δράση</h2>
+          <p data-el="Κάθε demo είναι πραγματικό chatbot, εκπαιδευμένο σε υλικό μιας τυπικής επιχείρησης του τύπου του."
+             data-en="Each demo is a real chatbot, trained on the content of a typical business of that type.">Κάθε demo είναι πραγματικό chatbot, εκπαιδευμένο σε υλικό μιας τυπικής επιχείρησης του τύπου του.</p>
+        </div>
+        <div class="demo-grid">
+          <div class="demo-card">
+            <img src="/assets/img/icon-iatreio.svg" alt="" width="42" height="42">
+            <h3 data-el="Υγεία &amp; ευεξία" data-en="Health &amp; wellness">Υγεία &amp; ευεξία</h3>
+            <a class="btn-ghost" href="#" data-demo-link="iatreio"
+               data-el="Δείτε το demo" data-en="View demo">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="/assets/img/icon-kommotirio.svg" alt="" width="42" height="42">
+            <h3 data-el="Ομορφιά &amp; περιποίηση" data-en="Beauty &amp; care">Ομορφιά &amp; περιποίηση</h3>
+            <a class="btn-ghost" href="#" data-demo-link="kommotirio"
+               data-el="Δείτε το demo" data-en="View demo">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="/assets/img/icon-xenodocheio.svg" alt="" width="42" height="42">
+            <h3 data-el="Φιλοξενία &amp; τουρισμός" data-en="Hospitality &amp; travel">Φιλοξενία &amp; τουρισμός</h3>
+            <a class="btn-ghost" href="#" data-demo-link="xenodocheio"
+               data-el="Δείτε το demo" data-en="View demo">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="/assets/img/icon-gymnastirio.svg" alt="" width="42" height="42">
+            <h3 data-el="Fitness &amp; αθλητισμός" data-en="Fitness &amp; sports">Fitness &amp; αθλητισμός</h3>
+            <a class="btn-ghost" href="#" data-demo-link="gymnastirio"
+               data-el="Δείτε το demo" data-en="View demo">Δείτε το demo</a>
+          </div>
+          <div class="demo-card">
+            <img src="/assets/img/icon-skafi.svg" alt="" width="42" height="42">
+            <h3 data-el="Ενοικιάσεις &amp; κρατήσεις" data-en="Rentals &amp; bookings">Ενοικιάσεις &amp; κρατήσεις</h3>
+            <a class="btn-ghost" href="#" data-demo-link="skafi"
+               data-el="Δείτε το demo" data-en="View demo">Δείτε το demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="width:100%;font-weight:600;margin:0 0 .4rem" data-el="AI chatbots, done for you." data-en="AI chatbots, done for you.">AI chatbots, done for you.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
+        <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+      </nav>
+      <img src="/assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
+      <p data-el="© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website." data-en="© 2026 Desmar. AI chatbot for any business with a website.">© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
+</body>
+</html>
