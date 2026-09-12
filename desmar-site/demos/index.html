@@ -17,14 +17,28 @@
   <link rel="stylesheet" href="/assets/css/sections.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <style>
-    .main-nav{display:flex;gap:1.6rem;align-items:center;flex:1;justify-content:center}
+    .main-nav{display:flex;gap:1.6rem;align-items:center}
     .main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .18s ease}
     .main-nav a:hover{color:var(--gold-dark)}
-    .site-header .container{gap:1.4rem}
+    .nav-panel{display:contents}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;margin-left:auto}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+    .site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+    .site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
     .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
     .footer-links a:hover{color:#fff}
-    @media (max-width:900px){ .main-nav{display:none} }
+    @media (max-width:900px){
+      .nav-toggle{display:flex}
+      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+        background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;
+        border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
+      .site-header.nav-open .nav-panel{display:flex}
+      .nav-panel .main-nav{flex-direction:column;gap:0;width:100%}
+      .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
+      .nav-panel .header-actions{gap:1rem;padding-top:.7rem;width:100%}
+    }
   </style>
   <script src="/assets/js/animations.js"></script>
 </head>
@@ -36,20 +50,23 @@
       <a class="brand" href="/" aria-label="Desmar">
         <img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27">
       </a>
-    <nav class="main-nav" aria-label="Κύριο μενού">
-      <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
-      <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
-      <a href="/demos" aria-current="page" data-el="Demos" data-en="Demos">Demos</a>
-      <a href="/faq" data-el="FAQ" data-en="FAQ">FAQ</a>
-      <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
-    </nav>
-      <div class="header-actions">
-        <div class="lang-toggle" role="group" data-el-aria="Επιλογή γλώσσας" data-en-aria="Language selector" aria-label="Επιλογή γλώσσας">
-          <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="true">ΕΛ</button>
-          <span class="lang-sep" aria-hidden="true">/</span>
-          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+      <button class="nav-toggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-panel">
+        <nav class="main-nav" aria-label="Κύριο μενού">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" aria-current="page" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="FAQ" data-en="FAQ">FAQ</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" data-el-aria="Επιλογή γλώσσας" data-en-aria="Language selector" aria-label="Επιλογή γλώσσας">
+            <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="true">ΕΛ</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn--sm" href="/#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
         </div>
-        <a class="btn btn--sm" href="/#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
       </div>
     </div>
   </header>
@@ -118,6 +135,10 @@
     </div>
   </footer>
 
+  <script>
+    (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
+    if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
   <script src="/assets/js/main.js"></script>
   <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
 </body>
