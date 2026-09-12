@@ -1,20 +1,41 @@
+/* ============================================================
+   Desmar — theme.css
+   Navy primary + gold accent + soft tinted background.
+   Loads LAST (after style/animations/sections). Re-themes site-wide
+   by overriding the color variables + a few accent rules.
+   Fully reversible: delete this file + its <link> to restore emerald.
+   ============================================================ */
+
 :root {
-  --emerald: #1E2A55;
-  --emerald-dark: #12203F;
-  --emerald-soft: #E7EBF6;
-  --bg: #F2F4FA;
-  --bg-soft: #E7ECF7;
+  --emerald: #1E2A55;        /* primary is now navy */
+  --emerald-dark: #12203F;   /* button hover */
+  --emerald-soft: #E7EBF6;   /* light navy tint: chips, icon bg, day pills */
+  --bg: #F2F4FA;             /* soft tinted background (was pure white) */
+  --bg-soft: #E7ECF7;        /* slightly deeper tint for alternating sections */
   --gold: #C4A24A;
   --gold-dark: #A9862F;
 }
+
+/* Recolor the old emerald that was hardcoded inside inline SVG icons */
 [stroke="#0B6E4F"] { stroke: #1E2A55 !important; }
 [fill="#0B6E4F"]   { fill:   #1E2A55 !important; }
+
+/* Gold accents — the "pop" that emerald used to provide */
 .eyebrow { color: var(--gold); }
 .price-card--featured { border-color: var(--gold); }
 .price-badge { background: var(--gold); color: #1E2A55; }
+
+/* Buttons on dark backgrounds must contrast → gold */
 .section--navy .btn,
 .section--emerald .btn { background: var(--gold); color: #1E2A55; }
 .section--navy .btn:hover,
 .section--emerald .btn:hover { background: var(--gold-dark); }
+
+/* Dark-band numbers + dark-timeline dots in gold */
 .section--navy .metric-num { color: var(--gold); }
 #pos-douleuei .t-dot { background: var(--gold); }
+
+/* Forms sit in white cards → keep their text dark even on dark sections
+   (fix: invisible labels on the navy final-CTA form) */
+.form-card { color: var(--ink); }
+.form-card label { color: var(--ink); }
