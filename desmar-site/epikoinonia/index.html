@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Επικοινωνία — Desmar</title>
-  <meta name="description" content="Επικοινωνήστε με το Desmar ή ζητήστε το δωρεάν demo σας.">
+  <meta name="description" content="Επικοινωνήστε με το Desmar: office@desmar.ai, +30 694 306 1339.">
   <link rel="canonical" href="https://desmar.ai/epikoinonia">
   <meta name="theme-color" content="#1E2A55">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -29,11 +29,15 @@
     .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
     .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
     .footer-links a:hover{color:#fff}
+    .legal{max-width:760px;margin:0 auto}
+    .legal h3{margin:1.6rem 0 .5rem;font-size:1.15rem}
+    .legal p{color:var(--muted);margin:.4rem 0}
+    .legal a{color:var(--gold-dark)}
+    .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
+    .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
     @media (max-width:900px){
       .nav-toggle{display:flex}
-      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-        background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;
-        border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
+      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
       .site-header.nav-open .nav-panel{display:flex}
       .nav-panel .main-nav{flex-direction:column;gap:0;width:100%}
       .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
@@ -47,9 +51,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="/" aria-label="Desmar">
-        <img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27">
-      </a>
+      <a class="brand" href="/" aria-label="Desmar"><img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27"></a>
       <button class="nav-toggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-panel">
         <nav class="main-nav" aria-label="Κύριο μενού">
@@ -73,35 +75,30 @@
 
   <main id="main">
 
-<section class="section">
+    <section class="section">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</span>
           <h2 data-el="Μιλήστε μαζί μας" data-en="Get in touch">Μιλήστε μαζί μας</h2>
-          <p data-el="Έχετε ερώτηση ή θέλετε το δωρεάν demo σας; Συμπληρώστε τη φόρμα ή γράψτε μας email — απαντάμε γρήγορα."
-             data-en="Have a question or want your free demo? Fill in the form or email us — we reply fast.">Έχετε ερώτηση ή θέλετε το δωρεάν demo σας; Συμπληρώστε τη φόρμα ή γράψτε μας email — απαντάμε γρήγορα.</p>
-          <p style="margin-top:1rem"><a class="btn" href="mailto:office@desmar.ai" data-el="office@desmar.ai" data-en="office@desmar.ai">office@desmar.ai</a></p>
+          <p data-el="Έχετε ερώτηση ή θέλετε το δωρεάν demo σας; Επικοινωνήστε απευθείας ή συμπληρώστε τη φόρμα — απαντάμε γρήγορα."
+             data-en="Have a question or want your free demo? Contact us directly or fill in the form — we reply fast.">Έχετε ερώτηση ή θέλετε το δωρεάν demo σας; Επικοινωνήστε απευθείας ή συμπληρώστε τη φόρμα — απαντάμε γρήγορα.</p>
         </div>
+        <p class="contact-info">
+          <span data-el="Email:" data-en="Email:">Email:</span> <a href="mailto:office@desmar.ai">office@desmar.ai</a><br>
+          <span data-el="Τηλέφωνο:" data-en="Phone:">Τηλέφωνο:</span> <a href="tel:+306943061339">+30 694 306 1339</a>
+        </p>
         <div class="form-wrap">
           <form class="lead-form form-card" novalidate>
             <h3 data-el="Δωρεάν demo με το δικό σας περιεχόμενο" data-en="Free demo with your own content">Δωρεάν demo με το δικό σας περιεχόμενο</h3>
             <p class="form-error" role="alert" hidden></p>
-            <div class="field">
-              <label for="ct-site" data-el="Το site της επιχείρησής σας" data-en="Your business website">Το site της επιχείρησής σας</label>
-              <input type="text" id="ct-site" name="site_url" inputmode="url" autocomplete="url" placeholder="www.example.gr" data-el-ph="www.example.gr" data-en-ph="www.example.com" required>
-            </div>
-            <div class="field">
-              <label for="ct-name" data-el="Επωνυμία επιχείρησης" data-en="Business name">Επωνυμία επιχείρησης</label>
-              <input type="text" id="ct-name" name="business_name" autocomplete="organization" required>
-            </div>
-            <div class="field">
-              <label for="ct-email" data-el="Email" data-en="Email">Email</label>
-              <input type="email" id="ct-email" name="email" autocomplete="email" required>
-            </div>
-            <div class="field field--optional">
-              <label for="ct-phone" data-el="Τηλέφωνο <span>(προαιρετικό)</span>" data-en="Phone <span>(optional)</span>">Τηλέφωνο <span>(προαιρετικό)</span></label>
-              <input type="tel" id="ct-phone" name="phone" autocomplete="tel">
-            </div>
+            <div class="field"><label for="ct-site" data-el="Το site της επιχείρησής σας" data-en="Your business website">Το site της επιχείρησής σας</label>
+              <input type="text" id="ct-site" name="site_url" inputmode="url" autocomplete="url" placeholder="www.example.gr" data-el-ph="www.example.gr" data-en-ph="www.example.com" required></div>
+            <div class="field"><label for="ct-name" data-el="Επωνυμία επιχείρησης" data-en="Business name">Επωνυμία επιχείρησης</label>
+              <input type="text" id="ct-name" name="business_name" autocomplete="organization" required></div>
+            <div class="field"><label for="ct-email" data-el="Email" data-en="Email">Email</label>
+              <input type="email" id="ct-email" name="email" autocomplete="email" required></div>
+            <div class="field field--optional"><label for="ct-phone" data-el="Τηλέφωνο <span>(προαιρετικό)</span>" data-en="Phone <span>(optional)</span>">Τηλέφωνο <span>(προαιρετικό)</span></label>
+              <input type="tel" id="ct-phone" name="phone" autocomplete="tel"></div>
             <div class="hp" aria-hidden="true"><label for="ct-website">Website</label><input type="text" id="ct-website" name="website" tabindex="-1" autocomplete="off"></div>
             <button type="submit" class="btn btn--block" data-el="Στείλτε το αίτημά μου" data-en="Send my request">Στείλτε το αίτημά μου</button>
             <p class="microcopy" data-el="Χωρίς κάρτα. Χωρίς εγκατάσταση." data-en="No card. No setup.">Χωρίς κάρτα. Χωρίς εγκατάσταση.</p>
@@ -126,6 +123,8 @@
         <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
         <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
         <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>
+        <a href="/terms" data-el="Όροι χρήσης" data-en="Terms">Όροι χρήσης</a>
       </nav>
       <img src="/assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
       <p data-el="© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website." data-en="© 2026 Desmar. AI chatbot for any business with a website.">© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website.</p>

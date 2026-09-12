@@ -29,11 +29,15 @@
     .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
     .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
     .footer-links a:hover{color:#fff}
+    .legal{max-width:760px;margin:0 auto}
+    .legal h3{margin:1.6rem 0 .5rem;font-size:1.15rem}
+    .legal p{color:var(--muted);margin:.4rem 0}
+    .legal a{color:var(--gold-dark)}
+    .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
+    .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
     @media (max-width:900px){
       .nav-toggle{display:flex}
-      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-        background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;
-        border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
+      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
       .site-header.nav-open .nav-panel{display:flex}
       .nav-panel .main-nav{flex-direction:column;gap:0;width:100%}
       .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
@@ -47,9 +51,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="/" aria-label="Desmar">
-        <img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27">
-      </a>
+      <a class="brand" href="/" aria-label="Desmar"><img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27"></a>
       <button class="nav-toggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-panel">
         <nav class="main-nav" aria-label="Κύριο μενού">
@@ -134,6 +136,8 @@
         <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
         <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
         <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>
+        <a href="/terms" data-el="Όροι χρήσης" data-en="Terms">Όροι χρήσης</a>
       </nav>
       <img src="/assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
       <p data-el="© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website." data-en="© 2026 Desmar. AI chatbot for any business with a website.">© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website.</p>

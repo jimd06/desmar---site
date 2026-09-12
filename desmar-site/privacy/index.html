@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Πολιτική Απορρήτου — Desmar</title>
+  <meta name="description" content="Πώς η Desmar συλλέγει και προστατεύει τα προσωπικά σας δεδομένα (GDPR).">
+  <link rel="canonical" href="https://desmar.ai/privacy">
+  <meta name="theme-color" content="#1E2A55">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <link rel="stylesheet" href="/assets/css/sections.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    .main-nav{display:flex;gap:1.6rem;align-items:center}
+    .main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .18s ease}
+    .main-nav a:hover{color:var(--gold-dark)}
+    .nav-panel{display:contents}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;margin-left:auto}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+    .site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+    .site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
+    .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
+    .footer-links a:hover{color:#fff}
+    .legal{max-width:760px;margin:0 auto}
+    .legal h3{margin:1.6rem 0 .5rem;font-size:1.15rem}
+    .legal p{color:var(--muted);margin:.4rem 0}
+    .legal a{color:var(--gold-dark)}
+    .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
+    .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
+    @media (max-width:900px){
+      .nav-toggle{display:flex}
+      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
+      .site-header.nav-open .nav-panel{display:flex}
+      .nav-panel .main-nav{flex-direction:column;gap:0;width:100%}
+      .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
+      .nav-panel .header-actions{gap:1rem;padding-top:.7rem;width:100%}
+    }
+  </style>
+  <script src="/assets/js/animations.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Desmar"><img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27"></a>
+      <button class="nav-toggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-panel">
+        <nav class="main-nav" aria-label="Κύριο μενού">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="FAQ" data-en="FAQ">FAQ</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" data-el-aria="Επιλογή γλώσσας" data-en-aria="Language selector" aria-label="Επιλογή γλώσσας">
+            <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="true">ΕΛ</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn--sm" href="/#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section"><div class="container"><div class="legal">
+      <span class="eyebrow" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</span>
+      <h2 data-el="Πολιτική Απορρήτου" data-en="Privacy Policy">Πολιτική Απορρήτου</h2>
+      <p style="color:var(--muted);font-size:.9rem" data-el="Τελευταία ενημέρωση: Σεπτέμβριος 2026" data-en="Last updated: September 2026">Τελευταία ενημέρωση: Σεπτέμβριος 2026</p>
+      <p data-el="Η παρούσα Πολιτική Απορρήτου εξηγεί πώς η Desmar (υπεύθυνος επεξεργασίας: Δημήτριος Σταππας Μαριολάκος) συλλέγει, χρησιμοποιεί και προστατεύει τα προσωπικά σας δεδομένα, σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR – ΕΕ 2016/679). Στοιχεία επικοινωνίας: office@desmar.ai · +30 694 306 1339." data-en="This Privacy Policy explains how Desmar (data controller: Dimitrios Stappas Mariolakos) collects, uses and protects your personal data, in accordance with the General Data Protection Regulation (GDPR – EU 2016/679). Contact: office@desmar.ai · +30 694 306 1339.">Η παρούσα Πολιτική Απορρήτου εξηγεί πώς η Desmar (υπεύθυνος επεξεργασίας: Δημήτριος Σταππας Μαριολάκος) συλλέγει, χρησιμοποιεί και προστατεύει τα προσωπικά σας δεδομένα, σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR – ΕΕ 2016/679). Στοιχεία επικοινωνίας: office@desmar.ai · +30 694 306 1339.</p>
+      <h3 data-el="Τι δεδομένα συλλέγουμε" data-en="What data we collect">Τι δεδομένα συλλέγουμε</h3>
+      <p data-el="Όταν συμπληρώνετε τη φόρμα demo ή επικοινωνίας, συλλέγουμε: επωνυμία επιχείρησης, διεύθυνση website, email και (προαιρετικά) τηλέφωνο." data-en="When you fill in the demo or contact form, we collect: business name, website address, email and (optionally) phone number.">Όταν συμπληρώνετε τη φόρμα demo ή επικοινωνίας, συλλέγουμε: επωνυμία επιχείρησης, διεύθυνση website, email και (προαιρετικά) τηλέφωνο.</p>
+      <p data-el="Όταν χρησιμοποιείτε το chatbot στο site μας, καταγράφεται το περιεχόμενο της συνομιλίας ώστε να σας εξυπηρετήσουμε." data-en="When you use the chatbot on our site, the content of the conversation is recorded in order to serve you.">Όταν χρησιμοποιείτε το chatbot στο site μας, καταγράφεται το περιεχόμενο της συνομιλίας ώστε να σας εξυπηρετήσουμε.</p>
+      <p data-el="Για στατιστικά επισκεψιμότητας χρησιμοποιούμε το Cloudflare Web Analytics, το οποίο ΔΕΝ χρησιμοποιεί cookies και δεν σας ταυτοποιεί προσωπικά." data-en="For traffic statistics we use Cloudflare Web Analytics, which does NOT use cookies and does not identify you personally.">Για στατιστικά επισκεψιμότητας χρησιμοποιούμε το Cloudflare Web Analytics, το οποίο ΔΕΝ χρησιμοποιεί cookies και δεν σας ταυτοποιεί προσωπικά.</p>
+      <h3 data-el="Γιατί τα χρησιμοποιούμε" data-en="Why we use it">Γιατί τα χρησιμοποιούμε</h3>
+      <p data-el="Χρησιμοποιούμε τα δεδομένα σας για να απαντήσουμε στο αίτημά σας, να δημιουργήσουμε το demo σας και να σας παρέχουμε την υπηρεσία. Νομική βάση είναι η συγκατάθεσή σας, η εκτέλεση σύμβασης και το έννομο συμφέρον μας για επικοινωνία με ενδιαφερόμενους." data-en="We use your data to respond to your request, build your demo and provide our service. The legal basis is your consent, the performance of a contract and our legitimate interest in communicating with interested parties.">Χρησιμοποιούμε τα δεδομένα σας για να απαντήσουμε στο αίτημά σας, να δημιουργήσουμε το demo σας και να σας παρέχουμε την υπηρεσία. Νομική βάση είναι η συγκατάθεσή σας, η εκτέλεση σύμβασης και το έννομο συμφέρον μας για επικοινωνία με ενδιαφερόμενους.</p>
+      <h3 data-el="Πόσο κρατάμε τα δεδομένα" data-en="How long we keep it">Πόσο κρατάμε τα δεδομένα</h3>
+      <p data-el="Διατηρούμε τα δεδομένα σας όσο διαρκεί η επικοινωνία ή η συνεργασία μας και για εύλογο διάστημα μετά, εκτός αν ζητήσετε τη διαγραφή τους νωρίτερα." data-en="We retain your data for as long as our communication or cooperation lasts and for a reasonable period afterwards, unless you request earlier deletion.">Διατηρούμε τα δεδομένα σας όσο διαρκεί η επικοινωνία ή η συνεργασία μας και για εύλογο διάστημα μετά, εκτός αν ζητήσετε τη διαγραφή τους νωρίτερα.</p>
+      <h3 data-el="Με ποιους μοιραζόμαστε δεδομένα" data-en="Who we share data with">Με ποιους μοιραζόμαστε δεδομένα</h3>
+      <p data-el="Για τη λειτουργία της υπηρεσίας συνεργαζόμαστε με τρίτους παρόχους (εκτελούντες την επεξεργασία): OpenAI (επεξεργασία τεχνητής νοημοσύνης), Render (φιλοξενία), Resend (αποστολή email), Cloudflare (CDN &amp; στατιστικά), Google Workspace (email)." data-en="To operate the service we work with third-party providers (processors): OpenAI (AI processing), Render (hosting), Resend (email delivery), Cloudflare (CDN &amp; analytics), Google Workspace (email).">Για τη λειτουργία της υπηρεσίας συνεργαζόμαστε με τρίτους παρόχους (εκτελούντες την επεξεργασία): OpenAI (επεξεργασία τεχνητής νοημοσύνης), Render (φιλοξενία), Resend (αποστολή email), Cloudflare (CDN & στατιστικά), Google Workspace (email).</p>
+      <p data-el="Ορισμένοι πάροχοι (π.χ. OpenAI) ενδέχεται να επεξεργάζονται δεδομένα εκτός ΕΕ, στις ΗΠΑ. Η μεταφορά αυτή γίνεται με κατάλληλες εγγυήσεις (Τυποποιημένες Συμβατικές Ρήτρες της ΕΕ)." data-en="Some providers (e.g. OpenAI) may process data outside the EU, in the USA. Such transfers are carried out with appropriate safeguards (EU Standard Contractual Clauses).">Ορισμένοι πάροχοι (π.χ. OpenAI) ενδέχεται να επεξεργάζονται δεδομένα εκτός ΕΕ, στις ΗΠΑ. Η μεταφορά αυτή γίνεται με κατάλληλες εγγυήσεις (Τυποποιημένες Συμβατικές Ρήτρες της ΕΕ).</p>
+      <h3 data-el="Cookies" data-en="Cookies">Cookies</h3>
+      <p data-el="Χρησιμοποιούμε μόνο ένα λειτουργικό cookie που θυμάται τη γλώσσα που επιλέξατε. Δεν χρησιμοποιούμε cookies παρακολούθησης ή διαφήμισης, και τα στατιστικά μας λειτουργούν χωρίς cookies." data-en="We use only one functional cookie that remembers your chosen language. We do not use tracking or advertising cookies, and our analytics work without cookies.">Χρησιμοποιούμε μόνο ένα λειτουργικό cookie που θυμάται τη γλώσσα που επιλέξατε. Δεν χρησιμοποιούμε cookies παρακολούθησης ή διαφήμισης, και τα στατιστικά μας λειτουργούν χωρίς cookies.</p>
+      <h3 data-el="Τα δικαιώματά σας" data-en="Your rights">Τα δικαιώματά σας</h3>
+      <p data-el="Έχετε δικαίωμα πρόσβασης, διόρθωσης, διαγραφής, περιορισμού και φορητότητας των δεδομένων σας, καθώς και εναντίωσης στην επεξεργασία. Για να ασκήσετε οποιοδήποτε δικαίωμα, επικοινωνήστε στο office@desmar.ai." data-en="You have the right to access, rectify, erase, restrict and port your data, as well as to object to processing. To exercise any right, contact office@desmar.ai.">Έχετε δικαίωμα πρόσβασης, διόρθωσης, διαγραφής, περιορισμού και φορητότητας των δεδομένων σας, καθώς και εναντίωσης στην επεξεργασία. Για να ασκήσετε οποιοδήποτε δικαίωμα, επικοινωνήστε στο office@desmar.ai.</p>
+      <p data-el="Έχετε επίσης δικαίωμα καταγγελίας στην Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (www.dpa.gr)." data-en="You also have the right to lodge a complaint with the Hellenic Data Protection Authority (www.dpa.gr).">Έχετε επίσης δικαίωμα καταγγελίας στην Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (www.dpa.gr).</p>
+      <h3 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h3>
+      <p data-el="Για οποιοδήποτε θέμα σχετικά με τα δεδομένα σας: office@desmar.ai · +30 694 306 1339." data-en="For any matter regarding your data: office@desmar.ai · +30 694 306 1339.">Για οποιοδήποτε θέμα σχετικά με τα δεδομένα σας: office@desmar.ai · +30 694 306 1339.</p>
+    </div></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="width:100%;font-weight:600;margin:0 0 .4rem" data-el="AI chatbots, done for you." data-en="AI chatbots, done for you.">AI chatbots, done for you.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
+        <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>
+        <a href="/terms" data-el="Όροι χρήσης" data-en="Terms">Όροι χρήσης</a>
+      </nav>
+      <img src="/assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
+      <p data-el="© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website." data-en="© 2026 Desmar. AI chatbot for any business with a website.">© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
+    if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
+</body>
+</html>

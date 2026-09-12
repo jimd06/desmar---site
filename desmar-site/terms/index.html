@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Όροι Χρήσης — Desmar</title>
+  <meta name="description" content="Οι όροι χρήσης του ιστοτόπου και των υπηρεσιών της Desmar.">
+  <link rel="canonical" href="https://desmar.ai/terms">
+  <meta name="theme-color" content="#1E2A55">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <link rel="stylesheet" href="/assets/css/sections.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    .main-nav{display:flex;gap:1.6rem;align-items:center}
+    .main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .18s ease}
+    .main-nav a:hover{color:var(--gold-dark)}
+    .nav-panel{display:contents}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;margin-left:auto}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+    .site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+    .site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
+    .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
+    .footer-links a:hover{color:#fff}
+    .legal{max-width:760px;margin:0 auto}
+    .legal h3{margin:1.6rem 0 .5rem;font-size:1.15rem}
+    .legal p{color:var(--muted);margin:.4rem 0}
+    .legal a{color:var(--gold-dark)}
+    .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
+    .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
+    @media (max-width:900px){
+      .nav-toggle{display:flex}
+      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
+      .site-header.nav-open .nav-panel{display:flex}
+      .nav-panel .main-nav{flex-direction:column;gap:0;width:100%}
+      .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
+      .nav-panel .header-actions{gap:1rem;padding-top:.7rem;width:100%}
+    }
+  </style>
+  <script src="/assets/js/animations.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Desmar"><img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27"></a>
+      <button class="nav-toggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-panel">
+        <nav class="main-nav" aria-label="Κύριο μενού">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="FAQ" data-en="FAQ">FAQ</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" data-el-aria="Επιλογή γλώσσας" data-en-aria="Language selector" aria-label="Επιλογή γλώσσας">
+            <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="true">ΕΛ</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn--sm" href="/#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section"><div class="container"><div class="legal">
+      <span class="eyebrow" data-el="Όροι" data-en="Terms">Όροι</span>
+      <h2 data-el="Όροι Χρήσης" data-en="Terms of Service">Όροι Χρήσης</h2>
+      <p style="color:var(--muted);font-size:.9rem" data-el="Τελευταία ενημέρωση: Σεπτέμβριος 2026" data-en="Last updated: September 2026">Τελευταία ενημέρωση: Σεπτέμβριος 2026</p>
+      <p data-el="Καλωσορίσατε στη Desmar. Με τη χρήση του ιστοτόπου και των υπηρεσιών μας αποδέχεστε τους παρόντες Όρους Χρήσης. Υπεύθυνος: Δημήτριος Σταππας Μαριολάκος · office@desmar.ai · +30 694 306 1339." data-en="Welcome to Desmar. By using our website and services you accept these Terms of Service. Responsible: Dimitrios Stappas Mariolakos · office@desmar.ai · +30 694 306 1339.">Καλωσορίσατε στη Desmar. Με τη χρήση του ιστοτόπου και των υπηρεσιών μας αποδέχεστε τους παρόντες Όρους Χρήσης. Υπεύθυνος: Δημήτριος Σταππας Μαριολάκος · office@desmar.ai · +30 694 306 1339.</p>
+      <h3 data-el="Η υπηρεσία" data-en="The service">Η υπηρεσία</h3>
+      <p data-el="Η Desmar σχεδιάζει, στήνει και παραδίδει AI chatbot εκπαιδευμένο στο περιεχόμενο της επιχείρησής σας. Το chatbot απαντά με βάση το υλικό που παρέχετε και δεν υποκαθιστά επαγγελματική, νομική ή ιατρική συμβουλή." data-en="Desmar designs, builds and delivers an AI chatbot trained on your business content. The chatbot answers based on the material you provide and does not replace professional, legal or medical advice.">Η Desmar σχεδιάζει, στήνει και παραδίδει AI chatbot εκπαιδευμένο στο περιεχόμενο της επιχείρησής σας. Το chatbot απαντά με βάση το υλικό που παρέχετε και δεν υποκαθιστά επαγγελματική, νομική ή ιατρική συμβουλή.</p>
+      <h3 data-el="Συνδρομή &amp; πληρωμές" data-en="Subscription &amp; payments">Συνδρομή & πληρωμές</h3>
+      <p data-el="Οι υπηρεσίες παρέχονται με μηνιαία συνδρομή, όπως περιγράφεται στη σελίδα Τιμές, συν εφάπαξ κόστος εγκατάστασης. Οι τιμές μπορεί να αναπροσαρμοστούν με προηγούμενη ειδοποίηση." data-en="Services are provided on a monthly subscription, as described on the Pricing page, plus a one-time setup fee. Prices may be adjusted with prior notice.">Οι υπηρεσίες παρέχονται με μηνιαία συνδρομή, όπως περιγράφεται στη σελίδα Τιμές, συν εφάπαξ κόστος εγκατάστασης. Οι τιμές μπορεί να αναπροσαρμοστούν με προηγούμενη ειδοποίηση.</p>
+      <h3 data-el="Αποδεκτή χρήση" data-en="Acceptable use">Αποδεκτή χρήση</h3>
+      <p data-el="Δεσμεύεστε να μη χρησιμοποιείτε την υπηρεσία για παράνομους σκοπούς, για αποστολή κακόβουλου περιεχομένου ή για παραβίαση δικαιωμάτων τρίτων." data-en="You agree not to use the service for unlawful purposes, to send malicious content, or to infringe the rights of third parties.">Δεσμεύεστε να μη χρησιμοποιείτε την υπηρεσία για παράνομους σκοπούς, για αποστολή κακόβουλου περιεχομένου ή για παραβίαση δικαιωμάτων τρίτων.</p>
+      <h3 data-el="Πνευματική ιδιοκτησία" data-en="Intellectual property">Πνευματική ιδιοκτησία</h3>
+      <p data-el="Το λογισμικό, η πλατφόρμα και ο σχεδιασμός παραμένουν ιδιοκτησία της Desmar. Το περιεχόμενο που παρέχετε (κείμενα, δεδομένα) παραμένει δικό σας." data-en="The software, platform and design remain the property of Desmar. The content you provide (texts, data) remains yours.">Το λογισμικό, η πλατφόρμα και ο σχεδιασμός παραμένουν ιδιοκτησία της Desmar. Το περιεχόμενο που παρέχετε (κείμενα, δεδομένα) παραμένει δικό σας.</p>
+      <h3 data-el="Περιορισμός ευθύνης" data-en="Limitation of liability">Περιορισμός ευθύνης</h3>
+      <p data-el="Η υπηρεσία παρέχεται «ως έχει». Καταβάλλουμε κάθε εύλογη προσπάθεια για ακριβείς και ασφαλείς απαντήσεις, αλλά δεν εγγυόμαστε συγκεκριμένα εμπορικά αποτελέσματα. Η ευθύνη μας περιορίζεται στο ποσό της συνδρομής που έχετε καταβάλει." data-en="The service is provided &quot;as is&quot;. We make every reasonable effort for accurate and safe answers, but we do not guarantee specific commercial results. Our liability is limited to the amount of the subscription you have paid.">Η υπηρεσία παρέχεται «ως έχει». Καταβάλλουμε κάθε εύλογη προσπάθεια για ακριβείς και ασφαλείς απαντήσεις, αλλά δεν εγγυόμαστε συγκεκριμένα εμπορικά αποτελέσματα. Η ευθύνη μας περιορίζεται στο ποσό της συνδρομής που έχετε καταβάλει.</p>
+      <h3 data-el="Διάρκεια &amp; λήξη" data-en="Term &amp; termination">Διάρκεια & λήξη</h3>
+      <p data-el="Η συνδρομή είναι μηνιαία και μπορείτε να τη διακόψετε οποτεδήποτε. Κατά τη λήξη, μπορείτε να ζητήσετε εξαγωγή ή διαγραφή των δεδομένων σας." data-en="The subscription is monthly and you may cancel at any time. Upon termination, you may request export or deletion of your data.">Η συνδρομή είναι μηνιαία και μπορείτε να τη διακόψετε οποτεδήποτε. Κατά τη λήξη, μπορείτε να ζητήσετε εξαγωγή ή διαγραφή των δεδομένων σας.</p>
+      <h3 data-el="Τροποποιήσεις" data-en="Changes">Τροποποιήσεις</h3>
+      <p data-el="Ενδέχεται να επικαιροποιήσουμε τους παρόντες όρους. Θα δημοσιεύουμε την ενημερωμένη έκδοση σε αυτή τη σελίδα με νέα ημερομηνία." data-en="We may update these terms. We will publish the updated version on this page with a new date.">Ενδέχεται να επικαιροποιήσουμε τους παρόντες όρους. Θα δημοσιεύουμε την ενημερωμένη έκδοση σε αυτή τη σελίδα με νέα ημερομηνία.</p>
+      <h3 data-el="Εφαρμοστέο δίκαιο" data-en="Governing law">Εφαρμοστέο δίκαιο</h3>
+      <p data-el="Οι παρόντες όροι διέπονται από το ελληνικό δίκαιο και αρμόδια είναι τα δικαστήρια της Ελλάδας." data-en="These terms are governed by Greek law and the courts of Greece have jurisdiction.">Οι παρόντες όροι διέπονται από το ελληνικό δίκαιο και αρμόδια είναι τα δικαστήρια της Ελλάδας.</p>
+    </div></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="width:100%;font-weight:600;margin:0 0 .4rem" data-el="AI chatbots, done for you." data-en="AI chatbots, done for you.">AI chatbots, done for you.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
+        <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>
+        <a href="/terms" data-el="Όροι χρήσης" data-en="Terms">Όροι χρήσης</a>
+      </nav>
+      <img src="/assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
+      <p data-el="© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website." data-en="© 2026 Desmar. AI chatbot for any business with a website.">© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
+    if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
+</body>
+</html>
