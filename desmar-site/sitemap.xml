@@ -7,4 +7,11 @@
   <url><loc>https://desmar.ai/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://desmar.ai/gdpr</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://desmar.ai/epikoinonia</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://desmar.ai/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://desmar.ai/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://desmar.ai/chatbot-gia-xenodocheio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://desmar.ai/chatbot-gia-iatreio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://desmar.ai/chatbot-gia-kommotirio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://desmar.ai/chatbot-gia-gymnastirio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://desmar.ai/chatbot-gia-enoikiaseis</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
