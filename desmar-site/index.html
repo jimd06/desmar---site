@@ -45,6 +45,13 @@
     }
   </style>
   <script src="/assets/js/animations.js"></script>
+  <style>
+    /* Interactive hero chat: μηνύματα εμφανίζονται ένα-ένα (κρύβονται μόνο όταν παίζει η κίνηση) */
+    #chat-body.chat-anim .msg{opacity:0;transform:translateY(10px);transition:opacity .4s ease, transform .4s ease}
+    #chat-body.chat-anim .msg.msg-in{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){#chat-body.chat-anim .msg{opacity:1;transform:none}}
+  </style>
+  <noscript><style>#chat-body .msg{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
@@ -162,7 +169,7 @@
               </div>
               <span class="chat-time">23:47</span>
             </div>
-            <div class="chat-body" id="chat-body">
+            <div class="chat-body chat-anim" id="chat-body">
               <div class="msg msg--user"
                    data-el="Καλησπέρα! Έχετε διαθεσιμότητα αυτή την εβδομάδα; Πόσο κοστίζει;"
                    data-en="Hi! Do you have availability this week? How much is it?">Καλησπέρα! Έχετε διαθεσιμότητα αυτή την εβδομάδα; Πόσο κοστίζει;</div>
@@ -378,6 +385,34 @@
   <script>
     (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
     if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+  <script>
+    (function(){
+      var body=document.getElementById('chat-body'); if(!body) return;
+      var msgs=[].slice.call(body.querySelectorAll('.msg'));
+      var typing=body.querySelector('.typing');
+      var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function down(){body.scrollTop=body.scrollHeight;}
+      function showAll(){msgs.forEach(function(m){m.classList.add('msg-in');});}
+      if(reduce||!('IntersectionObserver' in window)){showAll();return;}
+      var started=false;
+      function play(){
+        if(started)return; started=true; var i=0;
+        function next(){
+          if(i>=msgs.length){if(typing)typing.hidden=true;return;}
+          var m=msgs[i], bot=m.classList.contains('msg--bot');
+          if(bot&&typing){
+            typing.hidden=false; down();
+            setTimeout(function(){typing.hidden=true; m.classList.add('msg-in'); down(); i++; setTimeout(next,650);},1000);
+          } else {
+            m.classList.add('msg-in'); down(); i++; setTimeout(next,600);
+          }
+        }
+        setTimeout(next,400);
+      }
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play();}});},{threshold:0.4});
+      io.observe(body);
+    })();
   </script>
   <script src="/assets/js/main.js"></script>
   <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
