@@ -45,6 +45,13 @@
     }
   </style>
   <script src="/assets/js/animations.js"></script>
+  <style>
+    .ind-visual{max-width:400px;margin:2.4rem auto 0}
+    #chat-body.chat-anim .msg{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+    #chat-body.chat-anim .msg.msg-in{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){#chat-body.chat-anim .msg{opacity:1;transform:none}}
+  </style>
+  <noscript><style>#chat-body .msg{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
@@ -83,6 +90,26 @@
           <p class="lead" data-el="Διαθεσιμότητα, τιμές, όροι και κρατήσεις — απαντημένα αμέσως, ώστε να μη χάνετε κράτηση σε ανταγωνιστή." data-en="Availability, prices, terms and bookings — answered instantly, so you never lose a booking to a competitor.">Διαθεσιμότητα, τιμές, όροι και κρατήσεις — απαντημένα αμέσως, ώστε να μη χάνετε κράτηση σε ανταγωνιστή.</p>
           <p style="margin:.4rem 0 1.2rem;font-weight:600" data-el="Έτοιμο σε 5 ημέρες · από 69 €/μήνα · χωρίς δέσμευση." data-en="Ready in 5 days · from €69/mo · no commitment.">Έτοιμο σε 5 ημέρες · από 69 €/μήνα · χωρίς δέσμευση.</p>
           <p><a class="btn" href="/#demo" data-el="Φτιάξτε το demo μου δωρεάν" data-en="Build my free demo">Φτιάξτε το demo μου δωρεάν</a></p>
+        <div class="ind-visual">
+          <div class="chat" aria-label="Παράδειγμα συνομιλίας">
+            <div class="chat-head">
+              <img src="/assets/img/favicon.svg" alt="" width="36" height="36">
+              <div class="chat-id">
+                <strong data-el="Κρατήσεις" data-en="Bookings">Κρατήσεις</strong>
+                <span class="chat-status" data-el="Online — απαντά 24/7" data-en="Online — answers 24/7">Online — απαντά 24/7</span>
+              </div>
+              <span class="chat-time">21:55</span>
+            </div>
+            <div class="chat-body chat-anim" id="chat-body">
+              <div class="msg msg--user" data-el="Είναι διαθέσιμο για το επόμενο Σαββατοκύριακο;" data-en="Is it available next weekend?">Είναι διαθέσιμο για το επόμενο Σαββατοκύριακο;</div>
+              <div class="msg msg--bot" data-el="Ναι, διαθέσιμο! Η τιμή είναι 60 €/ημέρα, με εγγύηση 100 €. Θέλετε κράτηση;" data-en="Yes, available! The price is €60/day, with a €100 deposit. Want to book?">Ναι, διαθέσιμο! Η τιμή είναι 60 €/ημέρα, με εγγύηση 100 €. Θέλετε κράτηση;</div>
+              <div class="msg msg--user" data-el="Ναι, για 2 ημέρες." data-en="Yes, for 2 days.">Ναι, για 2 ημέρες.</div>
+              <div class="msg msg--bot" data-el="Τέλεια — κρατάω 2 ημέρες. Στέλνω τα στοιχεία ολοκλήρωσης στο email σας." data-en="Great — holding 2 days. I’ll send the completion details to your email.">Τέλεια — κρατάω 2 ημέρες. Στέλνω τα στοιχεία ολοκλήρωσης στο email σας.</div>
+              <div class="typing" hidden aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <p class="chat-note" data-el="Ο πελάτης δεν περιμένει. Ή απαντάς, ή πάει αλλού." data-en="The customer won’t wait. Answer, or they go elsewhere.">Ο πελάτης δεν περιμένει. Ή απαντάς, ή πάει αλλού.</p>
+        </div>
         </div>
       </div>
     </section>
@@ -151,6 +178,15 @@
   <script>
     (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
     if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+  <script>
+    (function(){var body=document.getElementById('chat-body');if(!body)return;
+    var msgs=[].slice.call(body.querySelectorAll('.msg')),typing=body.querySelector('.typing');
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    function down(){body.scrollTop=body.scrollHeight;}
+    if(reduce||!('IntersectionObserver' in window)){msgs.forEach(function(m){m.classList.add('msg-in');});return;}
+    var started=false;function play(){if(started)return;started=true;var i=0;function next(){if(i>=msgs.length){if(typing)typing.hidden=true;return;}var m=msgs[i],bot=m.classList.contains('msg--bot');if(bot&&typing){typing.hidden=false;down();setTimeout(function(){typing.hidden=true;m.classList.add('msg-in');down();i++;setTimeout(next,650);},1000);}else{m.classList.add('msg-in');down();i++;setTimeout(next,600);}}setTimeout(next,400);}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play();}});},{threshold:0.35});io.observe(body);})();
   </script>
   <script src="/assets/js/main.js"></script>
   <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>

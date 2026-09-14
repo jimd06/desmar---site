@@ -45,6 +45,13 @@
     }
   </style>
   <script src="/assets/js/animations.js"></script>
+  <style>
+    .ind-visual{max-width:400px;margin:2.4rem auto 0}
+    #chat-body.chat-anim .msg{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+    #chat-body.chat-anim .msg.msg-in{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){#chat-body.chat-anim .msg{opacity:1;transform:none}}
+  </style>
+  <noscript><style>#chat-body .msg{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
@@ -83,6 +90,26 @@
           <p class="lead" data-el="Απαντά σε συνδρομές, πρόγραμμα και δοκιμαστικά μαθήματα — και μετατρέπει τον επισκέπτη σε νέο μέλος." data-en="It answers memberships, schedules and trial classes — and turns visitors into new members.">Απαντά σε συνδρομές, πρόγραμμα και δοκιμαστικά μαθήματα — και μετατρέπει τον επισκέπτη σε νέο μέλος.</p>
           <p style="margin:.4rem 0 1.2rem;font-weight:600" data-el="Έτοιμο σε 5 ημέρες · από 69 €/μήνα · χωρίς δέσμευση." data-en="Ready in 5 days · from €69/mo · no commitment.">Έτοιμο σε 5 ημέρες · από 69 €/μήνα · χωρίς δέσμευση.</p>
           <p><a class="btn" href="/#demo" data-el="Φτιάξτε το demo μου δωρεάν" data-en="Build my free demo">Φτιάξτε το demo μου δωρεάν</a></p>
+        <div class="ind-visual">
+          <div class="chat" aria-label="Παράδειγμα συνομιλίας">
+            <div class="chat-head">
+              <img src="/assets/img/favicon.svg" alt="" width="36" height="36">
+              <div class="chat-id">
+                <strong data-el="Πληροφορίες" data-en="Info">Πληροφορίες</strong>
+                <span class="chat-status" data-el="Online — απαντά 24/7" data-en="Online — answers 24/7">Online — απαντά 24/7</span>
+              </div>
+              <span class="chat-time">23:05</span>
+            </div>
+            <div class="chat-body chat-anim" id="chat-body">
+              <div class="msg msg--user" data-el="Έχετε δωρεάν δοκιμαστικό μάθημα;" data-en="Do you offer a free trial class?">Έχετε δωρεάν δοκιμαστικό μάθημα;</div>
+              <div class="msg msg--bot" data-el="Ναι! Δωρεάν δοκιμαστικό αυτή την εβδομάδα. Πότε θα θέλατε να έρθετε;" data-en="Yes! A free trial this week. When would you like to come?">Ναι! Δωρεάν δοκιμαστικό αυτή την εβδομάδα. Πότε θα θέλατε να έρθετε;</div>
+              <div class="msg msg--user" data-el="Τετάρτη απόγευμα." data-en="Wednesday afternoon.">Τετάρτη απόγευμα.</div>
+              <div class="msg msg--bot" data-el="Σας έκλεισα δοκιμαστικό για Τετάρτη 18:00. Θα σας περιμένουμε!" data-en="Booked a trial for Wednesday 18:00. See you there!">Σας έκλεισα δοκιμαστικό για Τετάρτη 18:00. Θα σας περιμένουμε!</div>
+              <div class="typing" hidden aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <p class="chat-note" data-el="Ο υποψήφιος ρωτάει τη νύχτα. Το chatbot τον κάνει μέλος." data-en="A lead asks at night. The chatbot turns them into a member.">Ο υποψήφιος ρωτάει τη νύχτα. Το chatbot τον κάνει μέλος.</p>
+        </div>
         </div>
       </div>
     </section>
@@ -151,6 +178,15 @@
   <script>
     (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
     if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+  <script>
+    (function(){var body=document.getElementById('chat-body');if(!body)return;
+    var msgs=[].slice.call(body.querySelectorAll('.msg')),typing=body.querySelector('.typing');
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    function down(){body.scrollTop=body.scrollHeight;}
+    if(reduce||!('IntersectionObserver' in window)){msgs.forEach(function(m){m.classList.add('msg-in');});return;}
+    var started=false;function play(){if(started)return;started=true;var i=0;function next(){if(i>=msgs.length){if(typing)typing.hidden=true;return;}var m=msgs[i],bot=m.classList.contains('msg--bot');if(bot&&typing){typing.hidden=false;down();setTimeout(function(){typing.hidden=true;m.classList.add('msg-in');down();i++;setTimeout(next,650);},1000);}else{m.classList.add('msg-in');down();i++;setTimeout(next,600);}}setTimeout(next,400);}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play();}});},{threshold:0.35});io.observe(body);})();
   </script>
   <script src="/assets/js/main.js"></script>
   <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
