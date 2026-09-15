@@ -52,6 +52,13 @@
     @media (prefers-reduced-motion: reduce){#chat-body.chat-anim .msg{opacity:1;transform:none}}
   </style>
   <noscript><style>#chat-body .msg{opacity:1 !important;transform:none !important}</style></noscript>
+  <style>
+    /* Επαγγελματική φωτό γραφείου + navy overlay στη μπάντα */
+    .section--navy.has-photo{position:relative;background:#141c3a}
+    .section--navy.has-photo::before{content:"";position:absolute;inset:0;z-index:0;background:url("/assets/img/office.jpg") center/cover;}
+    .section--navy.has-photo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg, rgba(18,26,54,.93) 0%, rgba(18,26,54,.80) 55%, rgba(18,26,54,.62) 100%);}
+    .section--navy.has-photo .container{position:relative;z-index:2}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
@@ -268,7 +275,7 @@
     </section>
 
     <!-- ============ 5. NAVY ΜΠΑΝΤΑ DONE-FOR-YOU ============ -->
-    <section class="section section--navy">
+    <section class="section section--navy has-photo">
       <div class="container">
         <p class="band-statement">
           <span class="dim" data-el="Δεν σας δίνουμε εργαλείο να φτιάξετε chatbot."
