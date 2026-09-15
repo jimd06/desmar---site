@@ -59,6 +59,13 @@
     .section--navy.has-photo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg, rgba(18,26,54,.93) 0%, rgba(18,26,54,.80) 55%, rgba(18,26,54,.62) 100%);}
     .section--navy.has-photo .container{position:relative;z-index:2}
   </style>
+  <style>
+    /* Επαγγελματική φωτό workspace + navy overlay στο τελικό CTA */
+    .final-cta.has-photo-cta{position:relative;background:#141c3a}
+    .final-cta.has-photo-cta::before{content:"";position:absolute;inset:0;z-index:0;background:url("/assets/img/workspace.jpg") center/cover;}
+    .final-cta.has-photo-cta::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(18,26,54,.90), rgba(18,26,54,.82));}
+    .final-cta.has-photo-cta .container{position:relative;z-index:2}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
@@ -304,7 +311,7 @@
     </section>
 
     <!-- ============ 11. ΤΕΛΙΚΟ CTA ============ -->
-    <section class="section section--emerald final-cta" id="cta">
+    <section class="section section--emerald final-cta has-photo-cta" id="cta">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow" data-el="Ξεκινήστε τώρα" data-en="Start now">Ξεκινήστε τώρα</span>
