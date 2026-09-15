@@ -75,49 +75,6 @@
 
   <main id="main">
 
-    <!-- ============ 6. ΥΠΟΛΟΓΙΣΤΗΣ ============ -->
-    <section class="section" id="ypologistis">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-el="Υπολογιστής" data-en="Calculator">Υπολογιστής</span>
-          <h2 data-el="Πόσα σας κοστίζουν οι αναπάντητες επαφές;"
-              data-en="How much are missed contacts costing you?">Πόσα σας κοστίζουν οι αναπάντητες επαφές;</h2>
-          <p data-el="Βάλτε τα δικά σας νούμερα — τα πεδία προσυμπληρώνονται με τυπικές τιμές, αλλά αλλάζουν ελεύθερα."
-             data-en="Enter your own numbers — the fields are pre-filled with typical values, but you can change them freely.">Βάλτε τα δικά σας νούμερα — τα πεδία προσυμπληρώνονται με τυπικές τιμές, αλλά αλλάζουν ελεύθερα.</p>
-        </div>
-        <div class="calc-card">
-          <div class="calc-fields">
-            <div class="field field--wide">
-              <label for="calc-industry" data-el="Τύπος επιχείρησης" data-en="Type of business">Τύπος επιχείρησης</label>
-              <select id="calc-industry">
-                <option value="iatreio" selected data-el="Υγεία &amp; ευεξία" data-en="Health &amp; wellness">Υγεία &amp; ευεξία</option>
-                <option value="kommotirio" data-el="Ομορφιά &amp; περιποίηση" data-en="Beauty &amp; care">Ομορφιά &amp; περιποίηση</option>
-                <option value="xenodocheio" data-el="Φιλοξενία &amp; τουρισμός" data-en="Hospitality &amp; travel">Φιλοξενία &amp; τουρισμός</option>
-                <option value="gymnastirio" data-el="Fitness &amp; αθλητισμός" data-en="Fitness &amp; sports">Fitness &amp; αθλητισμός</option>
-                <option value="skafi" data-el="Ενοικιάσεις &amp; κρατήσεις" data-en="Rentals &amp; bookings">Ενοικιάσεις &amp; κρατήσεις</option>
-                <option value="allo" data-el="Άλλη επιχείρηση" data-en="Other business">Άλλη επιχείρηση</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="calc-missed" data-el="Αναπάντητες κλήσεις / μηνύματα την εβδομάδα" data-en="Missed calls / messages per week">Αναπάντητες κλήσεις / μηνύματα την εβδομάδα</label>
-              <input type="number" id="calc-missed" min="0" step="1" inputmode="numeric">
-            </div>
-            <div class="field">
-              <label for="calc-value" data-el="Μέση αξία πελάτη (€)" data-en="Average customer value (€)">Μέση αξία πελάτη (€)</label>
-              <input type="number" id="calc-value" min="0" step="5" inputmode="numeric">
-            </div>
-          </div>
-          <div class="calc-result" role="status" aria-live="polite">
-            <span class="calc-amount" id="calc-amount">—</span>
-            <p id="calc-text" data-el="Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας." data-en="Lost revenue per month, based on your numbers.">Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας.</p>
-            <p><strong data-el="Το Desmar ξεκινά από 69 €/μήνα." data-en="Desmar starts at €69/month.">Το Desmar ξεκινά από 69 €/μήνα.</strong></p>
-          </div>
-          <p class="calc-note" data-el="Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά."
-             data-en="Calculation assumption: about 3 in 10 missed contacts would have become customers. The calculation runs on your device — nothing is sent anywhere.">Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ 8. ΤΙΜΕΣ ============ -->
     <section class="section" id="times">
       <div class="container">
@@ -189,7 +146,50 @@
       </div>
     </section>
 
-  </main>
+  <!-- ============ 6. ΥΠΟΛΟΓΙΣΤΗΣ ============ -->
+    <section class="section" id="ypologistis">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Υπολογιστής" data-en="Calculator">Υπολογιστής</span>
+          <h2 data-el="Πόσα σας κοστίζουν οι αναπάντητες επαφές;"
+              data-en="How much are missed contacts costing you?">Πόσα σας κοστίζουν οι αναπάντητες επαφές;</h2>
+          <p data-el="Βάλτε τα δικά σας νούμερα — τα πεδία προσυμπληρώνονται με τυπικές τιμές, αλλά αλλάζουν ελεύθερα."
+             data-en="Enter your own numbers — the fields are pre-filled with typical values, but you can change them freely.">Βάλτε τα δικά σας νούμερα — τα πεδία προσυμπληρώνονται με τυπικές τιμές, αλλά αλλάζουν ελεύθερα.</p>
+        </div>
+        <div class="calc-card">
+          <div class="calc-fields">
+            <div class="field field--wide">
+              <label for="calc-industry" data-el="Τύπος επιχείρησης" data-en="Type of business">Τύπος επιχείρησης</label>
+              <select id="calc-industry">
+                <option value="iatreio" selected data-el="Υγεία &amp; ευεξία" data-en="Health &amp; wellness">Υγεία &amp; ευεξία</option>
+                <option value="kommotirio" data-el="Ομορφιά &amp; περιποίηση" data-en="Beauty &amp; care">Ομορφιά &amp; περιποίηση</option>
+                <option value="xenodocheio" data-el="Φιλοξενία &amp; τουρισμός" data-en="Hospitality &amp; travel">Φιλοξενία &amp; τουρισμός</option>
+                <option value="gymnastirio" data-el="Fitness &amp; αθλητισμός" data-en="Fitness &amp; sports">Fitness &amp; αθλητισμός</option>
+                <option value="skafi" data-el="Ενοικιάσεις &amp; κρατήσεις" data-en="Rentals &amp; bookings">Ενοικιάσεις &amp; κρατήσεις</option>
+                <option value="allo" data-el="Άλλη επιχείρηση" data-en="Other business">Άλλη επιχείρηση</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="calc-missed" data-el="Αναπάντητες κλήσεις / μηνύματα την εβδομάδα" data-en="Missed calls / messages per week">Αναπάντητες κλήσεις / μηνύματα την εβδομάδα</label>
+              <input type="number" id="calc-missed" min="0" step="1" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="calc-value" data-el="Μέση αξία πελάτη (€)" data-en="Average customer value (€)">Μέση αξία πελάτη (€)</label>
+              <input type="number" id="calc-value" min="0" step="5" inputmode="numeric">
+            </div>
+          </div>
+          <div class="calc-result" role="status" aria-live="polite">
+            <span class="calc-amount" id="calc-amount">—</span>
+            <p id="calc-text" data-el="Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας." data-en="Lost revenue per month, based on your numbers.">Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας.</p>
+            <p><strong data-el="Το Desmar ξεκινά από 69 €/μήνα." data-en="Desmar starts at €69/month.">Το Desmar ξεκινά από 69 €/μήνα.</strong></p>
+          </div>
+          <p class="calc-note" data-el="Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά."
+             data-en="Calculation assumption: about 3 in 10 missed contacts would have become customers. The calculation runs on your device — nothing is sent anywhere.">Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά.</p>
+        </div>
+      </div>
+    </section>
+
+    </main>
 
   <footer class="site-footer">
     <div class="container">
