@@ -241,10 +241,6 @@
             <div class="metric-num" data-el="0 quota" data-en="0 quota">0 quota</div>
             <div class="metric-label" data-el="απεριόριστες συνομιλίες" data-en="unlimited conversations">απεριόριστες συνομιλίες</div>
           </div>
-          <div class="metric">
-            <div class="metric-num" data-el="Άνθρωπος" data-en="Human">Άνθρωπος</div>
-            <div class="metric-label" data-el="υποστήριξη, όχι ticket" data-en="support, not tickets">υποστήριξη, όχι ticket</div>
-          </div>
         </div>
       </div>
     </section>
@@ -421,12 +417,12 @@
           var m=msgs[i], bot=m.classList.contains('msg--bot');
           if(bot&&typing){
             typing.hidden=false; down();
-            setTimeout(function(){typing.hidden=true; m.classList.add('msg-in'); down(); i++; setTimeout(next,650);},1000);
+            setTimeout(function(){typing.hidden=true; m.classList.add('msg-in'); down(); i++; setTimeout(next,1050);},1600);
           } else {
-            m.classList.add('msg-in'); down(); i++; setTimeout(next,600);
+            m.classList.add('msg-in'); down(); i++; setTimeout(next,950);
           }
         }
-        setTimeout(next,400);
+        setTimeout(next,650);
       }
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play();}});},{threshold:0.4});
       io.observe(body);
