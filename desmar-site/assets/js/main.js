@@ -138,14 +138,9 @@ function applyLang(lang) {
 }
 
 (function initLangToggle() {
-  const saved = getCookie(CONFIG.LANG_COOKIE);
-   const detected = (navigator.languages || [navigator.language || ""])
-    .some(function (l) { return l && l.toLowerCase().indexOf("el") === 0; }) ? "el" : "en";
-  const initial = saved === "en" || saved === "el" ? saved : detected;
-
-  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
-    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang-btn")));
-  });
+  // Μόνο ελληνικά, χωρίς detection
+  applyLang("el");
+})();
 
   applyLang(initial);
 })();
