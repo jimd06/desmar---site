@@ -142,9 +142,6 @@ function applyLang(lang) {
   applyLang("el");
 })();
 
-  applyLang(initial);
-})();
-
 /* ---------- Βοηθητικά ---------- */
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
