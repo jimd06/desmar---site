@@ -45,6 +45,14 @@
     }
   </style>
   <script src="/assets/js/animations.js"></script>
+  <style>
+    .sector-grid{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .sector-btn{display:flex;flex-direction:column;align-items:center;gap:.6rem;text-decoration:none;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:1.15rem 1.4rem;min-width:128px;color:var(--ink);font-weight:700;font-size:.95rem;box-shadow:var(--shadow-sm);transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, color .18s ease}
+    .sector-btn:hover{border-color:var(--navy);transform:translateY(-4px);box-shadow:0 12px 26px rgba(30,42,85,.15);color:var(--navy)}
+    .sector-ic{width:56px;height:56px;border-radius:14px;background:var(--emerald-soft,#E7EBF6);display:flex;align-items:center;justify-content:center}
+    .sector-pick{margin-top:2.6rem}
+    @media(max-width:600px){.sector-btn{min-width:104px;padding:.9rem 1rem}}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
@@ -104,29 +112,31 @@
           </div>
         </div>
 
-        <p style="text-align:center;color:var(--muted);margin-top:2.2rem" data-el="Εξυπηρετούμε κάθε κλάδο — υγεία, ομορφιά, φιλοξενία, fitness, ενοικιάσεις και πολλά ακόμα."
-           data-en="We serve every industry — health, beauty, hospitality, fitness, rentals and many more.">Εξυπηρετούμε κάθε κλάδο — υγεία, ομορφιά, φιλοξενία, fitness, ενοικιάσεις και πολλά ακόμα.</p>
-        <div style="display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem">
-          <a href="/chatbot-gia-iatreio" style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600">
-            <img src="/assets/img/icon-iatreio.svg" alt="" width="34" height="34">
+        <div class="sector-pick">
+          <p class="eyebrow" style="text-align:center;display:block;margin-bottom:.3rem" data-el="Διαλέξτε τον κλάδο σας" data-en="Pick your industry">Διαλέξτε τον κλάδο σας</p>
+          <p style="text-align:center;color:var(--muted);margin:0 auto 1.4rem;max-width:46ch" data-el="Πατήστε έναν κλάδο για να δείτε το chatbot του σε δράση." data-en="Tap an industry to see its chatbot in action.">Πατήστε έναν κλάδο για να δείτε το chatbot του σε δράση.</p>
+          <div class="sector-grid">
+          <a class="sector-btn" href="/chatbot-gia-iatreio">
+            <span class="sector-ic"><img src="/assets/img/icon-iatreio.svg" alt="" width="40" height="40"></span>
             <span data-el="Υγεία & ευεξία" data-en="Health & wellness">Υγεία & ευεξία</span>
           </a>
-          <a href="/chatbot-gia-kommotirio" style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600">
-            <img src="/assets/img/icon-kommotirio.svg" alt="" width="34" height="34">
+          <a class="sector-btn" href="/chatbot-gia-kommotirio">
+            <span class="sector-ic"><img src="/assets/img/icon-kommotirio.svg" alt="" width="40" height="40"></span>
             <span data-el="Ομορφιά" data-en="Beauty">Ομορφιά</span>
           </a>
-          <a href="/chatbot-gia-xenodocheio" style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600">
-            <img src="/assets/img/icon-xenodocheio.svg" alt="" width="34" height="34">
+          <a class="sector-btn" href="/chatbot-gia-xenodocheio">
+            <span class="sector-ic"><img src="/assets/img/icon-xenodocheio.svg" alt="" width="40" height="40"></span>
             <span data-el="Φιλοξενία" data-en="Hospitality">Φιλοξενία</span>
           </a>
-          <a href="/chatbot-gia-gymnastirio" style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600">
-            <img src="/assets/img/icon-gymnastirio.svg" alt="" width="34" height="34">
+          <a class="sector-btn" href="/chatbot-gia-gymnastirio">
+            <span class="sector-ic"><img src="/assets/img/icon-gymnastirio.svg" alt="" width="40" height="40"></span>
             <span data-el="Fitness" data-en="Fitness">Fitness</span>
           </a>
-          <a href="/chatbot-gia-enoikiaseis" style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600">
-            <img src="/assets/img/icon-skafi.svg" alt="" width="34" height="34">
+          <a class="sector-btn" href="/chatbot-gia-enoikiaseis">
+            <span class="sector-ic"><img src="/assets/img/icon-skafi.svg" alt="" width="40" height="40"></span>
             <span data-el="Ενοικιάσεις" data-en="Rentals">Ενοικιάσεις</span>
           </a>
+          </div>
         </div>
       </div>
     </section>
