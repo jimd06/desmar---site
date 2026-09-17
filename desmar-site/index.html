@@ -71,11 +71,30 @@
     .btn--lg{padding:.9rem 1.9rem;font-size:1.05rem}
     .hero-altlink{color:var(--gold-dark);font-weight:600;text-decoration:none;font-size:.95rem}
     .hero-altlink:hover{text-decoration:underline}
-    .platforms{padding-block:2.6rem;background:var(--bg-soft,#E7ECF7)}
-    .platforms-title{text-align:center;color:var(--muted);font-weight:600;margin:0 auto 1.2rem;max-width:54ch}
-    .platforms-row{display:flex;gap:.7rem 1.7rem;justify-content:center;align-items:center;flex-wrap:wrap}
-    .platforms-row span{color:var(--ink);font-weight:800;font-size:1.05rem;opacity:.5;letter-spacing:.01em}
-    .platforms-row .pmore{opacity:.4;font-weight:600;font-style:italic;font-size:.92rem}
+  </style>
+  <style>
+    .compat-sec{background:var(--bg-soft,#E7ECF7)}
+    .compat{display:flex;align-items:center;justify-content:center;gap:1.4rem;flex-wrap:wrap;max-width:800px;margin:0 auto}
+    .win-dots{display:flex;gap:6px;align-items:center;padding:.55rem .85rem}
+    .win-dots i{width:9px;height:9px;border-radius:50%}
+    .code-card{background:#141c3a;border-radius:14px;overflow:hidden;box-shadow:0 16px 36px rgba(30,42,85,.20);width:352px;max-width:100%}
+    .code-card .win-dots i{background:#4a5578}
+    .code-card pre{margin:0;padding:.4rem 1rem 1.1rem;overflow-x:auto}
+    .code-card code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;line-height:1.5;color:#cdd6ee;white-space:pre}
+    .c-t{color:#7f9cff}.c-a{color:#e0b352}.c-s{color:#7fd1a0}
+    .compat-arrow{width:44px;height:24px;fill:none;stroke:var(--muted);flex-shrink:0}
+    .site-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 16px 36px rgba(30,42,85,.14);width:300px;max-width:100%;border:1px solid var(--line)}
+    .site-card .win-dots{border-bottom:1px solid var(--line)}
+    .site-card .win-dots i{background:#d7deea}
+    .win-url{margin-left:.5rem;font-size:.72rem;color:var(--muted);background:#f1f4fa;padding:.14rem .6rem;border-radius:6px}
+    .site-body{position:relative;padding:1.1rem;min-height:150px;background:linear-gradient(180deg,#fff,#f7f9fd)}
+    .sk{height:9px;border-radius:5px;background:#e6ebf4;margin-bottom:.55rem}
+    .sk-title{height:13px;width:62%;background:#dbe2f0}
+    .sk-short{width:42%}
+    .sk-img{height:54px;border-radius:8px;background:#e9eef7;margin-top:.5rem}
+    .site-launcher{position:absolute;right:.9rem;bottom:.9rem;width:38px;height:38px;border-radius:50%;background:var(--navy);box-shadow:0 6px 16px rgba(30,42,85,.3);display:flex;align-items:center;justify-content:center}
+    .site-launcher svg{fill:#fff;width:18px;height:18px}
+    @media(max-width:560px){.compat-arrow{transform:rotate(90deg)}}
   </style>
 </head>
 <body>
@@ -171,13 +190,28 @@
       </div>
     </div>
 
-    <!-- ============ ΠΛΑΤΦΟΡΜΕΣ ============ -->
-    <section class="platforms">
+    <!-- ============ ΣΥΜΒΑΤΟΤΗΤΑ ============ -->
+    <section class="section compat-sec">
       <div class="container">
-        <p class="platforms-title" data-el="Δουλεύει στο website σας — όποιο κι αν είναι — με μία γραμμή κώδικα." data-en="Works on your website — whatever it is — with one line of code.">Δουλεύει στο website σας — όποιο κι αν είναι — με μία γραμμή κώδικα.</p>
-        <div class="platforms-row">
-          <span>WordPress</span><span>Wix</span><span>Shopify</span><span>Squarespace</span><span>Webflow</span><span>WooCommerce</span>
-          <span class="pmore" data-el="και άλλα" data-en="and more">και άλλα</span>
+        <div class="section-head">
+          <span class="eyebrow" data-el="Συμβατότητα" data-en="Compatibility">Συμβατότητα</span>
+          <h2 data-el="Δουλεύει σε κάθε website" data-en="Works on any website">Δουλεύει σε κάθε website</h2>
+          <p data-el="Μπαίνει σε οποιοδήποτε site με μία γραμμή κώδικα — και το στήνουμε εμείς." data-en="It goes on any site with one line of code — and we set it up.">Μπαίνει σε οποιοδήποτε site με μία γραμμή κώδικα — και το στήνουμε εμείς.</p>
+        </div>
+        <div class="compat">
+          <div class="code-card">
+            <div class="win-dots"><i></i><i></i><i></i></div>
+            <pre><code><span class="c-t">&lt;script</span> <span class="c-a">src</span>=<span class="c-s">"desmar.ai/w.js"</span> <span class="c-a">data-id</span>=<span class="c-s">"you"</span><span class="c-t">&gt;&lt;/script&gt;</span></code></pre>
+          </div>
+          <svg class="compat-arrow" viewBox="0 0 44 24" aria-hidden="true"><path d="M3 12h36m-9-8 9 8-9 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="site-card">
+            <div class="win-dots"><i></i><i></i><i></i><span class="win-url">το site σας</span></div>
+            <div class="site-body">
+              <div class="sk sk-title"></div><div class="sk"></div><div class="sk sk-short"></div>
+              <div class="sk-img"></div>
+              <span class="site-launcher"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
