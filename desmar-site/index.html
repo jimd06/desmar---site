@@ -379,12 +379,12 @@
           var m=msgs[i], bot=m.classList.contains('msg--bot');
           if(bot&&typing){
             typing.hidden=false; down();
-            setTimeout(function(){typing.hidden=true; m.classList.add('msg-in'); down(); i++; setTimeout(next,1050);},1600);
+            setTimeout(function(){typing.hidden=true; m.classList.add('msg-in'); down(); i++; setTimeout(next,2400);},1900);
           } else {
-            m.classList.add('msg-in'); down(); i++; setTimeout(next,950);
+            m.classList.add('msg-in'); down(); i++; setTimeout(next,1600);
           }
         }
-        setTimeout(next,650);
+        setTimeout(next,800);
       }
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play();}});},{threshold:0.4});
       io.observe(body);
