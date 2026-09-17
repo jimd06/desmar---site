@@ -66,6 +66,17 @@
     .final-cta.has-photo-cta::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(18,26,54,.90), rgba(18,26,54,.82));}
     .final-cta.has-photo-cta .container{position:relative;z-index:2}
   </style>
+  <style>
+    .hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;margin-top:.2rem}
+    .btn--lg{padding:.9rem 1.9rem;font-size:1.05rem}
+    .hero-altlink{color:var(--gold-dark);font-weight:600;text-decoration:none;font-size:.95rem}
+    .hero-altlink:hover{text-decoration:underline}
+    .platforms{padding-block:2.6rem;background:var(--bg-soft,#E7ECF7)}
+    .platforms-title{text-align:center;color:var(--muted);font-weight:600;margin:0 auto 1.2rem;max-width:54ch}
+    .platforms-row{display:flex;gap:.7rem 1.7rem;justify-content:center;align-items:center;flex-wrap:wrap}
+    .platforms-row span{color:var(--ink);font-weight:800;font-size:1.05rem;opacity:.5;letter-spacing:.01em}
+    .platforms-row .pmore{opacity:.4;font-weight:600;font-style:italic;font-size:.92rem}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
@@ -107,69 +118,9 @@
              data-en="Desmar designs, builds, and delivers your business's AI chatbot in five days — trained on your business, ready for your customers.">Η Desmar σχεδιάζει, στήνει και παραδίδει το AI chatbot της επιχείρησής σας σε πέντε μέρες — εκπαιδευμένο στην επιχείρησή σας, έτοιμο για τους πελάτες σας.</p>
 
           <p class="hero-trust" style="margin:.2rem 0 1.1rem;font-weight:600;color:var(--ink)" data-el="Από 69 €/μήνα · απεριόριστες συνομιλίες · χωρίς δέσμευση." data-en="From €69/month · unlimited conversations · no commitment.">Από 69 €/μήνα · απεριόριστες συνομιλίες · χωρίς δέσμευση.</p>
-          <div class="form-wrap">
-            <form class="lead-form form-card" novalidate>
-              <h2 data-el="Δωρεάν demo με το δικό σας περιεχόμενο"
-                  data-en="Free demo with your own content">Δωρεάν demo με το δικό σας περιεχόμενο</h2>
-
-              <p class="form-error" role="alert" hidden></p>
-
-              <div class="field">
-                <label for="hero-site"
-                       data-el="Το site της επιχείρησής σας" data-en="Your business website">Το site της επιχείρησής σας</label>
-                <input type="text" id="hero-site" name="site_url" inputmode="url" autocomplete="url"
-                       placeholder="www.example.gr" data-el-ph="www.example.gr" data-en-ph="www.example.com" required>
-              </div>
-              <div class="field">
-                <label for="hero-name"
-                       data-el="Επωνυμία επιχείρησης" data-en="Business name">Επωνυμία επιχείρησης</label>
-                <input type="text" id="hero-name" name="business_name" autocomplete="organization" required>
-              </div>
-              <div class="field">
-                <label for="hero-industry"
-                       data-el="Τύπος επιχείρησης" data-en="Type of business">Τύπος επιχείρησης</label>
-                <select id="hero-industry" name="industry" required>
-                  <option value="" selected disabled
-                          data-el="Επιλέξτε…" data-en="Select…">Επιλέξτε…</option>
-                  <option value="iatreio"     data-el="Υγεία &amp; ευεξία"        data-en="Health &amp; wellness">Υγεία &amp; ευεξία</option>
-                  <option value="kommotirio"  data-el="Ομορφιά &amp; περιποίηση"  data-en="Beauty &amp; care">Ομορφιά &amp; περιποίηση</option>
-                  <option value="xenodocheio" data-el="Φιλοξενία &amp; τουρισμός" data-en="Hospitality &amp; travel">Φιλοξενία &amp; τουρισμός</option>
-                  <option value="gymnastirio" data-el="Fitness &amp; αθλητισμός"  data-en="Fitness &amp; sports">Fitness &amp; αθλητισμός</option>
-                  <option value="skafi"       data-el="Ενοικιάσεις &amp; κρατήσεις" data-en="Rentals &amp; bookings">Ενοικιάσεις &amp; κρατήσεις</option>
-                  <option value="allo"        data-el="Άλλη επιχείρηση"           data-en="Other business">Άλλη επιχείρηση</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="hero-email" data-el="Email" data-en="Email">Email</label>
-                <input type="email" id="hero-email" name="email" autocomplete="email" required>
-              </div>
-              <div class="field field--optional">
-                <label for="hero-phone"
-                       data-el="Τηλέφωνο <span>(προαιρετικό)</span>" data-en="Phone <span>(optional)</span>">Τηλέφωνο <span>(προαιρετικό)</span></label>
-                <input type="tel" id="hero-phone" name="phone" autocomplete="tel">
-              </div>
-
-              <div class="hp" aria-hidden="true">
-                <label for="hero-website">Website</label>
-                <input type="text" id="hero-website" name="website" tabindex="-1" autocomplete="off">
-              </div>
-
-              <button type="submit" class="btn btn--block"
-                      data-el="Φτιάξτε το demo μου δωρεάν" data-en="Build my free demo">Φτιάξτε το demo μου δωρεάν</button>
-              <p class="microcopy"
-                 data-el="Χωρίς κάρτα. Χωρίς εγκατάσταση. Το demo φτιάχνεται αυτόματα από το site σας."
-                 data-en="No card. No setup. The demo is built automatically from your website.">Χωρίς κάρτα. Χωρίς εγκατάσταση. Το demo φτιάχνεται αυτόματα από το site σας.</p>
-            </form>
-
-            <div class="form-success form-card" hidden tabindex="-1">
-              <h3 data-el="Το chatbot σας ετοιμάζεται" data-en="Your chatbot is on its way">Το chatbot σας ετοιμάζεται</h3>
-              <p data-el="Τι γίνεται τώρα:" data-en="What happens now:">Τι γίνεται τώρα:</p>
-              <ol>
-                <li data-el="Διαβάζουμε το site σας" data-en="We read your website">Διαβάζουμε το site σας</li>
-                <li data-el="Εκπαιδεύουμε το chatbot στα δεδομένα σας" data-en="We train the chatbot on your data">Εκπαιδεύουμε το chatbot στα δεδομένα σας</li>
-                <li data-el="Θα λάβετε email με το προσωπικό σας link" data-en="You'll get an email with your personal link">Θα λάβετε email με το προσωπικό σας link</li>
-              </ol>
-            </div>
+          <div class="hero-cta">
+            <a class="btn btn--lg" href="/demos" data-el="Δείτε τα demos" data-en="See the demos">Δείτε τα demos</a>
+            <a class="hero-altlink" href="#cta" data-el="Ή φτιάξτε το δικό σας demo δωρεάν →" data-en="Or build your own free demo →">Ή φτιάξτε το δικό σας demo δωρεάν →</a>
           </div>
         </div>
 
@@ -219,6 +170,17 @@
            data-en="For any business with a website — services, appointments, bookings, customer questions">Για κάθε επιχείρηση με website — υπηρεσίες, ραντεβού, κρατήσεις, ερωτήσεις πελατών</p>
       </div>
     </div>
+
+    <!-- ============ ΠΛΑΤΦΟΡΜΕΣ ============ -->
+    <section class="platforms">
+      <div class="container">
+        <p class="platforms-title" data-el="Δουλεύει στο website σας — όποιο κι αν είναι — με μία γραμμή κώδικα." data-en="Works on your website — whatever it is — with one line of code.">Δουλεύει στο website σας — όποιο κι αν είναι — με μία γραμμή κώδικα.</p>
+        <div class="platforms-row">
+          <span>WordPress</span><span>Wix</span><span>Shopify</span><span>Squarespace</span><span>Webflow</span><span>WooCommerce</span>
+          <span class="pmore" data-el="και άλλα" data-en="and more">και άλλα</span>
+        </div>
+      </div>
+    </section>
 
     <!-- ============ 5. NAVY ΜΠΑΝΤΑ DONE-FOR-YOU ============ -->
     <section class="section section--navy has-photo">
