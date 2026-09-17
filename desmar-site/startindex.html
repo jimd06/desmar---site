@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Desmar — Το chatbot της επιχείρησής σας</title>
+<style>
+  :root{--navy:#1E2A55;--gold:#C4A24A;--gold-dark:#A9862F;--bg:#F2F4FA;--line:#D9DEEA;--ink:#1E2A55;--muted:#5B6472;--white:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding:0 0 4rem}
+  .wrap{max-width:640px;margin:0 auto;padding:0 1.1rem}
+  header{background:var(--navy);color:#fff;padding:2.4rem 0 2rem;text-align:center;background-image:radial-gradient(600px circle at 15% 10%,rgba(196,162,74,.18),transparent 60%)}
+  .brand{font-weight:800;font-size:1.5rem;letter-spacing:.02em;margin:0 0 1rem}
+  header h1{font-size:1.6rem;margin:.3rem auto .5rem;max-width:20ch}
+  header p{color:#D6E0EE;max-width:44ch;margin:0 auto;font-size:.98rem}
+  form{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(30,42,85,.08);padding:1.6rem 1.4rem;margin-top:-1.2rem;position:relative}
+  .sec{margin:1.6rem 0 .4rem}.sec:first-child{margin-top:0}
+  .sec span{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);background:#FBF6E9;padding:.28rem .7rem;border-radius:99px}
+  .field{margin:1.1rem 0}
+  label.q{display:block;font-weight:700;margin-bottom:.45rem;font-size:.98rem}
+  .req{color:var(--gold-dark)}
+  .hint{display:block;font-weight:400;color:var(--muted);font-size:.85rem;margin-top:.15rem}
+  input[type=text],input[type=email],input[type=tel],textarea,select{width:100%;padding:.7rem .85rem;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,42,85,.08)}
+  textarea{min-height:78px;resize:vertical}
+  input[type=file]{width:100%;padding:.55rem;border:1.5px dashed var(--line);border-radius:10px;background:#fafbfe;font-size:.9rem}
+  .src-input{margin-bottom:.5rem}
+  .opt{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .7rem;border:1.5px solid var(--line);border-radius:10px;margin-bottom:.5rem;cursor:pointer;transition:border-color .15s}
+  .opt:hover{border-color:var(--navy)}
+  .opt input{margin-top:.15rem;accent-color:var(--navy);width:18px;height:18px;flex-shrink:0}
+  .opt span{font-size:.95rem}
+  .optline{display:flex;align-items:center;gap:.5rem;margin-top:.55rem;font-size:.92rem;color:var(--muted);cursor:pointer}
+  .optline input{accent-color:var(--navy);width:17px;height:17px}
+  .submit{width:100%;background:var(--gold);color:var(--navy);border:0;border-radius:12px;padding:.95rem;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer;margin-top:1.4rem;transition:background .15s}
+  .submit:hover{background:var(--gold-dark);color:#fff}.submit:disabled{opacity:.6;cursor:default}
+  .micro{text-align:center;color:var(--muted);font-size:.85rem;margin-top:.9rem}
+  .success{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(30,42,85,.08);padding:2.4rem 1.6rem;margin-top:-1.2rem;text-align:center}
+  .success h2{color:var(--navy);margin:.4rem 0}
+  .success .tick{width:56px;height:56px;border-radius:50%;background:#E7EBF6;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+  .success p{color:var(--muted);max-width:40ch;margin:.4rem auto}
+  .err{display:none;color:#b4232a;font-size:.9rem;margin-top:.8rem;text-align:center}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.6rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand">Desmar</div>
+  <h1>Το chatbot της επιχείρησής σας</h1>
+  <p>Συμπληρώστε τα παρακάτω για να φτιάξουμε το AI chatbot σας. Παίρνει 3-5 λεπτά. Τα πεδία με <span class="req">*</span> είναι υποχρεωτικά.</p>
+</div></header>
+
+<div class="wrap">
+  <form id="f" enctype="multipart/form-data">
+    <input type="hidden" name="access_key" value="04695959-be1e-4c33-9bef-e9e9e61eab23">
+    <input type="hidden" name="subject" value="Νέα φόρμα onboarding — Desmar">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+    <div class="sec"><span>Βασικά στοιχεία</span></div>
+
+    <div class="field"><label class="q">Όνομα επιχείρησης <span class="req">*</span></label>
+      <input type="text" name="Όνομα επιχείρησης" required></div>
+    <div class="field"><label class="q">Email επικοινωνίας <span class="req">*</span></label>
+      <input type="email" name="Email" required></div>
+    <div class="field"><label class="q">Κινητό επικοινωνίας <span class="req">*</span></label>
+      <input type="tel" name="Κινητό" required></div>
+
+    <div class="field">
+      <label class="q">Website της επιχείρησής σας <span class="req">*</span>
+        <span class="hint">Η κύρια πηγή γνώσης του bot.</span></label>
+      <input type="text" id="website" name="Website" placeholder="www.example.gr" required>
+      <label class="optline"><input type="checkbox" id="nosite" name="Χωρίς website" value="Ναι"> Δεν έχω website</label>
+      <div id="nosite-extra" style="display:none">
+        <p class="hint" style="margin-top:.5rem">Δεν πειράζει — θα χρησιμοποιήσουμε άλλες πηγές (Facebook, Google Business…).</p>
+        <label class="optline"><input type="checkbox" name="Ενδιαφέρον για ιστοσελίδα" value="Ναι"> Θα με ενδιέφερε να φτιάξω και ιστοσελίδα</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="q">Άλλες πηγές (προαιρετικό)
+        <span class="hint">Ένα link ανά πεδίο: Google Business, Facebook, Instagram, e-shop… (νέο πεδίο εμφανίζεται καθώς συμπληρώνετε).</span></label>
+      <div id="sources">
+        <input type="text" class="src-input" name="Άλλη πηγή 1" placeholder="π.χ. facebook.com/...">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="q">Ανεβάστε αρχεία (προαιρετικό)
+        <span class="hint">Τιμοκατάλογος, PDF, κατάλογος… Μπορείτε να επιλέξετε πάνω από ένα.</span></label>
+      <input type="file" name="attachment" multiple>
+    </div>
+
+    <div class="field"><label class="q">Σε τι είναι φτιαγμένο το site; (προαιρετικό)</label>
+      <select id="platform" name="Πλατφόρμα site">
+        <option value="">Επιλέξτε…</option>
+        <option>WordPress</option><option>Wix</option><option>Shopify</option>
+        <option>Squarespace</option><option>Webflow</option><option value="Άλλο">Άλλο</option><option>Δεν ξέρω</option>
+      </select>
+      <input type="text" id="platform-other" name="Πλατφόρμα (άλλο)" placeholder="Ποια πλατφόρμα;" style="display:none;margin-top:.5rem">
+    </div>
+
+    <div class="sec"><span>Τι κάνει ο βοηθός</span></div>
+
+    <div class="field">
+      <label class="q">Κύριοι στόχοι του bot <span class="req">*</span>
+        <span class="hint">Επιλέξτε όσα ισχύουν.</span></label>
+      <label class="opt"><input type="checkbox" name="Στόχοι" value="Απαντά ερωτήσεις"><span>Απαντά ερωτήσεις</span></label>
+      <label class="opt"><input type="checkbox" name="Στόχοι" value="Κλείνει ραντεβού/κρατήσεις"><span>Κλείνει ραντεβού / κρατήσεις</span></label>
+      <label class="opt"><input type="checkbox" name="Στόχοι" value="Μαζεύει leads"><span>Μαζεύει στοιχεία ενδιαφερομένων (leads)</span></label>
+      <label class="opt"><input type="checkbox" name="Στόχοι" value="Προτείνει υπηρεσίες/προϊόντα"><span>Προτείνει υπηρεσίες / προϊόντα</span></label>
+      <label class="opt"><input type="checkbox" name="Στόχοι" value="Παραπέμπει σε τηλέφωνο"><span>Παραπέμπει σε τηλέφωνο επικοινωνίας</span></label>
+      <label class="opt"><input type="checkbox" id="goal-other" name="Στόχοι" value="Άλλο"><span>Άλλο</span></label>
+      <input type="text" id="goal-other-txt" name="Στόχοι (άλλο)" placeholder="Τι έχετε στο μυαλό σας;" style="display:none;margin-top:.2rem">
+    </div>
+
+    <div class="sec"><span>Ύφος & γλώσσα</span></div>
+
+    <div class="field"><label class="q">Ύφος επικοινωνίας <span class="req">*</span></label>
+      <label class="opt"><input type="radio" name="Ύφος" value="Επίσημο" required><span>Επίσημο</span></label>
+      <label class="opt"><input type="radio" name="Ύφος" value="Φιλικό-επαγγελματικό"><span>Φιλικό-επαγγελματικό</span></label>
+      <label class="opt"><input type="radio" name="Ύφος" value="Χαλαρό"><span>Χαλαρό (με emoji)</span></label>
+    </div>
+    <div class="field"><label class="q">Γλώσσα απαντήσεων <span class="req">*</span></label>
+      <label class="opt"><input type="radio" name="Γλώσσα" value="Ελληνικά" required><span>Ελληνικά</span></label>
+      <label class="opt"><input type="radio" name="Γλώσσα" value="Αγγλικά"><span>Αγγλικά</span></label>
+      <label class="opt"><input type="radio" name="Γλώσσα" value="Αυτόματα"><span>Αυτόματα — στη γλώσσα του κάθε επισκέπτη</span></label>
+    </div>
+    <div class="field"><label class="q">Όνομα για το bot; (προαιρετικό)
+      <span class="hint">π.χ. «Μαρία», «Ψηφιακός βοηθός της [επιχείρηση]».</span></label>
+      <input type="text" name="Όνομα bot"></div>
+
+    <div class="sec"><span>Ειδοποίηση & όρια</span></div>
+
+    <div class="field"><label class="q">Πότε να σας ειδοποιούμε με email να καλέσετε τον πελάτη; (προαιρετικό)</label>
+      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Όταν το ζητήσει ο πελάτης"><span>Όταν το ζητήσει ο πελάτης</span></label>
+      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Όταν αφήσει τηλέφωνο"><span>Όταν αφήσει τηλέφωνο</span></label>
+      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Για παράπονα"><span>Για παράπονα</span></label>
+      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Ποτέ"><span>Ποτέ</span></label>
+    </div>
+    <div class="field"><label class="q">Όταν δεν ξέρει κάτι σχετικό με την επιχείρηση: <span class="req">*</span></label>
+      <label class="opt"><input type="radio" name="Όταν δεν ξέρει" value="Το λέει και παραπέμπει σε εσάς" required><span>Το λέει καθαρά και παραπέμπει σε εσάς</span></label>
+      <label class="opt"><input type="radio" name="Όταν δεν ξέρει" value="Ζητάει στοιχεία να καλέσετε"><span>Ζητάει στοιχεία επικοινωνίας να καλέσετε εσείς</span></label>
+    </div>
+
+    <div class="sec"><span>Τελικά</span></div>
+    <div class="field"><label class="q">Οτιδήποτε άλλο θέλετε να ξέρουμε; (προαιρετικό)</label>
+      <textarea name="Άλλο"></textarea></div>
+
+    <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου</button>
+    <div class="err" id="err">Κάτι πήγε στραβά. Δοκιμάστε ξανά ή στείλτε μας email.</div>
+    <p class="micro">Τα στοιχεία σας χρησιμοποιούνται μόνο για τη δημιουργία του chatbot σας.</p>
+  </form>
+
+  <div class="success" id="ok">
+    <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9 17.5 20 6.5" stroke="#1E2A55" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2>Το λάβαμε!</h2>
+    <p>Ευχαριστούμε. Θα ετοιμάσουμε το AI chatbot σας και θα επικοινωνήσουμε σύντομα στο email που δώσατε.</p>
+  </div>
+  <footer>© 2026 Desmar · AI chatbots, done for you.</footer>
+</div>
+
+<script>
+  // Δυναμικά «άλλες πηγές» — νέο πεδίο όταν συμπληρώνεται το τελευταίο
+  const srcWrap=document.getElementById('sources');
+  srcWrap.addEventListener('input',function(e){
+    const inputs=[...srcWrap.querySelectorAll('input')];
+    const last=inputs[inputs.length-1];
+    if(e.target===last && last.value.trim()!=='' && inputs.length<8){
+      const inp=document.createElement('input');
+      inp.type='text'; inp.className='src-input';
+      inp.name='Άλλη πηγή '+(inputs.length+1);
+      inp.placeholder='π.χ. instagram.com/...';
+      srcWrap.appendChild(inp);
+    }
+  });
+  // «Δεν έχω website»
+  const nosite=document.getElementById('nosite'), website=document.getElementById('website'), extra=document.getElementById('nosite-extra');
+  nosite.addEventListener('change',function(){
+    if(nosite.checked){website.required=false;website.value='';website.placeholder='(δεν έχω website)';website.style.opacity=.5;extra.style.display='block';}
+    else{website.required=true;website.placeholder='www.example.gr';website.style.opacity=1;extra.style.display='none';}
+  });
+  // Πλατφόρμα «Άλλο»
+  const platform=document.getElementById('platform'), pother=document.getElementById('platform-other');
+  platform.addEventListener('change',function(){pother.style.display=platform.value==='Άλλο'?'block':'none';});
+  // Στόχοι «Άλλο»
+  const gother=document.getElementById('goal-other'), gtxt=document.getElementById('goal-other-txt');
+  gother.addEventListener('change',function(){gtxt.style.display=gother.checked?'block':'none';});
+  // Υποβολή
+  const f=document.getElementById('f'), btn=document.getElementById('btn'), err=document.getElementById('err');
+  f.addEventListener('submit',async(e)=>{
+    e.preventDefault();err.style.display='none';btn.disabled=true;btn.textContent='Αποστολή…';
+    try{const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
+      const data=await res.json();
+      if(data.success){f.style.display='none';document.getElementById('ok').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+      else{throw new Error();}
+    }catch(_){err.style.display='block';btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
+  });
+</script>
+</body>
+</html>
