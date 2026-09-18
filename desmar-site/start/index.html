@@ -51,7 +51,7 @@
 </div></header>
 
 <div class="wrap">
-  <form id="f" enctype="multipart/form-data">
+  <form id="f">
     <input type="hidden" name="access_key" value="04695959-be1e-4c33-9bef-e9e9e61eab23">
     <input type="hidden" name="subject" value="Νέα φόρμα onboarding — Desmar">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
@@ -85,9 +85,8 @@
     </div>
 
     <div class="field">
-      <label class="q">Ανεβάστε αρχεία (προαιρετικό)
-        <span class="hint">Τιμοκατάλογος, PDF, κατάλογος… Μπορείτε να επιλέξετε πάνω από ένα.</span></label>
-      <input type="file" name="attachment" multiple>
+      <label class="q">Έχετε κάποιο χρήσιμο αρχείο; (προαιρετικό)
+        <span class="hint">π.χ. τιμοκατάλογο, PDF, κατάλογο υπηρεσιών. Θα σας το ζητήσουμε με email αφού λάβουμε τη φόρμα.</span></label>
     </div>
 
     <div class="field"><label class="q">Σε τι είναι φτιαγμένο το site; (προαιρετικό)</label>
@@ -190,7 +189,6 @@
   function showErr(m){err.textContent=m;err.style.display='block';}
   f.addEventListener('submit',async(e)=>{
     e.preventDefault();err.style.display='none';
-    // Τουλάχιστον ένας στόχος (η ομάδα checkbox δεν ελέγχεται αυτόματα από τον browser)
     if(f.querySelectorAll('input[name="Στόχοι"]:checked').length===0){
       f.querySelector('input[name="Στόχοι"]').closest('.field').scrollIntoView({behavior:'smooth',block:'center'});
       showErr('Επιλέξτε τουλάχιστον έναν στόχο στο «Κύριοι στόχοι του bot».');return;
@@ -200,7 +198,7 @@
       const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
       const data=await res.json();
       if(data.success){f.style.display='none';document.getElementById('ok').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
-      else{showErr('Σφάλμα: '+(data.message||'άγνωστο')+'. Ελέγξτε αν έχει επιβεβαιωθεί το email σας στο Web3Forms.');btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
+      else{showErr('Σφάλμα: '+(data.message||'άγνωστο')+'. Δοκιμάστε ξανά ή στείλτε μας email.');btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
     }catch(_){showErr('Πρόβλημα σύνδεσης. Δοκιμάστε ξανά σε λίγο.');btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
   });
 </script>
