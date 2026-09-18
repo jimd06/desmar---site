@@ -187,13 +187,21 @@
   gother.addEventListener('change',function(){gtxt.style.display=gother.checked?'block':'none';});
   // Υποβολή
   const f=document.getElementById('f'), btn=document.getElementById('btn'), err=document.getElementById('err');
+  function showErr(m){err.textContent=m;err.style.display='block';}
   f.addEventListener('submit',async(e)=>{
-    e.preventDefault();err.style.display='none';btn.disabled=true;btn.textContent='Αποστολή…';
-    try{const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
+    e.preventDefault();err.style.display='none';
+    // Τουλάχιστον ένας στόχος (η ομάδα checkbox δεν ελέγχεται αυτόματα από τον browser)
+    if(f.querySelectorAll('input[name="Στόχοι"]:checked').length===0){
+      f.querySelector('input[name="Στόχοι"]').closest('.field').scrollIntoView({behavior:'smooth',block:'center'});
+      showErr('Επιλέξτε τουλάχιστον έναν στόχο στο «Κύριοι στόχοι του bot».');return;
+    }
+    btn.disabled=true;btn.textContent='Αποστολή…';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
       const data=await res.json();
       if(data.success){f.style.display='none';document.getElementById('ok').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
-      else{throw new Error();}
-    }catch(_){err.style.display='block';btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
+      else{showErr('Σφάλμα: '+(data.message||'άγνωστο')+'. Ελέγξτε αν έχει επιβεβαιωθεί το email σας στο Web3Forms.');btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
+    }catch(_){showErr('Πρόβλημα σύνδεσης. Δοκιμάστε ξανά σε λίγο.');btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
   });
 </script>
 </body>
