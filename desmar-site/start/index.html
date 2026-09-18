@@ -59,20 +59,20 @@
     <div class="sec"><span>Βασικά στοιχεία</span></div>
 
     <div class="field"><label class="q">Όνομα επιχείρησης <span class="req">*</span></label>
-      <input type="text" name="Όνομα επιχείρησης" required></div>
+      <input type="text" name="Business name" required></div>
     <div class="field"><label class="q">Email επικοινωνίας <span class="req">*</span></label>
       <input type="email" name="Email" required></div>
     <div class="field"><label class="q">Κινητό επικοινωνίας <span class="req">*</span></label>
-      <input type="tel" name="Κινητό" required></div>
+      <input type="tel" name="Phone" required></div>
 
     <div class="field">
       <label class="q">Website της επιχείρησής σας <span class="req">*</span>
         <span class="hint">Η κύρια πηγή γνώσης του bot.</span></label>
       <input type="text" id="website" name="Website" placeholder="www.example.gr" required>
-      <label class="optline"><input type="checkbox" id="nosite" name="Χωρίς website" value="Ναι"> Δεν έχω website</label>
+      <label class="optline"><input type="checkbox" id="nosite" name="No website" value="Ναι"> Δεν έχω website</label>
       <div id="nosite-extra" style="display:none">
         <p class="hint" style="margin-top:.5rem">Δεν πειράζει — θα χρησιμοποιήσουμε άλλες πηγές (Facebook, Google Business…).</p>
-        <label class="optline"><input type="checkbox" name="Ενδιαφέρον για ιστοσελίδα" value="Ναι"> Θα με ενδιέφερε να φτιάξω και ιστοσελίδα</label>
+        <label class="optline"><input type="checkbox" name="Wants website too" value="Ναι"> Θα με ενδιέφερε να φτιάξω και ιστοσελίδα</label>
       </div>
     </div>
 
@@ -80,7 +80,7 @@
       <label class="q">Άλλες πηγές (προαιρετικό)
         <span class="hint">Ένα link ανά πεδίο: Google Business, Facebook, Instagram, e-shop… (νέο πεδίο εμφανίζεται καθώς συμπληρώνετε).</span></label>
       <div id="sources">
-        <input type="text" class="src-input" name="Άλλη πηγή 1" placeholder="π.χ. facebook.com/...">
+        <input type="text" class="src-input" name="Other source 1" placeholder="π.χ. facebook.com/...">
       </div>
     </div>
 
@@ -90,12 +90,12 @@
     </div>
 
     <div class="field"><label class="q">Σε τι είναι φτιαγμένο το site; (προαιρετικό)</label>
-      <select id="platform" name="Πλατφόρμα site">
+      <select id="platform" name="Site platform">
         <option value="">Επιλέξτε…</option>
         <option>WordPress</option><option>Wix</option><option>Shopify</option>
         <option>Squarespace</option><option>Webflow</option><option value="Άλλο">Άλλο</option><option>Δεν ξέρω</option>
       </select>
-      <input type="text" id="platform-other" name="Πλατφόρμα (άλλο)" placeholder="Ποια πλατφόρμα;" style="display:none;margin-top:.5rem">
+      <input type="text" id="platform-other" name="Site platform (other)" placeholder="Ποια πλατφόρμα;" style="display:none;margin-top:.5rem">
     </div>
 
     <div class="sec"><span>Τι κάνει ο βοηθός</span></div>
@@ -103,47 +103,47 @@
     <div class="field">
       <label class="q">Κύριοι στόχοι του bot <span class="req">*</span>
         <span class="hint">Επιλέξτε όσα ισχύουν.</span></label>
-      <label class="opt"><input type="checkbox" name="Στόχοι" value="Απαντά ερωτήσεις"><span>Απαντά ερωτήσεις</span></label>
-      <label class="opt"><input type="checkbox" name="Στόχοι" value="Κλείνει ραντεβού/κρατήσεις"><span>Κλείνει ραντεβού / κρατήσεις</span></label>
-      <label class="opt"><input type="checkbox" name="Στόχοι" value="Μαζεύει leads"><span>Μαζεύει στοιχεία ενδιαφερομένων (leads)</span></label>
-      <label class="opt"><input type="checkbox" name="Στόχοι" value="Προτείνει υπηρεσίες/προϊόντα"><span>Προτείνει υπηρεσίες / προϊόντα</span></label>
-      <label class="opt"><input type="checkbox" name="Στόχοι" value="Παραπέμπει σε τηλέφωνο"><span>Παραπέμπει σε τηλέφωνο επικοινωνίας</span></label>
-      <label class="opt"><input type="checkbox" id="goal-other" name="Στόχοι" value="Άλλο"><span>Άλλο</span></label>
-      <input type="text" id="goal-other-txt" name="Στόχοι (άλλο)" placeholder="Τι έχετε στο μυαλό σας;" style="display:none;margin-top:.2rem">
+      <label class="opt"><input type="checkbox" name="Goals" value="Απαντά ερωτήσεις"><span>Απαντά ερωτήσεις</span></label>
+      <label class="opt"><input type="checkbox" name="Goals" value="Κλείνει ραντεβού/κρατήσεις"><span>Κλείνει ραντεβού / κρατήσεις</span></label>
+      <label class="opt"><input type="checkbox" name="Goals" value="Μαζεύει leads"><span>Μαζεύει στοιχεία ενδιαφερομένων (leads)</span></label>
+      <label class="opt"><input type="checkbox" name="Goals" value="Προτείνει υπηρεσίες/προϊόντα"><span>Προτείνει υπηρεσίες / προϊόντα</span></label>
+      <label class="opt"><input type="checkbox" name="Goals" value="Παραπέμπει σε τηλέφωνο"><span>Παραπέμπει σε τηλέφωνο επικοινωνίας</span></label>
+      <label class="opt"><input type="checkbox" id="goal-other" name="Goals" value="Άλλο"><span>Άλλο</span></label>
+      <input type="text" id="goal-other-txt" name="Goals (other)" placeholder="Τι έχετε στο μυαλό σας;" style="display:none;margin-top:.2rem">
     </div>
 
     <div class="sec"><span>Ύφος & γλώσσα</span></div>
 
     <div class="field"><label class="q">Ύφος επικοινωνίας <span class="req">*</span></label>
-      <label class="opt"><input type="radio" name="Ύφος" value="Επίσημο" required><span>Επίσημο</span></label>
-      <label class="opt"><input type="radio" name="Ύφος" value="Φιλικό-επαγγελματικό"><span>Φιλικό-επαγγελματικό</span></label>
-      <label class="opt"><input type="radio" name="Ύφος" value="Χαλαρό"><span>Χαλαρό (με emoji)</span></label>
+      <label class="opt"><input type="radio" name="Tone" value="Επίσημο" required><span>Επίσημο</span></label>
+      <label class="opt"><input type="radio" name="Tone" value="Φιλικό-επαγγελματικό"><span>Φιλικό-επαγγελματικό</span></label>
+      <label class="opt"><input type="radio" name="Tone" value="Χαλαρό"><span>Χαλαρό (με emoji)</span></label>
     </div>
     <div class="field"><label class="q">Γλώσσα απαντήσεων <span class="req">*</span></label>
-      <label class="opt"><input type="radio" name="Γλώσσα" value="Ελληνικά" required><span>Ελληνικά</span></label>
-      <label class="opt"><input type="radio" name="Γλώσσα" value="Αγγλικά"><span>Αγγλικά</span></label>
-      <label class="opt"><input type="radio" name="Γλώσσα" value="Αυτόματα"><span>Αυτόματα — στη γλώσσα του κάθε επισκέπτη</span></label>
+      <label class="opt"><input type="radio" name="Language" value="Ελληνικά" required><span>Ελληνικά</span></label>
+      <label class="opt"><input type="radio" name="Language" value="Αγγλικά"><span>Αγγλικά</span></label>
+      <label class="opt"><input type="radio" name="Language" value="Αυτόματα"><span>Αυτόματα — στη γλώσσα του κάθε επισκέπτη</span></label>
     </div>
     <div class="field"><label class="q">Όνομα για το bot; (προαιρετικό)
       <span class="hint">π.χ. «Μαρία», «Ψηφιακός βοηθός της [επιχείρηση]».</span></label>
-      <input type="text" name="Όνομα bot"></div>
+      <input type="text" name="Bot name"></div>
 
     <div class="sec"><span>Ειδοποίηση & όρια</span></div>
 
     <div class="field"><label class="q">Πότε να σας ειδοποιούμε με email να καλέσετε τον πελάτη; (προαιρετικό)</label>
-      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Όταν το ζητήσει ο πελάτης"><span>Όταν το ζητήσει ο πελάτης</span></label>
-      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Όταν αφήσει τηλέφωνο"><span>Όταν αφήσει τηλέφωνο</span></label>
-      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Για παράπονα"><span>Για παράπονα</span></label>
-      <label class="opt"><input type="checkbox" name="Ειδοποίηση" value="Ποτέ"><span>Ποτέ</span></label>
+      <label class="opt"><input type="checkbox" name="Notify owner when" value="Όταν το ζητήσει ο πελάτης"><span>Όταν το ζητήσει ο πελάτης</span></label>
+      <label class="opt"><input type="checkbox" name="Notify owner when" value="Όταν αφήσει τηλέφωνο"><span>Όταν αφήσει τηλέφωνο</span></label>
+      <label class="opt"><input type="checkbox" name="Notify owner when" value="Για παράπονα"><span>Για παράπονα</span></label>
+      <label class="opt"><input type="checkbox" name="Notify owner when" value="Ποτέ"><span>Ποτέ</span></label>
     </div>
     <div class="field"><label class="q">Όταν δεν ξέρει κάτι σχετικό με την επιχείρηση: <span class="req">*</span></label>
-      <label class="opt"><input type="radio" name="Όταν δεν ξέρει" value="Το λέει και παραπέμπει σε εσάς" required><span>Το λέει καθαρά και παραπέμπει σε εσάς</span></label>
-      <label class="opt"><input type="radio" name="Όταν δεν ξέρει" value="Ζητάει στοιχεία να καλέσετε"><span>Ζητάει στοιχεία επικοινωνίας να καλέσετε εσείς</span></label>
+      <label class="opt"><input type="radio" name="When it does not know" value="Το λέει και παραπέμπει σε εσάς" required><span>Το λέει καθαρά και παραπέμπει σε εσάς</span></label>
+      <label class="opt"><input type="radio" name="When it does not know" value="Ζητάει στοιχεία να καλέσετε"><span>Ζητάει στοιχεία επικοινωνίας να καλέσετε εσείς</span></label>
     </div>
 
     <div class="sec"><span>Τελικά</span></div>
     <div class="field"><label class="q">Οτιδήποτε άλλο θέλετε να ξέρουμε; (προαιρετικό)</label>
-      <textarea name="Άλλο"></textarea></div>
+      <textarea name="Anything else"></textarea></div>
 
     <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου</button>
     <div class="err" id="err">Κάτι πήγε στραβά. Δοκιμάστε ξανά ή στείλτε μας email.</div>
@@ -167,7 +167,7 @@
     if(e.target===last && last.value.trim()!=='' && inputs.length<8){
       const inp=document.createElement('input');
       inp.type='text'; inp.className='src-input';
-      inp.name='Άλλη πηγή '+(inputs.length+1);
+      inp.name='Other source '+(inputs.length+1);
       inp.placeholder='π.χ. instagram.com/...';
       srcWrap.appendChild(inp);
     }
@@ -189,8 +189,8 @@
   function showErr(m){err.textContent=m;err.style.display='block';}
   f.addEventListener('submit',async(e)=>{
     e.preventDefault();err.style.display='none';
-    if(f.querySelectorAll('input[name="Στόχοι"]:checked').length===0){
-      f.querySelector('input[name="Στόχοι"]').closest('.field').scrollIntoView({behavior:'smooth',block:'center'});
+    if(f.querySelectorAll('input[name="Goals"]:checked').length===0){
+      f.querySelector('input[name="Goals"]').closest('.field').scrollIntoView({behavior:'smooth',block:'center'});
       showErr('Επιλέξτε τουλάχιστον έναν στόχο στο «Κύριοι στόχοι του bot».');return;
     }
     btn.disabled=true;btn.textContent='Αποστολή…';
