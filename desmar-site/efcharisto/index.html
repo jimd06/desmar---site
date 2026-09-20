@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ευχαριστούμε — Desmar</title>
+<style>
+  :root{--navy:#1E2A55;--gold:#C4A24A;--gold-dark:#A9862F;--bg:#F2F4FA;--line:#D9DEEA;--ink:#1E2A55;--muted:#5B6472;--white:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;padding:0 0 4rem}
+  .wrap{max-width:600px;margin:0 auto;padding:0 1.1rem}
+  header{background:var(--navy);color:#fff;padding:2.4rem 0 2.4rem;text-align:center;background-image:radial-gradient(600px circle at 15% 10%,rgba(196,162,74,.18),transparent 60%)}
+  .brand{font-weight:800;font-size:1.5rem;letter-spacing:.02em;margin:0}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(30,42,85,.08);padding:2.6rem 1.6rem;margin-top:-1.2rem;text-align:center}
+  .tick{width:64px;height:64px;border-radius:50%;background:#E7F4EC;display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem}
+  h1{color:var(--navy);font-size:1.5rem;margin:.2rem 0 .4rem}
+  .plan-badge{display:inline-block;background:#FBF6E9;color:var(--gold-dark);font-weight:800;font-size:.8rem;letter-spacing:.04em;border-radius:99px;padding:.3rem .8rem;margin:.2rem 0 1rem}
+  p{color:var(--muted);max-width:42ch;margin:.5rem auto}
+  .btn{display:inline-block;background:var(--gold);color:var(--navy);border:0;border-radius:12px;padding:.95rem 1.8rem;font-weight:800;font-size:1.05rem;cursor:pointer;text-decoration:none;margin:1.4rem 0 .4rem;transition:background .15s}
+  .btn:hover{background:var(--gold-dark);color:#fff}
+  .steps{text-align:left;max-width:360px;margin:1.6rem auto 0;padding:0;list-style:none}
+  .steps li{display:flex;gap:.7rem;align-items:flex-start;padding:.5rem 0;color:var(--ink);font-size:.95rem}
+  .steps .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-top:.05rem}
+  .micro{font-size:.85rem;color:var(--muted);margin-top:1.4rem}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.6rem}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">Desmar</div></div></header>
+
+<div class="wrap">
+  <div class="card">
+    <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9 17.5 20 6.5" stroke="#1E7A46" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1>Η πληρωμή ολοκληρώθηκε!</h1>
+    <div class="plan-badge" id="plan-badge" style="display:none"></div>
+    <p>Ευχαριστούμε για την εμπιστοσύνη. Ένα τελευταίο βήμα και ξεκινάμε να στήνουμε το chatbot σας.</p>
+
+    <a class="btn" id="form-link" href="/start">Συμπληρώστε τα στοιχεία του bot →</a>
+
+    <ul class="steps">
+      <li><span class="n">1</span><span>Συμπληρώνετε τη σύντομη φόρμα με τα στοιχεία της επιχείρησής σας.</span></li>
+      <li><span class="n">2</span><span>Στήνουμε και εκπαιδεύουμε το chatbot στο υλικό σας.</span></li>
+      <li><span class="n">3</span><span>Εντός 24 ωρών σας στέλνουμε τη γραμμή κώδικα + οδηγίες για να μπει στο site σας.</span></li>
+    </ul>
+
+    <p class="micro">Λάβατε και email επιβεβαίωσης. Αν έχετε απορία, γράψτε μας στο <a href="mailto:office@desmar.ai" style="color:var(--gold-dark);font-weight:600">office@desmar.ai</a>.</p>
+  </div>
+  <footer>© 2026 Desmar · AI chatbots, done for you.</footer>
+</div>
+
+<script>
+  // Διαβάζει ?plan= από το Stripe redirect και (α) δείχνει το πλάνο (β) το περνάει στη φόρμα
+  (function(){
+    var params=new URLSearchParams(location.search);
+    var plan=(params.get('plan')||'').toLowerCase();
+    var names={vasiko:'Πλάνο: Βασικό',anaptyxi:'Πλάνο: Ανάπτυξη',pro:'Πλάνο: Pro'};
+    var badge=document.getElementById('plan-badge');
+    if(names[plan]){badge.textContent=names[plan];badge.style.display='inline-block';}
+    var link=document.getElementById('form-link');
+    if(plan){link.href='/start?plan='+encodeURIComponent(plan);}
+  })();
+</script>
+</body>
+</html>
