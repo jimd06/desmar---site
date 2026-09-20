@@ -32,13 +32,22 @@
   .opt span{font-size:.95rem}
   .optline{display:flex;align-items:center;gap:.5rem;margin-top:.55rem;font-size:.92rem;color:var(--muted);cursor:pointer}
   .optline input{accent-color:var(--navy);width:17px;height:17px}
+  /* Dropdown (κλειστές ομάδες επιλογών) */
+  .dd{position:relative}
+  .dd-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.7rem .85rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;font:inherit;color:var(--ink);cursor:pointer;text-align:left}
+  .dd-toggle:hover{border-color:var(--navy)}
+  .dd.open .dd-toggle{border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,42,85,.08)}
+  .dd-summary{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dd-summary.empty{color:var(--muted)}
+  .dd-chev{width:16px;height:16px;flex-shrink:0;color:var(--muted);transition:transform .18s}
+  .dd.open .dd-chev{transform:rotate(180deg)}
+  .dd-panel{display:none;margin-top:.55rem}
+  .dd.open .dd-panel{display:block}
+  .dd-panel .opt:last-child{margin-bottom:0}
+  .plan-top{background:#FBF6E9;color:var(--gold-dark);font-weight:800;border-radius:10px;padding:.7rem .9rem;margin:0 0 .2rem;font-size:.95rem}
   .submit{width:100%;background:var(--gold);color:var(--navy);border:0;border-radius:12px;padding:.95rem;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer;margin-top:1.4rem;transition:background .15s}
   .submit:hover{background:var(--gold-dark);color:#fff}.submit:disabled{opacity:.6;cursor:default}
   .micro{text-align:center;color:var(--muted);font-size:.85rem;margin-top:.9rem}
-  .success{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(30,42,85,.08);padding:2.4rem 1.6rem;margin-top:-1.2rem;text-align:center}
-  .success h2{color:var(--navy);margin:.4rem 0}
-  .success .tick{width:56px;height:56px;border-radius:50%;background:#E7EBF6;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
-  .success p{color:var(--muted);max-width:40ch;margin:.4rem auto}
   .err{display:none;color:#b4232a;font-size:.9rem;margin-top:.8rem;text-align:center}
   footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.6rem}
 </style>
@@ -55,6 +64,21 @@
     <input type="hidden" name="access_key" value="04695959-be1e-4c33-9bef-e9e9e61eab23">
     <input type="hidden" name="subject" value="Νέα φόρμα onboarding — Desmar">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="Πλάνο" id="paid-plan">
+
+    <p class="plan-top" id="plan-top" style="display:none"></p>
+
+    <div class="sec" id="plan-sec"><span>Το πλάνο σας</span></div>
+    <div class="field" id="plan-field">
+      <label class="q">Διαλέξτε πλάνο <span class="req">*</span>
+        <span class="hint">Την πληρωμή θα την ολοκληρώσετε στο τέλος, αφού συμπληρώσετε τα στοιχεία.</span></label>
+      <select id="plan-select">
+        <option value="">Επιλέξτε πλάνο…</option>
+        <option value="vasiko">Βασικό — 69 €/μήνα</option>
+        <option value="anaptyxi">Ανάπτυξη — 149 €/μήνα</option>
+        <option value="pro">Pro — 299 €/μήνα</option>
+      </select>
+    </div>
 
     <div class="sec"><span>Βασικά στοιχεία</span></div>
 
@@ -103,26 +127,41 @@
     <div class="field">
       <label class="q">Κύριοι στόχοι του bot <span class="req">*</span>
         <span class="hint">Επιλέξτε όσα ισχύουν.</span></label>
-      <label class="opt"><input type="checkbox" name="Goals" value="Απαντά ερωτήσεις"><span>Απαντά ερωτήσεις</span></label>
-      <label class="opt"><input type="checkbox" name="Goals" value="Κλείνει ραντεβού/κρατήσεις"><span>Κλείνει ραντεβού / κρατήσεις</span></label>
-      <label class="opt"><input type="checkbox" name="Goals" value="Μαζεύει leads"><span>Μαζεύει στοιχεία ενδιαφερομένων (leads)</span></label>
-      <label class="opt"><input type="checkbox" name="Goals" value="Προτείνει υπηρεσίες/προϊόντα"><span>Προτείνει υπηρεσίες / προϊόντα</span></label>
-      <label class="opt"><input type="checkbox" name="Goals" value="Παραπέμπει σε τηλέφωνο"><span>Παραπέμπει σε τηλέφωνο επικοινωνίας</span></label>
-      <label class="opt"><input type="checkbox" id="goal-other" name="Goals" value="Άλλο"><span>Άλλο</span></label>
-      <input type="text" id="goal-other-txt" name="Goals (other)" placeholder="Τι έχετε στο μυαλό σας;" style="display:none;margin-top:.2rem">
+      <div class="dd" data-multi="1">
+        <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-panel">
+          <label class="opt"><input type="checkbox" name="Goals" value="Απαντά ερωτήσεις"><span>Απαντά ερωτήσεις</span></label>
+          <label class="opt"><input type="checkbox" name="Goals" value="Κλείνει ραντεβού/κρατήσεις"><span>Κλείνει ραντεβού / κρατήσεις</span></label>
+          <label class="opt"><input type="checkbox" name="Goals" value="Μαζεύει leads"><span>Μαζεύει στοιχεία ενδιαφερομένων (leads)</span></label>
+          <label class="opt"><input type="checkbox" name="Goals" value="Προτείνει υπηρεσίες/προϊόντα"><span>Προτείνει υπηρεσίες / προϊόντα</span></label>
+          <label class="opt"><input type="checkbox" name="Goals" value="Παραπέμπει σε τηλέφωνο"><span>Παραπέμπει σε τηλέφωνο επικοινωνίας</span></label>
+          <label class="opt"><input type="checkbox" id="goal-other" name="Goals" value="Άλλο"><span>Άλλο</span></label>
+          <input type="text" id="goal-other-txt" name="Goals (other)" placeholder="Τι έχετε στο μυαλό σας;" style="display:none;margin-top:.2rem">
+        </div>
+      </div>
     </div>
 
     <div class="sec"><span>Ύφος & γλώσσα</span></div>
 
     <div class="field"><label class="q">Ύφος επικοινωνίας <span class="req">*</span></label>
-      <label class="opt"><input type="radio" name="Tone" value="Επίσημο" required><span>Επίσημο</span></label>
-      <label class="opt"><input type="radio" name="Tone" value="Φιλικό-επαγγελματικό"><span>Φιλικό-επαγγελματικό</span></label>
-      <label class="opt"><input type="radio" name="Tone" value="Χαλαρό"><span>Χαλαρό (με emoji)</span></label>
+      <div class="dd">
+        <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-panel">
+          <label class="opt"><input type="radio" name="Tone" value="Επίσημο"><span>Επίσημο</span></label>
+          <label class="opt"><input type="radio" name="Tone" value="Φιλικό-επαγγελματικό"><span>Φιλικό-επαγγελματικό</span></label>
+          <label class="opt"><input type="radio" name="Tone" value="Χαλαρό"><span>Χαλαρό (με emoji)</span></label>
+        </div>
+      </div>
     </div>
     <div class="field"><label class="q">Γλώσσα απαντήσεων <span class="req">*</span></label>
-      <label class="opt"><input type="radio" name="Language" value="Ελληνικά" required><span>Ελληνικά</span></label>
-      <label class="opt"><input type="radio" name="Language" value="Αγγλικά"><span>Αγγλικά</span></label>
-      <label class="opt"><input type="radio" name="Language" value="Αυτόματα"><span>Αυτόματα — στη γλώσσα του κάθε επισκέπτη</span></label>
+      <div class="dd">
+        <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-panel">
+          <label class="opt"><input type="radio" name="Language" value="Ελληνικά"><span>Ελληνικά</span></label>
+          <label class="opt"><input type="radio" name="Language" value="Αγγλικά"><span>Αγγλικά</span></label>
+          <label class="opt"><input type="radio" name="Language" value="Αυτόματα"><span>Αυτόματα — στη γλώσσα του κάθε επισκέπτη</span></label>
+        </div>
+      </div>
     </div>
     <div class="field"><label class="q">Όνομα για το bot; (προαιρετικό)
       <span class="hint">π.χ. «Μαρία», «Ψηφιακός βοηθός της [επιχείρηση]».</span></label>
@@ -131,35 +170,48 @@
     <div class="sec"><span>Ειδοποίηση & όρια</span></div>
 
     <div class="field"><label class="q">Πότε να σας ειδοποιούμε με email να καλέσετε τον πελάτη; (προαιρετικό)</label>
-      <label class="opt"><input type="checkbox" name="Notify owner when" value="Όταν το ζητήσει ο πελάτης"><span>Όταν το ζητήσει ο πελάτης</span></label>
-      <label class="opt"><input type="checkbox" name="Notify owner when" value="Όταν αφήσει τηλέφωνο"><span>Όταν αφήσει τηλέφωνο</span></label>
-      <label class="opt"><input type="checkbox" name="Notify owner when" value="Για παράπονα"><span>Για παράπονα</span></label>
-      <label class="opt"><input type="checkbox" name="Notify owner when" value="Ποτέ"><span>Ποτέ</span></label>
+      <div class="dd" data-multi="1">
+        <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-panel">
+          <label class="opt"><input type="checkbox" name="Notify owner when" value="Όταν το ζητήσει ο πελάτης"><span>Όταν το ζητήσει ο πελάτης</span></label>
+          <label class="opt"><input type="checkbox" name="Notify owner when" value="Όταν αφήσει τηλέφωνο"><span>Όταν αφήσει τηλέφωνο</span></label>
+          <label class="opt"><input type="checkbox" name="Notify owner when" value="Για παράπονα"><span>Για παράπονα</span></label>
+          <label class="opt"><input type="checkbox" name="Notify owner when" value="Ποτέ"><span>Ποτέ</span></label>
+        </div>
+      </div>
     </div>
     <div class="field"><label class="q">Όταν δεν ξέρει κάτι σχετικό με την επιχείρηση: <span class="req">*</span></label>
-      <label class="opt"><input type="radio" name="When it does not know" value="Το λέει και παραπέμπει σε εσάς" required><span>Το λέει καθαρά και παραπέμπει σε εσάς</span></label>
-      <label class="opt"><input type="radio" name="When it does not know" value="Ζητάει στοιχεία να καλέσετε"><span>Ζητάει στοιχεία επικοινωνίας να καλέσετε εσείς</span></label>
+      <div class="dd">
+        <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-panel">
+          <label class="opt"><input type="radio" name="When it does not know" value="Το λέει και παραπέμπει σε εσάς"><span>Το λέει καθαρά και παραπέμπει σε εσάς</span></label>
+          <label class="opt"><input type="radio" name="When it does not know" value="Ζητάει στοιχεία να καλέσετε"><span>Ζητάει στοιχεία επικοινωνίας να καλέσετε εσείς</span></label>
+        </div>
+      </div>
     </div>
 
     <div class="sec"><span>Τελικά</span></div>
     <div class="field"><label class="q">Οτιδήποτε άλλο θέλετε να ξέρουμε; (προαιρετικό)</label>
       <textarea name="Anything else"></textarea></div>
 
-    <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου</button>
+    <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου &amp; ολοκλήρωση</button>
     <div class="err" id="err">Κάτι πήγε στραβά. Δοκιμάστε ξανά ή στείλτε μας email.</div>
-    <p class="micro">Τα στοιχεία σας χρησιμοποιούνται μόνο για τη δημιουργία του chatbot σας.</p>
+    <p class="micro">🔒 Επόμενο βήμα: ασφαλής πληρωμή μέσω Stripe. Τα στοιχεία σας χρησιμοποιούνται μόνο για τη δημιουργία του chatbot σας.</p>
   </form>
 
-  <div class="success" id="ok">
-    <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9 17.5 20 6.5" stroke="#1E2A55" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <h2>Το λάβαμε!</h2>
-    <p>Ευχαριστούμε. Θα ετοιμάσουμε το AI chatbot σας και θα επικοινωνήσουμε σύντομα στο email που δώσατε.</p>
-  </div>
   <footer>© 2026 Desmar · AI chatbots, done for you.</footer>
 </div>
 
 <script>
-  // Δυναμικά «άλλες πηγές» — νέο πεδίο όταν συμπληρώνεται το τελευταίο
+  // ——— Config: πλάνο → Stripe Payment Link (SANDBOX· άλλαξέ τα σε live όταν πάμε live) ———
+  var PLAN_LINKS={
+    vasiko:'https://buy.stripe.com/test_00w9AS5O8a9U3jV4cB08g00',
+    anaptyxi:'https://buy.stripe.com/test_eVq00iekEeqa2fRdNb08g01',
+    pro:'https://buy.stripe.com/test_fZudR8dgAgyi6w78sR08g02'
+  };
+  var PLAN_NAMES={vasiko:'Βασικό',anaptyxi:'Ανάπτυξη',pro:'Pro'};
+
+  // Δυναμικά «άλλες πηγές»
   const srcWrap=document.getElementById('sources');
   srcWrap.addEventListener('input',function(e){
     const inputs=[...srcWrap.querySelectorAll('input')];
@@ -184,22 +236,91 @@
   // Στόχοι «Άλλο»
   const gother=document.getElementById('goal-other'), gtxt=document.getElementById('goal-other-txt');
   gother.addEventListener('change',function(){gtxt.style.display=gother.checked?'block':'none';});
-  // Υποβολή
+
+  // ——— Πλάνο: από ?plan (κλειδωμένο) ή από τον επιλογέα ———
+  var planSelect=document.getElementById('plan-select');
+  var paidPlan=document.getElementById('paid-plan');
+  var chosenPlan='';
+  function setPlan(slug){ chosenPlan=slug||''; paidPlan.value=PLAN_NAMES[slug]||''; }
+  planSelect.addEventListener('change',function(){ setPlan(planSelect.value); });
+  (function(){
+    var p=(new URLSearchParams(location.search).get('plan')||'').toLowerCase();
+    if(PLAN_NAMES[p]){
+      setPlan(p); planSelect.value=p;
+      document.getElementById('plan-sec').style.display='none';
+      document.getElementById('plan-field').style.display='none';
+      var top=document.getElementById('plan-top');
+      top.textContent='Πλάνο: '+PLAN_NAMES[p];
+      top.style.display='block';
+    }
+  })();
+
+  // ——— Dropdown ομάδες ———
+  function ddSummary(dd){
+    var summary=dd.querySelector('.dd-summary');
+    var multi=dd.dataset.multi==='1';
+    var checked=[].slice.call(dd.querySelectorAll('input[type=checkbox]:checked,input[type=radio]:checked'));
+    if(checked.length===0){summary.textContent='Επιλέξτε…';summary.classList.add('empty');return;}
+    summary.classList.remove('empty');
+    var labels=checked.map(function(i){var s=i.parentElement.querySelector('span');return s?s.textContent.trim():i.value;});
+    summary.textContent=(multi && labels.length>2) ? (labels.length+' επιλεγμένα') : labels.join(', ');
+  }
+  function ddClose(dd){dd.classList.remove('open');var t=dd.querySelector('.dd-toggle');if(t)t.setAttribute('aria-expanded','false');}
+  document.querySelectorAll('.dd').forEach(function(dd){
+    var toggle=dd.querySelector('.dd-toggle');
+    var multi=dd.dataset.multi==='1';
+    toggle.setAttribute('aria-expanded','false');
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var willOpen=!dd.classList.contains('open');
+      document.querySelectorAll('.dd.open').forEach(ddClose);
+      if(willOpen){dd.classList.add('open');toggle.setAttribute('aria-expanded','true');}
+    });
+    dd.querySelectorAll('input[type=checkbox],input[type=radio]').forEach(function(inp){
+      inp.addEventListener('change',function(){ ddSummary(dd); if(!multi){ddClose(dd);} });
+    });
+  });
+  document.addEventListener('click',function(e){
+    document.querySelectorAll('.dd.open').forEach(function(dd){ if(!dd.contains(e.target)) ddClose(dd); });
+  });
+
+  // ——— Υποβολή: στέλνει στοιχεία → ανακατεύθυνση στην πληρωμή ———
   const f=document.getElementById('f'), btn=document.getElementById('btn'), err=document.getElementById('err');
   function showErr(m){err.textContent=m;err.style.display='block';}
+  function requireGroup(name,msg){
+    if(f.querySelectorAll('input[name="'+name+'"]:checked').length>0) return true;
+    var input=f.querySelector('input[name="'+name+'"]');
+    var dd=input.closest('.dd');
+    if(dd){document.querySelectorAll('.dd.open').forEach(ddClose);dd.classList.add('open');dd.querySelector('.dd-toggle').setAttribute('aria-expanded','true');}
+    (input.closest('.field')||input).scrollIntoView({behavior:'smooth',block:'center'});
+    showErr(msg);
+    return false;
+  }
   f.addEventListener('submit',async(e)=>{
     e.preventDefault();err.style.display='none';
-    if(f.querySelectorAll('input[name="Goals"]:checked').length===0){
-      f.querySelector('input[name="Goals"]').closest('.field').scrollIntoView({behavior:'smooth',block:'center'});
-      showErr('Επιλέξτε τουλάχιστον έναν στόχο στο «Κύριοι στόχοι του bot».');return;
+    if(!chosenPlan){
+      document.getElementById('plan-field').scrollIntoView({behavior:'smooth',block:'center'});
+      showErr('Διαλέξτε πρώτα πλάνο.');return;
     }
+    if(!requireGroup('Goals','Επιλέξτε τουλάχιστον έναν στόχο στο «Κύριοι στόχοι του bot».')) return;
+    if(!requireGroup('Tone','Επιλέξτε ύφος επικοινωνίας.')) return;
+    if(!requireGroup('Language','Επιλέξτε γλώσσα απαντήσεων.')) return;
+    if(!requireGroup('When it does not know','Επιλέξτε τι κάνει το bot όταν δεν ξέρει κάτι.')) return;
     btn.disabled=true;btn.textContent='Αποστολή…';
     try{
       const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
       const data=await res.json();
-      if(data.success){f.style.display='none';document.getElementById('ok').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
-      else{showErr('Σφάλμα: '+(data.message||'άγνωστο')+'. Δοκιμάστε ξανά ή στείλτε μας email.');btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
-    }catch(_){showErr('Πρόβλημα σύνδεσης. Δοκιμάστε ξανά σε λίγο.');btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';}
+      if(data.success){
+        btn.textContent='Μετάβαση στην πληρωμή…';
+        window.location.href=PLAN_LINKS[chosenPlan];
+      } else {
+        showErr('Σφάλμα: '+(data.message||'άγνωστο')+'. Δοκιμάστε ξανά ή στείλτε μας email.');
+        btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου & ολοκλήρωση';
+      }
+    }catch(_){
+      showErr('Πρόβλημα σύνδεσης. Δοκιμάστε ξανά σε λίγο.');
+      btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου & ολοκλήρωση';
+    }
   });
 </script>
 </body>
