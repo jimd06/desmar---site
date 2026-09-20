@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Πλάνο Enterprise — κατά παραγγελία — Desmar</title>
+  <meta name="description" content="Το πλάνο Enterprise της Desmar: ενσωματώσεις με τα συστήματά σας, συγχρονισμός Booking.com/Airbnb, προκαταβολές και custom λειτουργίες, κατά παραγγελία.">
+  <link rel="canonical" href="https://desmar.ai/times/enterprise">
+  <meta name="theme-color" content="#1E2A55">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <link rel="stylesheet" href="/assets/css/sections.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+<style>
+    /* ——— Nav (ίδιο με /times) ——— */
+    .main-nav{display:flex;gap:1.6rem;align-items:center}
+    .main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .18s ease}
+    .main-nav a:hover{color:var(--gold-dark)}
+    .nav-panel{display:contents}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;margin-left:auto}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+    .site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+    .site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
+    .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
+    .footer-links a:hover{color:#fff}
+    @media (max-width:900px){
+      .nav-toggle{display:flex}
+      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
+      .site-header.nav-open .nav-panel{display:flex}
+      .nav-panel .main-nav{flex-direction:column;gap:0;width:100%}
+      .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
+      .nav-panel .header-actions{gap:1rem;padding-top:.7rem;width:100%}
+    }
+
+    /* ——— Plan detail ——— */
+    .plan-breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .plan-breadcrumb a{color:var(--muted);text-decoration:none;font-weight:600}
+    .plan-breadcrumb a:hover{color:var(--gold-dark)}
+    .plan-hero{display:grid;gap:1.6rem;align-items:start}
+    @media(min-width:860px){.plan-hero{grid-template-columns:1fr 1fr;gap:2.4rem}}
+    .plan-price{font-size:clamp(2.6rem,7vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1}
+    .plan-price span{font-size:1rem;font-weight:600;color:var(--muted);letter-spacing:0}
+    .plan-tagline{color:var(--muted);font-size:1.08rem;margin:.5rem 0 1.4rem;max-width:42ch}
+    .plan-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.4rem}
+    .plan-limit{background:var(--emerald-soft);border-left:4px solid var(--emerald);border-radius:10px;padding:1rem 1.2rem;margin-top:1.4rem}
+    .plan-limit strong{color:var(--emerald-dark)}
+    .plan-limit p{margin:0;font-size:.98rem}
+    .feature-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:clamp(1.3rem,3vw,1.8rem)}
+    .feature-card h2{font-size:1.15rem;margin-bottom:1rem}
+    .feature-list{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+    .feature-list li{display:flex;gap:.6rem;align-items:flex-start;font-size:.97rem;padding-block:.5rem;border-top:1px solid var(--line)}
+    .feature-list li:first-child{border-top:0}
+    .feature-list svg{flex:0 0 auto;margin-top:.28rem}
+    .plan-setup{text-align:center;font-size:.95rem;color:var(--muted);margin:1.6rem 0 0}
+    .plan-setup strong{color:var(--emerald-dark)}
+    /* Cross-sell */
+    .plan-more{display:grid;gap:1rem}
+    @media(min-width:720px){.plan-more{grid-template-columns:1fr 1fr}}
+    .plan-more-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem 1.4rem;text-decoration:none;color:var(--ink);transition:border-color .18s ease,box-shadow .18s ease}
+    .plan-more-card:hover{border-color:var(--gold);box-shadow:var(--shadow-sm)}
+    .plan-more-card .pm-name{font-weight:800;font-size:1.05rem}
+    .plan-more-card .pm-price{color:var(--muted);font-weight:600;margin:.15rem 0 .5rem}
+    .plan-more-card .pm-desc{color:var(--muted);font-size:.92rem;margin:0}
+    .plan-more-card .pm-go{margin-top:.9rem;color:var(--gold-dark);font-weight:700;font-size:.92rem}
+  </style>
+  <style>
+    .plan-wip{display:inline-block;background:var(--gold);color:#1E2A55;font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:.28em .9em;margin-bottom:.9rem}
+    .plan-price--req{font-size:clamp(1.8rem,5vw,2.4rem)}
+  </style>
+  <script src="/assets/js/animations.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Desmar"><img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27"></a>
+      <button class="nav-toggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-panel">
+        <nav class="main-nav" aria-label="Κύριο μενού">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" aria-current="page" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="FAQ" data-en="FAQ">FAQ</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" data-el-aria="Επιλογή γλώσσας" data-en-aria="Language selector" aria-label="Επιλογή γλώσσας">
+            <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="true">ΕΛ</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn--sm" href="/#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section">
+      <div class="container">
+        <p class="plan-breadcrumb">
+          <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+          <span aria-hidden="true">›</span>
+          <span data-el="Enterprise" data-en="Enterprise">Enterprise</span>
+        </p>
+
+        <div class="plan-hero">
+          <div>
+            <span class="plan-wip" data-el="Υπό διαμόρφωση" data-en="In the works">Υπό διαμόρφωση</span>
+            <span class="eyebrow" data-el="Πλάνο" data-en="Plan">Πλάνο</span>
+            <h1 data-el="Enterprise" data-en="Enterprise">Enterprise</h1>
+            <div class="plan-price plan-price--req" data-el="Κατά παραγγελία" data-en="On request">Κατά παραγγελία</div>
+            <p class="plan-tagline" data-el="Για σύνθετες ανάγκες: συνδέουμε το chatbot με τα δικά σας συστήματα και χτίζουμε ό,τι χρειάζεστε, κατά παραγγελία."
+               data-en="For complex needs: we connect the chatbot to your own systems and build whatever you need, to order.">Για σύνθετες ανάγκες: συνδέουμε το chatbot με τα δικά σας συστήματα και χτίζουμε ό,τι χρειάζεστε, κατά παραγγελία.</p>
+            <div class="plan-cta">
+              <a class="btn" href="/epikoinonia" data-el="Επικοινωνήστε μαζί μας" data-en="Get in touch">Επικοινωνήστε μαζί μας</a>
+              <a class="btn-ghost" href="/times" data-el="Σύγκριση πλάνων" data-en="Compare plans">Σύγκριση πλάνων</a>
+            </div>
+            <div class="plan-limit">
+              <p data-el="Οι δυνατότητες αυτές <strong>χτίζονται όταν ζητηθούν</strong>, με εφάπαξ κόστος υλοποίησης. Τιμή και όρια διαμορφώνονται ανά επιχείρηση."
+                 data-en="These capabilities are <strong>built when requested</strong>, with a one-time implementation fee. Price and limits are shaped per business.">Οι δυνατότητες αυτές <strong>χτίζονται όταν ζητηθούν</strong>, με εφάπαξ κόστος υλοποίησης. Τιμή και όρια διαμορφώνονται ανά επιχείρηση.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h2 data-el="Τι μπορεί να περιλαμβάνει" data-en="What it can include">Τι μπορεί να περιλαμβάνει</h2>
+            <p style="color:var(--muted);font-size:.92rem;margin:-.2rem 0 .8rem" data-el="Όλα του Pro, και επιπλέον — κατά παραγγελία:" data-en="Everything in Pro, plus — to order:">Όλα του Pro, και επιπλέον — κατά παραγγελία:</p>
+            <ul class="feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Σύνδεση με τα δικά σας συστήματα (CRM, πρόγραμμα κρατήσεων κ.λπ.)" data-en="Integration with your own systems (CRM, booking software, etc.)">Σύνδεση με τα δικά σας συστήματα (CRM, πρόγραμμα κρατήσεων κ.λπ.)</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Συγχρονισμός διαθεσιμότητας με Booking.com / Airbnb" data-en="Availability sync with Booking.com / Airbnb">Συγχρονισμός διαθεσιμότητας με Booking.com / Airbnb</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Προκαταβολή / πληρωμή κατά την κράτηση" data-en="Deposit / payment at the time of booking">Προκαταβολή / πληρωμή κατά την κράτηση</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="AI απαντήσεις στα email της επιχείρησης" data-en="AI replies for your business email">AI απαντήσεις στα email της επιχείρησης</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Προσαρμοσμένες λειτουργίες κατά παραγγελία" data-en="Custom features built to order">Προσαρμοσμένες λειτουργίες κατά παραγγελία</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Πλάνα" data-en="Plans">Πλάνα</span>
+          <h2 data-el="Δείτε και τα υπόλοιπα πλάνα" data-en="See the other plans">Δείτε και τα υπόλοιπα πλάνα</h2>
+        </div>
+        <div class="plan-more">
+          <a class="plan-more-card" href="/times/pro">
+            <span class="pm-name" data-el="Pro" data-en="Pro">Pro</span>
+            <span class="pm-price">299 € <span data-el="/ μήνα" data-en="/ month">/ μήνα</span></span>
+            <p class="pm-desc" data-el="Ολοκληρωμένο κέντρο διαχείρισης, ζωντανή συνομιλία, AI σύμβουλος, χωρίς «Powered by Desmar»." data-en="Full management center, live agent handoff, AI advisor, no “Powered by Desmar”.">Ολοκληρωμένο κέντρο διαχείρισης, ζωντανή συνομιλία, AI σύμβουλος, χωρίς «Powered by Desmar».</p>
+            <span class="pm-go" data-el="Δείτε αναλυτικά →" data-en="See details →">Δείτε αναλυτικά →</span>
+          </a>
+          <a class="plan-more-card" href="/times/anaptyxi">
+            <span class="pm-name" data-el="Ανάπτυξη" data-en="Growth">Ανάπτυξη</span>
+            <span class="pm-price">149 € <span data-el="/ μήνα" data-en="/ month">/ μήνα</span></span>
+            <p class="pm-desc" data-el="Google Calendar, υπενθυμίσεις SMS, αυτόματες κριτικές Google, έξυπνη αξιολόγηση leads." data-en="Google Calendar, SMS reminders, automatic Google reviews, smart lead scoring.">Google Calendar, υπενθυμίσεις SMS, αυτόματες κριτικές Google, έξυπνη αξιολόγηση leads.</p>
+            <span class="pm-go" data-el="Δείτε αναλυτικά →" data-en="See details →">Δείτε αναλυτικά →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--navy">
+      <div class="container" style="text-align:center">
+        <h2 style="color:#fff" data-el="Έχετε σύνθετη ανάγκη; Ας τη δούμε μαζί." data-en="Got a complex need? Let's look at it together.">Έχετε σύνθετη ανάγκη; Ας τη δούμε μαζί.</h2>
+        <p style="color:rgba(255,255,255,.85);max-width:52ch;margin:0 auto 1.6rem" data-el="Πείτε μας τι συστήματα χρησιμοποιείτε και τι θέλετε να αυτοματοποιήσετε — θα σας πούμε τι γίνεται και πώς."
+           data-en="Tell us what systems you use and what you want to automate — we'll tell you what's possible and how.">Πείτε μας τι συστήματα χρησιμοποιείτε και τι θέλετε να αυτοματοποιήσετε — θα σας πούμε τι γίνεται και πώς.</p>
+        <a class="btn" href="/epikoinonia" data-el="Επικοινωνήστε μαζί μας" data-en="Get in touch">Επικοινωνήστε μαζί μας</a>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p style="width:100%;font-weight:600;margin:0 0 .4rem" data-el="AI chatbots, done for you." data-en="AI chatbots, done for you.">AI chatbots, done for you.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
+        <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>
+        <a href="/terms" data-el="Όροι χρήσης" data-en="Terms">Όροι χρήσης</a>
+      </nav>
+      <img src="/assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
+      <p data-el="© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website." data-en="© 2026 Desmar. AI chatbot for any business with a website.">© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
+    if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
+</body>
+</html>
