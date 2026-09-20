@@ -138,8 +138,23 @@ function applyLang(lang) {
 }
 
 (function initLangToggle() {
-  // Μόνο ελληνικά, χωρίς detection
-  applyLang("el");
+  // Αρχική γλώσσα: (1) αποθηκευμένη επιλογή του επισκέπτη → (2) γλώσσα του browser → (3) ελληνικά
+  const saved = getCookie(CONFIG.LANG_COOKIE);
+  let initial;
+  if (saved === "el" || saved === "en") {
+    initial = saved;
+  } else {
+    const nav = (navigator.language || navigator.userLanguage || CONFIG.DEFAULT_LANG).toLowerCase();
+    initial = nav.indexOf("el") === 0 ? "el" : "en";
+  }
+  applyLang(initial);
+
+  // Ζωντανεύουμε τα κουμπιά ΕΛ / ΕΝ σε όλο το site
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      applyLang(btn.getAttribute("data-lang-btn"));
+    });
+  });
 })();
 
 /* ---------- Βοηθητικά ---------- */
