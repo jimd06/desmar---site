@@ -29,12 +29,18 @@
     .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
     .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
     .footer-links a:hover{color:#fff}
-    .legal{max-width:760px;margin:0 auto}
-    .legal h3{margin:1.6rem 0 .5rem;font-size:1.15rem}
-    .legal p{color:var(--muted);margin:.4rem 0}
-    .legal a{color:var(--gold-dark)}
     .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
     .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
+    /* --- contact form additions --- */
+    .field textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;min-height:130px;resize:vertical;transition:border-color .18s ease,box-shadow .18s ease}
+    .field textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(196,162,74,.18)}
+    .field input[type=file]{width:100%;font:inherit;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:10px;padding:.6rem .7rem;cursor:pointer}
+    .field input[type=file]::file-selector-button{font:inherit;font-weight:600;color:var(--navy);background:#F2F4FA;border:1px solid var(--line);border-radius:8px;padding:.4rem .7rem;margin-right:.7rem;cursor:pointer}
+    .field-hint{display:block;font-size:.82rem;color:var(--muted);margin-top:.3rem}
+    .field--check{display:flex;align-items:flex-start;gap:.6rem;margin:.2rem 0 1rem}
+    .field--check input{margin-top:.2rem;width:18px;height:18px;flex:0 0 auto;accent-color:var(--gold-dark)}
+    .field--check label{font-size:.9rem;color:var(--muted);font-weight:500}
+    .field--check a{color:var(--gold-dark);font-weight:600}
     @media (max-width:900px){
       .nav-toggle{display:flex}
       .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
@@ -80,32 +86,55 @@
         <div class="section-head">
           <span class="eyebrow" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</span>
           <h2 data-el="Μιλήστε μαζί μας" data-en="Get in touch">Μιλήστε μαζί μας</h2>
-          <p data-el="Έχετε ερώτηση ή θέλετε το δωρεάν demo σας; Επικοινωνήστε απευθείας ή συμπληρώστε τη φόρμα — απαντάμε γρήγορα."
-             data-en="Have a question or want your free demo? Contact us directly or fill in the form — we reply fast.">Έχετε ερώτηση ή θέλετε το δωρεάν demo σας; Επικοινωνήστε απευθείας ή συμπληρώστε τη φόρμα — απαντάμε γρήγορα.</p>
+          <p data-el="Έχετε ερώτηση, πρόταση ή θέλετε το δωρεάν demo σας; Γράψτε μας — απαντάμε γρήγορα."
+             data-en="Have a question, an idea, or want your free demo? Write to us — we reply fast.">Έχετε ερώτηση, πρόταση ή θέλετε το δωρεάν demo σας; Γράψτε μας — απαντάμε γρήγορα.</p>
         </div>
         <p class="contact-info">
           <span data-el="Email:" data-en="Email:">Email:</span> <a href="mailto:office@desmar.ai">office@desmar.ai</a><br>
           <span data-el="Τηλέφωνο:" data-en="Phone:">Τηλέφωνο:</span> <a href="tel:+306943061339">+30 694 306 1339</a>
         </p>
         <div class="form-wrap">
-          <form class="lead-form form-card" novalidate>
-            <h3 data-el="Δωρεάν demo με το δικό σας περιεχόμενο" data-en="Free demo with your own content">Δωρεάν demo με το δικό σας περιεχόμενο</h3>
+          <form id="contact-form" class="form-card" novalidate>
+            <h3 data-el="Στείλτε μας μήνυμα" data-en="Send us a message">Στείλτε μας μήνυμα</h3>
             <p class="form-error" role="alert" hidden></p>
-            <div class="field"><label for="ct-site" data-el="Το site της επιχείρησής σας" data-en="Your business website">Το site της επιχείρησής σας</label>
-              <input type="text" id="ct-site" name="site_url" inputmode="url" autocomplete="url" placeholder="www.example.gr" data-el-ph="www.example.gr" data-en-ph="www.example.com" required></div>
-            <div class="field"><label for="ct-name" data-el="Επωνυμία επιχείρησης" data-en="Business name">Επωνυμία επιχείρησης</label>
-              <input type="text" id="ct-name" name="business_name" autocomplete="organization" required></div>
+
+            <input type="hidden" name="access_key" value="04695959-be1e-4c33-9bef-e9e9e61eab23">
+            <input type="hidden" name="subject" value="Νέο μήνυμα επικοινωνίας — desmar.ai">
+            <input type="hidden" name="from_name" value="Φόρμα επικοινωνίας Desmar">
+
+            <div class="field"><label for="ct-name" data-el="Ονοματεπώνυμο" data-en="Full name">Ονοματεπώνυμο</label>
+              <input type="text" id="ct-name" name="name" autocomplete="name" required></div>
+
             <div class="field"><label for="ct-email" data-el="Email" data-en="Email">Email</label>
               <input type="email" id="ct-email" name="email" autocomplete="email" required></div>
+
             <div class="field field--optional"><label for="ct-phone" data-el="Τηλέφωνο <span>(προαιρετικό)</span>" data-en="Phone <span>(optional)</span>">Τηλέφωνο <span>(προαιρετικό)</span></label>
               <input type="tel" id="ct-phone" name="phone" autocomplete="tel"></div>
-            <div class="hp" aria-hidden="true"><label for="ct-website">Website</label><input type="text" id="ct-website" name="website" tabindex="-1" autocomplete="off"></div>
-            <button type="submit" class="btn btn--block" data-el="Στείλτε το αίτημά μου" data-en="Send my request">Στείλτε το αίτημά μου</button>
-            <p class="microcopy" data-el="Χωρίς κάρτα. Χωρίς εγκατάσταση." data-en="No card. No setup.">Χωρίς κάρτα. Χωρίς εγκατάσταση.</p>
+
+            <div class="field field--optional"><label for="ct-business" data-el="Επιχείρηση ή website <span>(προαιρετικό)</span>" data-en="Business or website <span>(optional)</span>">Επιχείρηση ή website <span>(προαιρετικό)</span></label>
+              <input type="text" id="ct-business" name="business" autocomplete="organization" placeholder="www.example.gr" data-el-ph="π.χ. Καφέ Ακρόπολις — www.example.gr" data-en-ph="e.g. Acropolis Café — www.example.com"></div>
+
+            <div class="field"><label for="ct-message" data-el="Το μήνυμά σας" data-en="Your message">Το μήνυμά σας</label>
+              <textarea id="ct-message" name="message" required data-el-ph="Πείτε μας λίγα λόγια για την επιχείρησή σας ή την ερώτησή σας…" data-en-ph="Tell us a bit about your business or your question…" placeholder="Πείτε μας λίγα λόγια για την επιχείρησή σας ή την ερώτησή σας…"></textarea></div>
+
+            <div class="field field--optional"><label for="ct-file" data-el="Επισύναψη αρχείου <span>(προαιρετικό)</span>" data-en="Attach a file <span>(optional)</span>">Επισύναψη αρχείου <span>(προαιρετικό)</span></label>
+              <input type="file" id="ct-file" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp">
+              <span class="field-hint" data-el="PDF, Word ή εικόνα — έως 5MB." data-en="PDF, Word or image — up to 5MB.">PDF, Word ή εικόνα — έως 5MB.</span></div>
+
+            <!-- honeypot -->
+            <div class="hp" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0"><label for="ct-website">Website</label><input type="text" id="ct-website" name="botcheck" tabindex="-1" autocomplete="off"></div>
+
+            <div class="field--check">
+              <input type="checkbox" id="ct-gdpr" name="gdpr" required>
+              <label for="ct-gdpr" data-el="Συμφωνώ με την επεξεργασία των στοιχείων μου σύμφωνα με την <a href='/privacy'>Πολιτική Απορρήτου</a>." data-en="I agree to the processing of my details per the <a href='/privacy'>Privacy Policy</a>.">Συμφωνώ με την επεξεργασία των στοιχείων μου σύμφωνα με την <a href="/privacy">Πολιτική Απορρήτου</a>.</label>
+            </div>
+
+            <button type="submit" class="btn btn--block" data-el="Στείλτε το μήνυμα" data-en="Send message">Στείλτε το μήνυμα</button>
+            <p class="microcopy" data-el="Απαντάμε συνήθως εντός λίγων ωρών." data-en="We usually reply within a few hours.">Απαντάμε συνήθως εντός λίγων ωρών.</p>
           </form>
           <div class="form-success form-card" hidden tabindex="-1">
             <h3 data-el="Το λάβαμε!" data-en="Got it!">Το λάβαμε!</h3>
-            <p data-el="Θα επικοινωνήσουμε σύντομα μαζί σας." data-en="We'll be in touch shortly.">Θα επικοινωνήσουμε σύντομα μαζί σας.</p>
+            <p data-el="Ευχαριστούμε — θα επικοινωνήσουμε σύντομα μαζί σας." data-en="Thank you — we'll be in touch shortly.">Ευχαριστούμε — θα επικοινωνήσουμε σύντομα μαζί σας.</p>
           </div>
         </div>
       </div>
@@ -134,6 +163,60 @@
   <script>
     (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
     if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+
+  <script>
+    /* Contact form → Web3Forms (AJAX, supports file attachment) */
+    (function(){
+      var form=document.getElementById('contact-form');
+      if(!form)return;
+      var errBox=form.querySelector('.form-error');
+      var successCard=document.querySelector('.form-success');
+      var MAX=5*1024*1024; // 5MB
+
+      function showErr(msg){errBox.textContent=msg;errBox.hidden=false;}
+      function clearErr(){errBox.hidden=true;}
+
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        clearErr();
+        if(form.botcheck && form.botcheck.value){return;} // honeypot
+
+        var isEN=document.documentElement.getAttribute('data-lang')==='en';
+        // basic validation
+        if(!form.name.value.trim()||!form.email.value.trim()||!form.message.value.trim()){
+          showErr(isEN?'Please fill in name, email and message.':'Συμπληρώστε όνομα, email και μήνυμα.');return;
+        }
+        if(!form.gdpr.checked){
+          showErr(isEN?'Please accept the Privacy Policy.':'Παρακαλώ αποδεχτείτε την Πολιτική Απορρήτου.');return;
+        }
+        var file=form.attachment.files[0];
+        if(file && file.size>MAX){
+          showErr(isEN?'The file is larger than 5MB.':'Το αρχείο ξεπερνά τα 5MB.');return;
+        }
+
+        var btn=form.querySelector('button[type=submit]');
+        var oldTxt=btn.textContent;
+        btn.disabled=true;btn.textContent=isEN?'Sending…':'Αποστολή…';
+
+        var data=new FormData(form);
+        fetch('https://api.web3forms.com/submit',{method:'POST',body:data})
+          .then(function(r){return r.json();})
+          .then(function(json){
+            if(json.success){
+              form.hidden=true;
+              if(successCard){successCard.hidden=false;successCard.focus();}
+            }else{
+              showErr(isEN?'Something went wrong. Please email us at office@desmar.ai.':'Κάτι πήγε στραβά. Στείλτε μας email στο office@desmar.ai.');
+              btn.disabled=false;btn.textContent=oldTxt;
+            }
+          })
+          .catch(function(){
+            showErr(isEN?'Network error. Please email us at office@desmar.ai.':'Σφάλμα δικτύου. Στείλτε μας email στο office@desmar.ai.');
+            btn.disabled=false;btn.textContent=oldTxt;
+          });
+      });
+    })();
   </script>
   <script src="/assets/js/main.js"></script>
   <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
