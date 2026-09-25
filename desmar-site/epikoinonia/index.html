@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Επικοινωνία — Desmar</title>
-  <meta name="description" content="Επικοινωνήστε με το Desmar: office@desmar.ai, +30 694 306 1339.">
+  <meta name="description" content="Επικοινωνήστε με τη Desmar: office@desmar.ai, +30 694 306 1339.">
   <link rel="canonical" href="https://desmar.ai/epikoinonia">
   <meta name="theme-color" content="#1E2A55">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -41,6 +41,13 @@
     .field--check input{margin-top:.2rem;width:18px;height:18px;flex:0 0 auto;accent-color:var(--gold-dark)}
     .field--check label{font-size:.9rem;color:var(--muted);font-weight:500}
     .field--check a{color:var(--gold-dark);font-weight:600}
+    /* --- founder / about --- */
+    .founder-card{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.8rem;display:flex;gap:1.4rem;align-items:flex-start;box-shadow:0 10px 30px rgba(30,42,85,.06)}
+    .founder-photo{flex:0 0 auto;width:96px;height:96px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,#1E2A55,#141c3a);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:800;font-size:1.7rem;letter-spacing:.02em;border:2px solid var(--gold)}
+    .founder-body h3{margin:.1rem 0 .1rem;color:var(--navy);font-size:1.2rem}
+    .founder-role{color:var(--gold-dark);font-weight:700;font-size:.9rem;margin:0 0 .6rem}
+    .founder-body p{color:var(--muted);line-height:1.6;margin:.4rem 0}
+    @media (max-width:560px){.founder-card{flex-direction:column;align-items:center;text-align:center}}
     @media (max-width:900px){
       .nav-toggle{display:flex}
       .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
@@ -135,6 +142,29 @@
           <div class="form-success form-card" hidden tabindex="-1">
             <h3 data-el="Το λάβαμε!" data-en="Got it!">Το λάβαμε!</h3>
             <p data-el="Ευχαριστούμε — θα επικοινωνήσουμε σύντομα μαζί σας." data-en="Thank you — we'll be in touch shortly.">Ευχαριστούμε — θα επικοινωνήσουμε σύντομα μαζί σας.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Ποιοι είμαστε ============ -->
+    <section class="section section--soft" id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Ποιοι είμαστε" data-en="Who we are">Ποιοι είμαστε</span>
+          <h2 data-el="Ένας άνθρωπος, όχι μια απρόσωπη πλατφόρμα" data-en="A real person, not a faceless platform">Ένας άνθρωπος, όχι μια απρόσωπη πλατφόρμα</h2>
+        </div>
+        <div class="founder-card">
+          <!-- Για πραγματική φωτογραφία: αντικατέστησε το <div class="founder-photo">…</div> με:
+               <img class="founder-photo" src="/assets/img/founder.jpg" alt="Δημήτριος Σταππας Μαριολάκος" width="96" height="96"> -->
+          <div class="founder-photo" aria-hidden="true">DΣ</div>
+          <div class="founder-body">
+            <h3 data-el="Δημήτριος Σταππας Μαριολάκος" data-en="Dimitrios Stappas Mariolakos">Δημήτριος Σταππας Μαριολάκος</h3>
+            <p class="founder-role" data-el="Ιδρυτής, Desmar" data-en="Founder, Desmar">Ιδρυτής, Desmar</p>
+            <p data-el="Ξεκίνησα τη Desmar με μια απλή ιδέα: κάθε μικρή και μεσαία επιχείρηση με website αξίζει έναν έξυπνο βοηθό που απαντά στους πελάτες της 24/7 — χωρίς περίπλοκα εργαλεία και χωρίς τεχνικό πονοκέφαλο."
+               data-en="I started Desmar with a simple idea: every small and mid-sized business with a website deserves a smart assistant that answers its customers 24/7 — with no complicated tools and no technical headaches.">Ξεκίνησα τη Desmar με μια απλή ιδέα: κάθε μικρή και μεσαία επιχείρηση με website αξίζει έναν έξυπνο βοηθό που απαντά στους πελάτες της 24/7 — χωρίς περίπλοκα εργαλεία και χωρίς τεχνικό πονοκέφαλο.</p>
+            <p data-el="Στήνω, εκπαιδεύω και ελέγχω κάθε chatbot προσωπικά, με το υλικό της δικής σας επιχείρησης. Αν μου γράψετε, με εμένα μιλάτε — όχι με ένα τμήμα υποστήριξης."
+               data-en="I set up, train and test every chatbot personally, using your own business's material. If you write to us, you're talking to me — not to a support department.">Στήνω, εκπαιδεύω και ελέγχω κάθε chatbot προσωπικά, με το υλικό της δικής σας επιχείρησης. Αν μου γράψετε, με εμένα μιλάτε — όχι με ένα τμήμα υποστήριξης.</p>
           </div>
         </div>
       </div>
