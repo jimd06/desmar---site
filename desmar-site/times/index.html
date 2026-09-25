@@ -44,6 +44,14 @@
     .enterprise-strip .es-title{font-weight:800;font-size:1.05rem}
     .enterprise-strip .es-title span{color:var(--muted);font-weight:600;font-size:.92rem;margin-left:.5rem}
     .enterprise-strip .es-desc{color:var(--muted);font-size:.93rem;margin:.25rem 0 0}
+    /* Πιλοτικό banner */
+    .pilot-banner{max-width:840px;margin:0 auto 2.4rem;background:linear-gradient(135deg,#1E2A55,#141c3a);color:#fff;border-radius:18px;padding:2rem 1.7rem;text-align:center;box-shadow:0 16px 40px rgba(30,42,85,.18);position:relative;overflow:hidden}
+    .pilot-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(620px circle at 18% 0%,rgba(196,162,74,.22),transparent 60%);pointer-events:none}
+    .pilot-badge{display:inline-block;background:var(--gold);color:#1a1400;font-weight:800;font-size:.8rem;letter-spacing:.03em;border-radius:99px;padding:.35rem .95rem;margin-bottom:.85rem;position:relative}
+    .pilot-banner h3{color:#fff;font-size:1.55rem;margin:.1rem 0 .6rem;position:relative}
+    .pilot-banner p{color:#D7DEEE;max-width:62ch;margin:0 auto 1.3rem;position:relative;font-size:1rem}
+    .pilot-banner .btn{position:relative}
+    .pilot-note{display:block;color:#AEB8D0;font-size:.85rem;margin-top:.9rem;position:relative}
     @media (max-width:900px){
       .nav-toggle{display:flex}
       .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
@@ -91,6 +99,16 @@
           <span class="eyebrow" data-el="Τιμές" data-en="Pricing">Τιμές</span>
           <h2 data-el="Απλή μηνιαία συνδρομή. Χωρίς εκπλήξεις."
               data-en="Simple monthly subscription. No surprises.">Απλή μηνιαία συνδρομή. Χωρίς εκπλήξεις.</h2>
+        </div>
+
+        <!-- ΠΙΛΟΤΙΚΟ ΠΡΟΓΡΑΜΜΑ -->
+        <div class="pilot-banner">
+          <span class="pilot-badge" data-el="Πιλοτικό πρόγραμμα" data-en="Pilot program">Πιλοτικό πρόγραμμα</span>
+          <h3 data-el="Δωρεάν στην πιλοτική φάση" data-en="Free during the pilot phase">Δωρεάν στην πιλοτική φάση</h3>
+          <p data-el="Η Desmar βρίσκεται σε πιλοτική φάση, πριν την επίσημη έναρξη που αναμένεται εντός του 2027. Οι πρώτοι συνεργάτες συμμετέχουν στο πιλοτικό πρόγραμμα και χρησιμοποιούν το chatbot τους δωρεάν — χωρίς κάρτα, χωρίς δέσμευση. Τα παρακάτω πλάνα και οι τιμές τους θα ισχύσουν με την επίσημη έναρξη."
+             data-en="Desmar is in a pilot phase, ahead of its official launch expected within 2027. Our first partners take part in the pilot program and use their chatbot for free — no card, no commitment. The plans and prices below will apply at the official launch.">Η Desmar βρίσκεται σε πιλοτική φάση, πριν την επίσημη έναρξη που αναμένεται εντός του 2027. Οι πρώτοι συνεργάτες συμμετέχουν στο πιλοτικό πρόγραμμα και χρησιμοποιούν το chatbot τους δωρεάν — χωρίς κάρτα, χωρίς δέσμευση. Τα παρακάτω πλάνα και οι τιμές τους θα ισχύσουν με την επίσημη έναρξη.</p>
+          <a class="btn btn--lg" href="/#demo" data-el="Μπες στο πιλοτικό — δωρεάν" data-en="Join the pilot — free">Μπες στο πιλοτικό — δωρεάν</a>
+          <span class="pilot-note" data-el="Περιορισμένες θέσεις για την πιλοτική φάση." data-en="Limited spots for the pilot phase.">Περιορισμένες θέσεις για την πιλοτική φάση.</span>
         </div>
 
         <div class="pricing-grid">
@@ -211,7 +229,7 @@
           <div class="calc-result" role="status" aria-live="polite">
             <span class="calc-amount" id="calc-amount">—</span>
             <p id="calc-text" data-el="Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας." data-en="Lost revenue per month, based on your numbers.">Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας.</p>
-            <p><strong data-el="Το Desmar ξεκινά από 69 €/μήνα." data-en="Desmar starts at €69/month.">Το Desmar ξεκινά από 69 €/μήνα.</strong></p>
+            <p><strong data-el="Η Desmar ξεκινά από 69 €/μήνα." data-en="Desmar starts at €69/month.">Η Desmar ξεκινά από 69 €/μήνα.</strong></p>
           </div>
           <p class="calc-note" data-el="Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά."
              data-en="Calculation assumption: about 3 in 10 missed contacts would have become customers. The calculation runs on your device — nothing is sent anywhere.">Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά.</p>
