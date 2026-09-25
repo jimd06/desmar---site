@@ -14,6 +14,7 @@
   .brand{font-weight:800;font-size:1.5rem;letter-spacing:.02em;margin:0 0 1rem}
   header h1{font-size:1.6rem;margin:.3rem auto .5rem;max-width:20ch}
   header p{color:#D6E0EE;max-width:44ch;margin:0 auto;font-size:.98rem}
+  .pilot-tag{display:inline-block;background:var(--gold);color:#1a1400;font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:.3rem .8rem;margin-bottom:.7rem}
   form{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(30,42,85,.08);padding:1.6rem 1.4rem;margin-top:-1.2rem;position:relative}
   .sec{margin:1.6rem 0 .4rem}.sec:first-child{margin-top:0}
   .sec span{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);background:#FBF6E9;padding:.28rem .7rem;border-radius:99px}
@@ -49,20 +50,25 @@
   .submit:hover{background:var(--gold-dark);color:#fff}.submit:disabled{opacity:.6;cursor:default}
   .micro{text-align:center;color:var(--muted);font-size:.85rem;margin-top:.9rem}
   .err{display:none;color:#b4232a;font-size:.9rem;margin-top:.8rem;text-align:center}
+  .done{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(30,42,85,.08);padding:2.4rem 1.6rem;margin-top:-1.2rem;text-align:center}
+  .done .tick{width:60px;height:60px;border-radius:50%;background:#E7F4EC;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+  .done h2{color:var(--navy);font-size:1.4rem;margin:.2rem 0 .5rem}
+  .done p{color:var(--muted);max-width:46ch;margin:.5rem auto}
   footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.6rem}
 </style>
 </head>
 <body>
 <header><div class="wrap">
   <div class="brand">Desmar</div>
+  <span class="pilot-tag">Πιλοτικό πρόγραμμα · Δωρεάν</span>
   <h1>Το chatbot της επιχείρησής σας</h1>
-  <p>Συμπληρώστε τα παρακάτω για να φτιάξουμε το AI chatbot σας. Παίρνει 3-5 λεπτά. Τα πεδία με <span class="req">*</span> είναι υποχρεωτικά.</p>
+  <p>Συμπληρώστε τα παρακάτω για να φτιάξουμε το AI chatbot σας. Παίρνει 3-5 λεπτά. Στην πιλοτική φάση είναι εντελώς δωρεάν — χωρίς κάρτα, χωρίς δέσμευση. Τα πεδία με <span class="req">*</span> είναι υποχρεωτικά.</p>
 </div></header>
 
 <div class="wrap">
   <form id="f">
     <input type="hidden" name="access_key" value="04695959-be1e-4c33-9bef-e9e9e61eab23">
-    <input type="hidden" name="subject" value="Νέα φόρμα onboarding — Desmar">
+    <input type="hidden" name="subject" value="Νέα εγγραφή πιλοτικού — Desmar">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
     <input type="hidden" name="Πλάνο" id="paid-plan">
 
@@ -70,13 +76,13 @@
 
     <div class="sec" id="plan-sec"><span>Το πλάνο σας</span></div>
     <div class="field" id="plan-field">
-      <label class="q">Διαλέξτε πλάνο <span class="req">*</span>
-        <span class="hint">Την πληρωμή θα την ολοκληρώσετε στο τέλος, αφού συμπληρώσετε τα στοιχεία.</span></label>
+      <label class="q">Ποιο πλάνο σας ενδιαφέρει; <span class="req">*</span>
+        <span class="hint">Στην πιλοτική φάση το χρησιμοποιείτε δωρεάν. Οι τιμές ισχύουν με την επίσημη έναρξη (εντός 2027).</span></label>
       <select id="plan-select">
         <option value="">Επιλέξτε πλάνο…</option>
-        <option value="vasiko">Βασικό — 69 €/μήνα</option>
-        <option value="anaptyxi">Ανάπτυξη — 149 €/μήνα</option>
-        <option value="pro">Pro — 299 €/μήνα</option>
+        <option value="vasiko">Βασικό — 69 €/μήνα (μετά την πιλοτική)</option>
+        <option value="anaptyxi">Ανάπτυξη — 149 €/μήνα (μετά την πιλοτική)</option>
+        <option value="pro">Pro — 299 €/μήνα (μετά την πιλοτική)</option>
       </select>
     </div>
 
@@ -149,7 +155,7 @@
         <div class="dd-panel">
           <label class="opt"><input type="radio" name="Tone" value="Επίσημο"><span>Επίσημο</span></label>
           <label class="opt"><input type="radio" name="Tone" value="Φιλικό-επαγγελματικό"><span>Φιλικό-επαγγελματικό</span></label>
-          <label class="opt"><input type="radio" name="Tone" value="Χαλαρό"><span>Χαλαρό (με emoji)</span></label>
+          <label class="opt"><input type="radio" name="Tone" value="Χαλαρό"><span>Χαλαρό</span></label>
         </div>
       </div>
     </div>
@@ -194,22 +200,25 @@
     <div class="field"><label class="q">Οτιδήποτε άλλο θέλετε να ξέρουμε; (προαιρετικό)</label>
       <textarea name="Anything else"></textarea></div>
 
-    <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου &amp; ολοκλήρωση</button>
+    <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου</button>
     <div class="err" id="err">Κάτι πήγε στραβά. Δοκιμάστε ξανά ή στείλτε μας email.</div>
-    <p class="micro">🔒 Επόμενο βήμα: ασφαλής πληρωμή μέσω Stripe. Τα στοιχεία σας χρησιμοποιούνται μόνο για τη δημιουργία του chatbot σας.</p>
+    <p class="micro">Στην πιλοτική φάση δεν υπάρχει καμία χρέωση. Τα στοιχεία σας χρησιμοποιούνται μόνο για τη δημιουργία του chatbot σας.</p>
   </form>
+
+  <div class="done" id="done" style="display:none" tabindex="-1">
+    <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9 17.5 20 6.5" stroke="#1E7A46" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2>Λάβαμε τα στοιχεία σας!</h2>
+    <p>Ξεκινάμε το πιλοτικό σας chatbot — εντελώς <strong>δωρεάν</strong>, χωρίς δέσμευση. Θα επικοινωνήσουμε σύντομα και θα σας το παραδώσουμε <strong>εντός 48 ωρών</strong>.</p>
+    <p style="font-size:.9rem">Οποιαδήποτε απορία: <a href="mailto:office@desmar.ai" style="color:var(--gold-dark);font-weight:600">office@desmar.ai</a></p>
+  </div>
 
   <footer>© 2026 Desmar · AI chatbots, done for you.</footer>
 </div>
 
 <script>
-  // ——— Config: πλάνο → Stripe Payment Link (SANDBOX· άλλαξέ τα σε live όταν πάμε live) ———
-  var PLAN_LINKS={
-    vasiko:'https://buy.stripe.com/test_00w9AS5O8a9U3jV4cB08g00',
-    anaptyxi:'https://buy.stripe.com/test_eVq00iekEeqa2fRdNb08g01',
-    pro:'https://buy.stripe.com/test_fZudR8dgAgyi6w78sR08g02'
-  };
   var PLAN_NAMES={vasiko:'Βασικό',anaptyxi:'Ανάπτυξη',pro:'Pro'};
+  // Σημ.: στην πιλοτική φάση ΔΕΝ υπάρχει πληρωμή. Με την επίσημη έναρξη (2027) θα ξαναμπεί
+  // ανακατεύθυνση σε Stripe Payment Link ανά πλάνο εδώ.
 
   // Δυναμικά «άλλες πηγές»
   const srcWrap=document.getElementById('sources');
@@ -250,7 +259,7 @@
       document.getElementById('plan-sec').style.display='none';
       document.getElementById('plan-field').style.display='none';
       var top=document.getElementById('plan-top');
-      top.textContent='Πλάνο: '+PLAN_NAMES[p];
+      top.textContent='Πλάνο που σας ενδιαφέρει: '+PLAN_NAMES[p]+' · Δωρεάν στην πιλοτική φάση';
       top.style.display='block';
     }
   })();
@@ -284,7 +293,7 @@
     document.querySelectorAll('.dd.open').forEach(function(dd){ if(!dd.contains(e.target)) ddClose(dd); });
   });
 
-  // ——— Υποβολή: στέλνει στοιχεία → ανακατεύθυνση στην πληρωμή ———
+  // ——— Υποβολή: στέλνει στοιχεία → μήνυμα επιτυχίας (ΧΩΡΙΣ πληρωμή στην πιλοτική φάση) ———
   const f=document.getElementById('f'), btn=document.getElementById('btn'), err=document.getElementById('err');
   function showErr(m){err.textContent=m;err.style.display='block';}
   function requireGroup(name,msg){
@@ -311,15 +320,18 @@
       const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
       const data=await res.json();
       if(data.success){
-        btn.textContent='Μετάβαση στην πληρωμή…';
-        window.location.href=PLAN_LINKS[chosenPlan];
+        f.style.display='none';
+        var done=document.getElementById('done');
+        done.style.display='block';
+        window.scrollTo({top:0,behavior:'smooth'});
+        done.focus();
       } else {
         showErr('Σφάλμα: '+(data.message||'άγνωστο')+'. Δοκιμάστε ξανά ή στείλτε μας email.');
-        btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου & ολοκλήρωση';
+        btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';
       }
     }catch(_){
       showErr('Πρόβλημα σύνδεσης. Δοκιμάστε ξανά σε λίγο.');
-      btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου & ολοκλήρωση';
+      btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';
     }
   });
 </script>
