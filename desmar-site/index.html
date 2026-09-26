@@ -302,6 +302,28 @@
       </div>
     </section>
 
+    <!-- ============ 8b. ΛΩΡΙΔΑ POSITIONING ============ -->
+    <section class="section" id="edge">
+      <style>
+        #edge{background:linear-gradient(135deg,#1E2A55,#141c3a);position:relative;overflow:hidden}
+        #edge::before{content:"";position:absolute;inset:0;background:radial-gradient(720px circle at 15% 0%,rgba(196,162,74,.20),transparent 60%);pointer-events:none}
+        #edge .container{position:relative;z-index:1;text-align:center}
+        #edge .pos-eyebrow{color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.10em;text-transform:uppercase;margin-bottom:1rem}
+        #edge .pos-head{color:#fff;font-size:2.4rem;line-height:1.1;margin:0 auto .9rem;max-width:16ch;letter-spacing:-.01em}
+        #edge .pos-sub{color:#D7DEEE;max-width:60ch;margin:0 auto 1.4rem;font-size:1.08rem;line-height:1.55}
+        #edge .pos-kicker{display:inline-block;color:var(--gold);font-weight:800;font-size:1.05rem;border-top:1px solid rgba(196,162,74,.35);padding-top:1.1rem;margin:.2rem 0 1.6rem}
+        @media (max-width:640px){#edge .pos-head{font-size:1.8rem}}
+      </style>
+      <div class="container">
+        <div class="pos-eyebrow" data-el="ΤΟ ΠΛΕΟΝΕΚΤΗΜΑ ΣΑΣ" data-en="YOUR EDGE">ΤΟ ΠΛΕΟΝΕΚΤΗΜΑ ΣΑΣ</div>
+        <h2 class="pos-head">A step beyond the competition.</h2>
+        <p class="pos-sub" data-el="Ενώ οι ανταγωνιστές σας αφήνουν τους πελάτες να περιμένουν, η δική σας επιχείρηση απαντά πρώτη — 24/7, έτοιμη σε 48 ώρες."
+           data-en="While your competitors leave customers waiting, your business answers first — 24/7, live in 48 hours.">Ενώ οι ανταγωνιστές σας αφήνουν τους πελάτες να περιμένουν, η δική σας επιχείρηση απαντά πρώτη — 24/7, έτοιμη σε 48 ώρες.</p>
+        <span class="pos-kicker">Answer first. Win the customer.</span>
+        <p><a class="btn btn--lg" href="#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a></p>
+      </div>
+    </section>
+
 <!-- ============ 11. ΤΕΛΙΚΟ CTA ============ -->
     <section class="section section--emerald final-cta has-photo-cta" id="demo">
       <div class="container">
@@ -435,4 +457,3 @@
   </script>
 </body>
 </html>
-
