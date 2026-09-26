@@ -387,13 +387,14 @@
           </form>
 
           <div class="form-success form-card" hidden tabindex="-1">
-            <h3 data-el="Το chatbot σας ετοιμάζεται" data-en="Your chatbot is on its way">Το chatbot σας ετοιμάζεται</h3>
-            <p data-el="Τι γίνεται τώρα:" data-en="What happens now:">Τι γίνεται τώρα:</p>
+            <h3 data-el="Ευχαριστούμε — το demo σας ξεκίνησε!" data-en="Thank you — your demo has started!">Ευχαριστούμε — το demo σας ξεκίνησε!</h3>
+            <p data-el="Το φτιάχνουμε αυτόματα από το περιεχόμενο του site σας. Να τι ακολουθεί:" data-en="We're building it automatically from your website's content. Here's what happens next:">Το φτιάχνουμε αυτόματα από το περιεχόμενο του site σας. Να τι ακολουθεί:</p>
             <ol>
-              <li data-el="Διαβάζουμε το site σας" data-en="We read your website">Διαβάζουμε το site σας</li>
-              <li data-el="Εκπαιδεύουμε το chatbot στα δεδομένα σας" data-en="We train the chatbot on your data">Εκπαιδεύουμε το chatbot στα δεδομένα σας</li>
-              <li data-el="Θα λάβετε email με το προσωπικό σας link" data-en="You'll get an email with your personal link">Θα λάβετε email με το προσωπικό σας link</li>
+              <li data-el="Διαβάζουμε το site σας <em>(ξεκίνησε ήδη)</em>" data-en="We read your website <em>(already started)</em>">Διαβάζουμε το site σας <em>(ξεκίνησε ήδη)</em></li>
+              <li data-el="Εκπαιδεύουμε το chatbot στα δικά σας δεδομένα και το ελέγχουμε" data-en="We train the chatbot on your own data and test it">Εκπαιδεύουμε το chatbot στα δικά σας δεδομένα και το ελέγχουμε</li>
+              <li data-el="Σας στέλνουμε email με το προσωπικό σας link — συνήθως εντός λίγων ωρών, το πολύ σε 48 ώρες" data-en="We email you your personal link — usually within a few hours, at most within 48 hours">Σας στέλνουμε email με το προσωπικό σας link — συνήθως εντός λίγων ωρών, το πολύ σε 48 ώρες</li>
             </ol>
+            <p class="microcopy" data-el="Δωρεάν στην πιλοτική φάση — χωρίς κάρτα, χωρίς δέσμευση. Εν τω μεταξύ, <a href='/demos'>δείτε τα demos μας →</a>" data-en="Free during the pilot phase — no card, no commitment. Meanwhile, <a href='/demos'>see our demos →</a>">Δωρεάν στην πιλοτική φάση — χωρίς κάρτα, χωρίς δέσμευση. Εν τω μεταξύ, <a href="/demos">δείτε τα demos μας →</a></p>
           </div>
         </div>
       </div>
@@ -445,16 +446,4 @@
             m.classList.add('msg-in'); down(); i++; setTimeout(next,4000);
           }
         }
-        setTimeout(next,800);
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play();}});},{threshold:0.4});
-      io.observe(body);
-    })();
-  </script>
-  <script src="/assets/js/main.js"></script>
-  <script src="https://core-chatbot-platform.onrender.com/widget.js" data-client-id="desmar" async></script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"Desmar","url":"https://desmar.ai","logo":"https://desmar.ai/apple-touch-icon.png","description":"Done-for-you AI chatbots for businesses, trained on your own content and delivered within 48 hours.","email":"office@desmar.ai","telephone":"+306943061339","contactPoint":{"@type":"ContactPoint","email":"office@desmar.ai","telephone":"+30-694-306-1339","contactType":"sales"}}
-  </script>
-</body>
-</html>
+        setTi
