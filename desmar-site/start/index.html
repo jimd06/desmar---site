@@ -33,6 +33,7 @@
   .opt span{font-size:.95rem}
   .optline{display:flex;align-items:center;gap:.5rem;margin-top:.55rem;font-size:.92rem;color:var(--muted);cursor:pointer}
   .optline input{accent-color:var(--navy);width:17px;height:17px}
+  .subbox{border-left:3px solid var(--gold);background:#FBFBFD;border-radius:0 10px 10px 0;padding:.2rem 1rem .2rem 1rem;margin:.4rem 0}
   /* Dropdown (κλειστές ομάδες επιλογών) */
   .dd{position:relative}
   .dd-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.7rem .85rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;font:inherit;color:var(--ink);cursor:pointer;text-align:left}
@@ -90,6 +91,7 @@
 
     <div class="field"><label class="q">Όνομα επιχείρησης <span class="req">*</span></label>
       <input type="text" name="Business name" required></div>
+
     <div class="field"><label class="q">Email επικοινωνίας <span class="req">*</span></label>
       <input type="email" name="Email" required></div>
     <div class="field"><label class="q">Κινητό επικοινωνίας <span class="req">*</span></label>
@@ -137,13 +139,32 @@
         <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="dd-panel">
           <label class="opt"><input type="checkbox" name="Goals" value="Απαντά ερωτήσεις"><span>Απαντά ερωτήσεις</span></label>
-          <label class="opt"><input type="checkbox" name="Goals" value="Κλείνει ραντεβού/κρατήσεις"><span>Κλείνει ραντεβού / κρατήσεις</span></label>
+          <label class="opt"><input type="checkbox" id="goal-booking" name="Goals" value="Κλείνει ραντεβού/κρατήσεις"><span>Κλείνει ραντεβού / κρατήσεις</span></label>
           <label class="opt"><input type="checkbox" name="Goals" value="Μαζεύει leads"><span>Μαζεύει στοιχεία ενδιαφερομένων (leads)</span></label>
           <label class="opt"><input type="checkbox" name="Goals" value="Προτείνει υπηρεσίες/προϊόντα"><span>Προτείνει υπηρεσίες / προϊόντα</span></label>
           <label class="opt"><input type="checkbox" name="Goals" value="Παραπέμπει σε τηλέφωνο"><span>Παραπέμπει σε τηλέφωνο επικοινωνίας</span></label>
           <label class="opt"><input type="checkbox" id="goal-other" name="Goals" value="Άλλο"><span>Άλλο</span></label>
           <input type="text" id="goal-other-txt" name="Goals (other)" placeholder="Τι έχετε στο μυαλό σας;" style="display:none;margin-top:.2rem">
         </div>
+      </div>
+    </div>
+
+    <!-- Λεπτομέρειες κρατήσεων — εμφανίζεται μόνο αν επιλεγεί «Κλείνει ραντεβού/κρατήσεις» -->
+    <div id="booking-sec" style="display:none">
+      <div class="sec"><span>Λεπτομέρειες κρατήσεων</span></div>
+      <div class="subbox">
+        <div class="field"><label class="q">Τι κλείνει ο πελάτης;
+          <span class="hint">π.χ. ραντεβού, τραπέζι, δωμάτιο, δοκιμαστικό μάθημα.</span></label>
+          <input type="text" name="Booking what" placeholder="π.χ. ραντεβού"></div>
+        <div class="field"><label class="q">Ωράριο / πρόγραμμα ωρών
+          <span class="hint">π.χ. Δευ-Παρ 09:00-21:00, ή συγκεκριμένες ώρες μαθημάτων.</span></label>
+          <input type="text" name="Booking schedule" placeholder="π.χ. Δευ-Παρ 9-21, Σάβ 9-15"></div>
+        <div class="field"><label class="q">Πόσα άτομα ανά ώρα; (χωρητικότητα)
+          <span class="hint">π.χ. 1 ραντεβού τη φορά, ή 3 άτομα/ώρα.</span></label>
+          <input type="text" name="Booking capacity" placeholder="π.χ. 1"></div>
+        <div class="field"><label class="q">Διάρκεια κάθε κράτησης
+          <span class="hint">π.χ. 30 λεπτά, 1 ώρα.</span></label>
+          <input type="text" name="Booking duration" placeholder="π.χ. 1 ώρα"></div>
       </div>
     </div>
 
@@ -172,8 +193,31 @@
     <div class="field"><label class="q">Όνομα για το bot; (προαιρετικό)
       <span class="hint">π.χ. «Μαρία», «Ψηφιακός βοηθός της [επιχείρηση]».</span></label>
       <input type="text" name="Bot name"></div>
+    <div class="field"><label class="q">Χρώμα / brand (προαιρετικό)
+      <span class="hint">Παίρνουμε αυτόματα τα χρώματα του site σας. Αν θέλετε συγκεκριμένο χρώμα, γράψτε το.</span></label>
+      <input type="text" name="Brand color" placeholder="π.χ. #1E2A55 ή «σκούρο μπλε»"></div>
 
-    <div class="sec"><span>Ειδοποίηση & όρια</span></div>
+    <div class="sec"><span>Περιεχόμενο &amp; κανόνες</span></div>
+    <div class="field"><label class="q">Βασικές πληροφορίες που πρέπει να ξέρει (προαιρετικό)
+      <span class="hint">Υπηρεσίες, τιμές, ωράρια, πολιτικές — ή αφήστε το, τα διαβάζουμε από το site σας.</span></label>
+      <textarea name="Key info"></textarea></div>
+    <div class="field"><label class="q">Τι να ΜΗΝ λέει / να αποφεύγει; (προαιρετικό)
+      <span class="hint">π.χ. να μη δίνει εκπτώσεις, να μην κάνει ιατρικές συμβουλές, να μη μιλά για ανταγωνιστές.</span></label>
+      <textarea name="Do not say"></textarea></div>
+
+    <div class="sec"><span>Δεδομένα, ειδοποίηση &amp; όρια</span></div>
+
+    <div class="field"><label class="q">Πού θέλετε να καταλήγουν κρατήσεις &amp; leads; (προαιρετικό)
+      <span class="hint">Πάντα σας έρχονται με email. Επιπλέον, προαιρετικά, τα περνάμε αυτόματα και εδώ (το ρυθμίζουμε μαζί σας στο στήσιμο).</span></label>
+      <div class="dd" data-multi="1">
+        <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-panel">
+          <label class="opt"><input type="checkbox" name="Data destinations" value="Μόνο email"><span>Μόνο email (προεπιλογή)</span></label>
+          <label class="opt"><input type="checkbox" name="Data destinations" value="Google Sheet"><span>Google Sheet</span></label>
+          <label class="opt"><input type="checkbox" name="Data destinations" value="Excel σε OneDrive"><span>Excel σε OneDrive</span></label>
+        </div>
+      </div>
+    </div>
 
     <div class="field"><label class="q">Πότε να σας ειδοποιούμε με email να καλέσετε τον πελάτη; (προαιρετικό)</label>
       <div class="dd" data-multi="1">
@@ -245,6 +289,9 @@
   // Στόχοι «Άλλο»
   const gother=document.getElementById('goal-other'), gtxt=document.getElementById('goal-other-txt');
   gother.addEventListener('change',function(){gtxt.style.display=gother.checked?'block':'none';});
+  // Λεπτομέρειες κρατήσεων — εμφανίζονται αν επιλεγεί ο στόχος «κρατήσεις»
+  const goalBooking=document.getElementById('goal-booking'), bookingSec=document.getElementById('booking-sec');
+  goalBooking.addEventListener('change',function(){bookingSec.style.display=goalBooking.checked?'block':'none';});
 
   // ——— Πλάνο: από ?plan (κλειδωμένο) ή από τον επιλογέα ———
   var planSelect=document.getElementById('plan-select');
