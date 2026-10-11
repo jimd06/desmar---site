@@ -60,6 +60,28 @@
       .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
       .nav-panel .header-actions{gap:1rem;padding-top:.7rem;width:100%}
     }
+  
+    /* — Τι ισχύει σήμερα — */
+    .today-box{background:#fff;border:1px solid var(--line);border-radius:16px;
+      padding:1.8rem 1.6rem;margin:0 0 2.2rem;box-shadow:0 6px 18px rgba(30,42,85,.06)}
+    .today-box h3{margin:0 0 .5rem;font-size:1.22rem;color:var(--navy);line-height:1.3}
+    .today-intro{margin:0 0 1.4rem;color:var(--muted);line-height:1.6;font-size:.97rem}
+    .today-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+    .today-tag{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.05em;
+      text-transform:uppercase;padding:.3rem .65rem;border-radius:999px;margin-bottom:.9rem}
+    .today-tag--ok{color:#0B6E4F;background:#E8F3EE}
+    .today-tag--soon{color:#7A6327;background:#FBF3DF}
+    .today-col ul{list-style:none;padding:0;margin:0}
+    .today-col li{position:relative;padding-left:1.5rem;margin:.5rem 0;color:var(--ink);
+      line-height:1.5;font-size:.95rem}
+    .today-col--now li::before{content:"";position:absolute;left:0;top:.42em;width:.55rem;height:.3rem;
+      border-left:2px solid #0B6E4F;border-bottom:2px solid #0B6E4F;transform:rotate(-45deg)}
+    .today-col--soon li{color:var(--muted)}
+    .today-col--soon li::before{content:"";position:absolute;left:.1rem;top:.5em;width:.5rem;height:.5rem;
+      border:2px solid #C9A227;border-radius:50%}
+    .today-foot{margin:1.5rem 0 0;padding-top:1rem;border-top:1px solid var(--line);
+      font-size:.93rem;color:var(--muted)}
+    @media (max-width:760px){.today-cols{grid-template-columns:1fr;gap:1.2rem}}
   </style>
   <script src="/assets/js/animations.js"></script>
 </head>
@@ -105,10 +127,53 @@
         <div class="pilot-banner">
           <span class="pilot-badge" data-el="Πιλοτικό πρόγραμμα" data-en="Pilot program">Πιλοτικό πρόγραμμα</span>
           <h3 data-el="Δωρεάν στην πιλοτική φάση" data-en="Free during the pilot phase">Δωρεάν στην πιλοτική φάση</h3>
-          <p data-el="Η Desmar βρίσκεται σε πιλοτική φάση, πριν την επίσημη έναρξη που αναμένεται εντός του 2027. Οι πρώτοι συνεργάτες συμμετέχουν στο πιλοτικό πρόγραμμα και χρησιμοποιούν το chatbot τους δωρεάν — χωρίς κάρτα, χωρίς δέσμευση. Τα παρακάτω πλάνα και οι τιμές τους θα ισχύσουν με την επίσημη έναρξη."
-             data-en="Desmar is in a pilot phase, ahead of its official launch expected within 2027. Our first partners take part in the pilot program and use their chatbot for free — no card, no commitment. The plans and prices below will apply at the official launch.">Η Desmar βρίσκεται σε πιλοτική φάση, πριν την επίσημη έναρξη που αναμένεται εντός του 2027. Οι πρώτοι συνεργάτες συμμετέχουν στο πιλοτικό πρόγραμμα και χρησιμοποιούν το chatbot τους δωρεάν — χωρίς κάρτα, χωρίς δέσμευση. Τα παρακάτω πλάνα και οι τιμές τους θα ισχύσουν με την επίσημη έναρξη.</p>
+          <p data-el="Η Desmar βρίσκεται σε πιλοτική φάση, πριν την επίσημη έναρξη, που αναμένεται το 1ο τρίμηνο του 2027. Οι πρώτοι συνεργάτες συμμετέχουν στο πιλοτικό πρόγραμμα και χρησιμοποιούν το chatbot τους δωρεάν — χωρίς κάρτα, χωρίς δέσμευση. Τα παρακάτω πλάνα και οι τιμές τους θα ισχύσουν με την επίσημη έναρξη — και όποιος μπει τώρα κλειδώνει <strong>−30% για όσο μένει μαζί μας</strong>."
+             data-en="Desmar is in a pilot phase, ahead of its official launch expected in Q1 2027. Our first partners take part in the pilot program and use their chatbot for free — no card, no commitment. The plans and prices below will apply at the official launch — and whoever joins now locks in <strong>−30% for as long as they stay</strong>.">Η Desmar βρίσκεται σε πιλοτική φάση, πριν την επίσημη έναρξη, που αναμένεται το 1ο τρίμηνο του 2027. Οι πρώτοι συνεργάτες συμμετέχουν στο πιλοτικό πρόγραμμα και χρησιμοποιούν το chatbot τους δωρεάν — χωρίς κάρτα, χωρίς δέσμευση. Τα παρακάτω πλάνα και οι τιμές τους θα ισχύσουν με την επίσημη έναρξη — και όποιος μπει τώρα κλειδώνει <strong>−30% για όσο μένει μαζί μας</strong>.</p>
           <a class="btn btn--lg" href="/#demo" data-el="Μπες στο πιλοτικό — δωρεάν" data-en="Join the pilot — free">Μπες στο πιλοτικό — δωρεάν</a>
           <span class="pilot-note" data-el="Περιορισμένες θέσεις για την πιλοτική φάση." data-en="Limited spots for the pilot phase.">Περιορισμένες θέσεις για την πιλοτική φάση.</span>
+        </div>
+
+
+        <!-- ΤΙ ΙΣΧΥΕΙ ΣΗΜΕΡΑ -->
+        <div class="today-box">
+          <h3 data-el="Τι ισχύει σήμερα και τι έρχεται — χωρίς ψιλά γράμματα"
+              data-en="What applies today and what's coming — no fine print">Τι ισχύει σήμερα και τι έρχεται — χωρίς ψιλά γράμματα</h3>
+          <p class="today-intro" data-el="Παρακάτω θα δείτε κάποια σημεία με την ένδειξη «έρχεται με την έναρξη». Τα κρατάμε ορατά επίτηδες: προτιμάμε να ξέρετε τι παίρνετε σήμερα, παρά να το ανακαλύψετε μετά."
+             data-en="Below you'll see some items marked “coming at launch”. We keep them visible on purpose: we'd rather you knew what you get today than discover it later.">Παρακάτω θα δείτε κάποια σημεία με την ένδειξη «έρχεται με την έναρξη». Τα κρατάμε ορατά επίτηδες: προτιμάμε να ξέρετε τι παίρνετε σήμερα, παρά να το ανακαλύψετε μετά.</p>
+          <div class="today-cols">
+            <div class="today-col today-col--now">
+              <span class="today-tag today-tag--ok" data-el="Δουλεύει σήμερα" data-en="Works today">Δουλεύει σήμερα</span>
+              <ul>
+                <li data-el="Απαντήσεις 24/7 στη γλώσσα του επισκέπτη" data-en="24/7 answers in the visitor's language">Απαντήσεις 24/7 στη γλώσσα του επισκέπτη</li>
+                <li data-el="Ραντεβού &amp; κρατήσεις μέσα στη συνομιλία" data-en="Appointments &amp; bookings inside the chat">Ραντεβού &amp; κρατήσεις μέσα στη συνομιλία</li>
+                <li data-el="Έλεγχος διαθεσιμότητας — καμία διπλοκράτηση" data-en="Availability checks — no double bookings">Έλεγχος διαθεσιμότητας — καμία διπλοκράτηση</li>
+                <li data-el="Αυτόματη ενημέρωση από το site σας κάθε 24ωρο" data-en="Automatic update from your site every 24h">Αυτόματη ενημέρωση από το site σας κάθε 24ωρο</li>
+                <li data-el="Σελίδα διαχείρισης ραντεβού (κινητό &amp; υπολογιστή)" data-en="Booking management page (mobile &amp; desktop)">Σελίδα διαχείρισης ραντεβού (κινητό &amp; υπολογιστή)</li>
+                <li data-el="Email για κάθε νέο ραντεβού ή ενδιαφερόμενο" data-en="Email for every new booking or lead">Email για κάθε νέο ραντεβού ή ενδιαφερόμενο</li>
+                <li data-el="Υπενθύμιση email 24ω πριν το ραντεβού" data-en="Email reminder 24h before the appointment">Υπενθύμιση email 24ω πριν το ραντεβού</li>
+                <li data-el="Μηνιαία αναφορά με τις αναπάντητες ερωτήσεις" data-en="Monthly report of unanswered questions">Μηνιαία αναφορά με τις αναπάντητες ερωτήσεις</li>
+                <li data-el="Απεριόριστες αλλαγές από εμάς" data-en="Unlimited changes by us">Απεριόριστες αλλαγές από εμάς</li>
+                <li data-el="Οδηγίες Google Maps προς το κατάστημά σας" data-en="Google Maps directions to your location">Οδηγίες Google Maps προς το κατάστημά σας</li>
+              </ul>
+            </div>
+            <div class="today-col today-col--soon">
+              <span class="today-tag today-tag--soon" data-el="Έρχεται με την έναρξη" data-en="Coming at launch">Έρχεται με την έναρξη</span>
+              <ul>
+                <li data-el="Υπενθυμίσεις SMS" data-en="SMS reminders">Υπενθυμίσεις SMS</li>
+                <li data-el="Αυτόματα αιτήματα κριτικής Google" data-en="Automatic Google review requests">Αυτόματα αιτήματα κριτικής Google</li>
+                <li data-el="Λίστα πελατών για newsletter" data-en="Customer list for newsletters">Λίστα πελατών για newsletter</li>
+                <li data-el="Έξυπνη αξιολόγηση ενδιαφερόμενων (lead scoring)" data-en="Smart lead scoring">Έξυπνη αξιολόγηση ενδιαφερόμενων (lead scoring)</li>
+                <li data-el="Ολοκληρωμένο κέντρο διαχείρισης με γραφήματα" data-en="Full management center with charts">Ολοκληρωμένο κέντρο διαχείρισης με γραφήματα</li>
+                <li data-el="Ιστορικό συνομιλιών μέσα στο κέντρο" data-en="Conversation history inside the center">Ιστορικό συνομιλιών μέσα στο κέντρο</li>
+                <li data-el="Ζωντανή συνομιλία με υπάλληλο" data-en="Live agent handoff">Ζωντανή συνομιλία με υπάλληλο</li>
+                <li data-el="AI σύμβουλος με μηνιαίες προτάσεις" data-en="AI advisor with monthly suggestions">AI σύμβουλος με μηνιαίες προτάσεις</li>
+                <li data-el="Λειτουργία χωρίς «Powered by Desmar»" data-en="White-label mode (no “Powered by Desmar”)">Λειτουργία χωρίς «Powered by Desmar»</li>
+                <li data-el="Viber, WhatsApp &amp; Messenger" data-en="Viber, WhatsApp &amp; Messenger">Viber, WhatsApp &amp; Messenger</li>
+              </ul>
+            </div>
+          </div>
+          <p class="today-foot" data-el="Όσο είστε στην πιλοτική φάση δεν πληρώνετε τίποτα — άρα δεν πληρώνετε για κάτι που δεν υπάρχει ακόμη."
+             data-en="While you're in the pilot phase you pay nothing — so you're not paying for anything that doesn't exist yet.">Όσο είστε στην πιλοτική φάση δεν πληρώνετε τίποτα — άρα δεν πληρώνετε για κάτι που δεν υπάρχει ακόμη.</p>
         </div>
 
         <div class="pricing-grid">
@@ -126,7 +191,7 @@
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Μηνιαίο email με στατιστικά" data-en="Monthly email with your stats">Μηνιαίο email με στατιστικά</span></li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Εγκατάσταση από εμάς · GDPR · δήλωση AI στον επισκέπτη" data-en="Setup done by us · GDPR · AI disclosure to visitors">Εγκατάσταση από εμάς · GDPR · δήλωση AI στον επισκέπτη</span></li>
             </ul>
-            <a class="btn" href="/start?plan=vasiko" data-el="Απόκτησέ το" data-en="Get it">Απόκτησέ το</a>
+            <a class="btn" href="/start?plan=vasiko" data-el="Ξεκίνα δωρεάν" data-en="Start free">Ξεκίνα δωρεάν</a>
             <a class="btn-ghost" href="/#demo" style="margin-top:.5rem" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
             <a class="price-details" href="/times/vasiko" data-el="Αναλυτικά το Βασικό →" data-en="See Basic in detail →">Αναλυτικά το Βασικό →</a>
           </div>
@@ -147,7 +212,7 @@
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Εβδομαδιαία αυτόματη ενημέρωση από το site σας" data-en="Weekly automatic updates from your website">Εβδομαδιαία αυτόματη ενημέρωση από το site σας</span></li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Έξυπνη αξιολόγηση leads (ποιον να καλέσετε πρώτο) <span style='opacity:.55'>— έρχεται με την έναρξη</span>" data-en="Smart lead scoring (who to call first) <span style='opacity:.55'>— coming at launch</span>">Έξυπνη αξιολόγηση leads (ποιον να καλέσετε πρώτο) <span style='opacity:.55'>— έρχεται με την έναρξη</span></span></li>
             </ul>
-            <a class="btn" href="/start?plan=anaptyxi" data-el="Απόκτησέ το" data-en="Get it">Απόκτησέ το</a>
+            <a class="btn" href="/start?plan=anaptyxi" data-el="Ξεκίνα δωρεάν" data-en="Start free">Ξεκίνα δωρεάν</a>
             <a class="btn-ghost" href="/#demo" style="margin-top:.5rem" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
             <a class="price-details" href="/times/anaptyxi" data-el="Αναλυτικά το Ανάπτυξη →" data-en="See Growth in detail →">Αναλυτικά το Ανάπτυξη →</a>
           </div>
@@ -167,7 +232,7 @@
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Το chatbot 100% δικό σας (χωρίς «Powered by Desmar») <span style='opacity:.55'>— έρχεται με την έναρξη</span>" data-en="The chatbot 100% yours (no “Powered by Desmar”) <span style='opacity:.55'>— coming at launch</span>">Το chatbot 100% δικό σας (χωρίς «Powered by Desmar») <span style='opacity:.55'>— έρχεται με την έναρξη</span></span></li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="300 SMS υπενθυμίσεων/μήνα <span style='opacity:.55'>— έρχεται με την έναρξη</span>" data-en="300 SMS reminders/mo <span style='opacity:.55'>— coming at launch</span>">300 SMS υπενθυμίσεων/μήνα <span style='opacity:.55'>— έρχεται με την έναρξη</span></span></li>
             </ul>
-            <a class="btn" href="/start?plan=pro" data-el="Απόκτησέ το" data-en="Get it">Απόκτησέ το</a>
+            <a class="btn" href="/start?plan=pro" data-el="Ξεκίνα δωρεάν" data-en="Start free">Ξεκίνα δωρεάν</a>
             <a class="btn-ghost" href="/#demo" style="margin-top:.5rem" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
             <a class="price-details" href="/times/pro" data-el="Αναλυτικά το Pro →" data-en="See Pro in detail →">Αναλυτικά το Pro →</a>
           </div>
@@ -195,7 +260,7 @@
           </ul>
         </div>
 
-        <p class="pricing-fineprint" data-el="Τιμές σε ευρώ, με ελληνικό τιμολόγιο." data-en="Prices in euros, with a proper invoice.">Τιμές σε ευρώ, με ελληνικό τιμολόγιο.</p>
+        <p class="pricing-fineprint" data-el="Τιμές σε ευρώ. Στην πιλοτική φάση δεν υπάρχει χρέωση — η τιμολόγηση ξεκινά με την επίσημη έναρξη." data-en="Prices in euros. There is no charge during the pilot phase — billing starts at the official launch.">Τιμές σε ευρώ. Στην πιλοτική φάση δεν υπάρχει χρέωση — η τιμολόγηση ξεκινά με την επίσημη έναρξη.</p>
       </div>
     </section>
 
@@ -252,6 +317,7 @@
         <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
         <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
         <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
+        <a href="/poioi-eimaste" data-el="Ποιοι είμαστε" data-en="About us">Ποιοι είμαστε</a>
         <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
         <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
         <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>

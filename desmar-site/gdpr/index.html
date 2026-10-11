@@ -46,6 +46,15 @@
       .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
       .nav-panel .header-actions{gap:1rem;padding-top:.7rem;width:100%}
     }
+  
+    .sub-table{overflow-x:auto;margin:1rem 0 .6rem}
+    .sub-table table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+    .sub-table th{text-align:left;padding:.6rem .7rem;background:#F4F6FA;color:var(--navy);
+      font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+    .sub-table td{padding:.65rem .7rem;border-bottom:1px solid var(--line);color:var(--muted);
+      line-height:1.5;vertical-align:top}
+    .sub-table td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+    .sub-note{font-size:.9rem;font-style:italic}
   </style>
   <script src="/assets/js/animations.js"></script>
 </head>
@@ -98,7 +107,7 @@
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2 18.5 4.8v5.4c0 4.6-3.1 7.7-7.5 9.3-4.4-1.6-7.5-4.7-7.5-9.3V4.8L11 2z" stroke="#0B6E4F" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 11.1l2.3 2.3 4.5-4.8" stroke="#0B6E4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div>
               <strong data-el="DPA έτοιμο για υπογραφή" data-en="DPA ready to sign">DPA έτοιμο για υπογραφή</strong>
-              <p data-el="Σύμβαση επεξεργασίας δεδομένων στη γλώσσα σας — όχι δυσνόητα νομικά." data-en="A data processing agreement in your language — not impenetrable legalese.">Σύμβαση επεξεργασίας δεδομένων στη γλώσσα σας — όχι δυσνόητα νομικά.</p>
+              <p data-el="Σύμβαση επεξεργασίας δεδομένων στη γλώσσα σας — όχι δυσνόητα νομικά. Ζητήστε το με ένα email και σας το στέλνουμε για ανάγνωση, χωρίς καμία δέσμευση." data-en="A data processing agreement in your language — not impenetrable legalese. Ask for it in one email and we send it to read, with no commitment.">Σύμβαση επεξεργασίας δεδομένων στη γλώσσα σας — όχι δυσνόητα νομικά. Ζητήστε το με ένα email και σας το στέλνουμε για ανάγνωση, χωρίς καμία δέσμευση.</p>
             </div>
           </div>
           <div class="trust-item">
@@ -150,12 +159,54 @@
              data-en="We never request special categories of data (health, political beliefs, etc.) and configure the chatbot not to solicit them.">Δεν ζητάμε ποτέ ειδικές κατηγορίες δεδομένων (υγεία, πολιτικές πεποιθήσεις κ.λπ.) και ρυθμίζουμε το chatbot να μην τις προκαλεί.</p>
 
           <h3 data-el="Πού φιλοξενούνται — υπο-επεξεργαστές" data-en="Where it's hosted — subprocessors">Πού φιλοξενούνται — υπο-επεξεργαστές</h3>
-          <p data-el="Η βάση δεδομένων και η εφαρμογή φιλοξενούνται σε υποδομή εντός ΕΕ. Για τη δημιουργία των απαντήσεων χρησιμοποιούμε παρόχους μοντέλων AI, η επεξεργασία των οποίων μπορεί να γίνεται εκτός ΕΕ (ΗΠΑ) — πάντα υπό τυποποιημένες συμβατικές ρήτρες (SCCs) και με ρητή δέσμευση ότι τα δεδομένα δεν χρησιμοποιούνται για εκπαίδευση μοντέλων. Τη ρητή λίστα υπο-επεξεργαστών τη λαμβάνετε μαζί με το DPA."
-             data-en="The database and application are hosted on EU infrastructure. To generate answers we use AI model providers whose processing may occur outside the EU (USA) — always under Standard Contractual Clauses (SCCs) and with an explicit commitment that data is not used for model training. You receive the explicit subprocessor list together with the DPA.">Η βάση δεδομένων και η εφαρμογή φιλοξενούνται σε υποδομή εντός ΕΕ. Για τη δημιουργία των απαντήσεων χρησιμοποιούμε παρόχους μοντέλων AI, η επεξεργασία των οποίων μπορεί να γίνεται εκτός ΕΕ (ΗΠΑ) — πάντα υπό τυποποιημένες συμβατικές ρήτρες (SCCs) και με ρητή δέσμευση ότι τα δεδομένα δεν χρησιμοποιούνται για εκπαίδευση μοντέλων. Τη ρητή λίστα υπο-επεξεργαστών τη λαμβάνετε μαζί με το DPA.</p>
+          <p data-el="Η βάση δεδομένων και η εφαρμογή φιλοξενούνται σε υποδομή εντός ΕΕ. Για τη δημιουργία των απαντήσεων χρησιμοποιούμε παρόχους μοντέλων AI, η επεξεργασία των οποίων μπορεί να γίνεται εκτός ΕΕ (ΗΠΑ) — πάντα υπό τυποποιημένες συμβατικές ρήτρες (SCCs) και με ρητή δέσμευση ότι τα δεδομένα δεν χρησιμοποιούνται για εκπαίδευση μοντέλων. Παρακάτω δημοσιεύουμε τη ρητή λίστα, με τον ρόλο του καθενός — δεν την κρατάμε κλειστή μέχρι να υπογράψετε."
+             data-en="The database and application are hosted on EU infrastructure. To generate answers we use AI model providers whose processing may occur outside the EU (USA) — always under Standard Contractual Clauses (SCCs) and with an explicit commitment that data is not used for model training. We publish the explicit list below, with each party's role — we don't keep it behind a signature.">Η βάση δεδομένων και η εφαρμογή φιλοξενούνται σε υποδομή εντός ΕΕ. Για τη δημιουργία των απαντήσεων χρησιμοποιούμε παρόχους μοντέλων AI, η επεξεργασία των οποίων μπορεί να γίνεται εκτός ΕΕ (ΗΠΑ) — πάντα υπό τυποποιημένες συμβατικές ρήτρες (SCCs) και με ρητή δέσμευση ότι τα δεδομένα δεν χρησιμοποιούνται για εκπαίδευση μοντέλων. Παρακάτω δημοσιεύουμε τη ρητή λίστα, με τον ρόλο του καθενός — δεν την κρατάμε κλειστή μέχρι να υπογράψετε.</p>
+
+
+          <div class="sub-table">
+            <table>
+              <thead>
+                <tr>
+                  <th data-el="Πάροχος" data-en="Provider">Πάροχος</th>
+                  <th data-el="Τι κάνει" data-en="What it does">Τι κάνει</th>
+                  <th data-el="Πού" data-en="Where">Πού</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Render</td>
+                  <td data-el="Φιλοξενία εφαρμογής και βάσης δεδομένων" data-en="Hosting of the application and database">Φιλοξενία εφαρμογής και βάσης δεδομένων</td>
+                  <td data-el="ΕΕ (Φρανκφούρτη)" data-en="EU (Frankfurt)">ΕΕ (Φρανκφούρτη)</td>
+                </tr>
+                <tr>
+                  <td>OpenAI</td>
+                  <td data-el="Δημιουργία των απαντήσεων. Συμβατική δέσμευση: καμία χρήση για εκπαίδευση μοντέλων." data-en="Generating the answers. Contractual commitment: no use for model training.">Δημιουργία των απαντήσεων. Συμβατική δέσμευση: καμία χρήση για εκπαίδευση μοντέλων.</td>
+                  <td data-el="ΗΠΑ, με SCCs" data-en="USA, under SCCs">ΗΠΑ, με SCCs</td>
+                </tr>
+                <tr>
+                  <td>Resend</td>
+                  <td data-el="Αποστολή των email ειδοποίησης προς εσάς και των υπενθυμίσεων" data-en="Sending notification emails to you and reminders">Αποστολή των email ειδοποίησης προς εσάς και των υπενθυμίσεων</td>
+                  <td data-el="ΕΕ" data-en="EU">ΕΕ</td>
+                </tr>
+                <tr>
+                  <td>Cloudflare</td>
+                  <td data-el="Δίκτυο διανομής και προστασία από επιθέσεις. Δεν αποθηκεύει συνομιλίες." data-en="Content delivery and attack protection. Stores no conversations.">Δίκτυο διανομής και προστασία από επιθέσεις. Δεν αποθηκεύει συνομιλίες.</td>
+                  <td data-el="Παγκόσμιο δίκτυο" data-en="Global network">Παγκόσμιο δίκτυο</td>
+                </tr>
+                <tr>
+                  <td>Stripe</td>
+                  <td data-el="Χρεώσεις συνδρομών μετά την επίσημη έναρξη. Στην πιλοτική φάση δεν χρησιμοποιείται." data-en="Subscription billing after the official launch. Not used during the pilot phase.">Χρεώσεις συνδρομών μετά την επίσημη έναρξη. Στην πιλοτική φάση δεν χρησιμοποιείται.</td>
+                  <td data-el="ΕΕ / ΗΠΑ, με SCCs" data-en="EU / USA, under SCCs">ΕΕ / ΗΠΑ, με SCCs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="sub-note" data-el="Κανένας άλλος — δεν υπάρχουν υπεργολάβοι που διαβάζουν συνομιλίες πελατών. Αν προστεθεί πάροχος, σας ενημερώνουμε πριν συμβεί."
+             data-en="Nobody else — there are no subcontractors reading customer conversations. If a provider is added, we notify you before it happens.">Κανένας άλλος — δεν υπάρχουν υπεργολάβοι που διαβάζουν συνομιλίες πελατών. Αν προστεθεί πάροχος, σας ενημερώνουμε πριν συμβεί.</p>
 
           <h3 data-el="Πόσο καιρό τα κρατάμε" data-en="How long we keep it">Πόσο καιρό τα κρατάμε</h3>
-          <p data-el="Τα ιστορικά συνομιλιών διατηρούνται όσο διαρκεί η συνεργασία, ώστε να βλέπετε στατιστικά και να βελτιώνεται το chatbot. Με τη λήξη της συνεργασίας, τα δεδομένα διαγράφονται εντός 30 ημερών, εκτός αν ζητήσετε νωρίτερη διαγραφή. Μπορούμε επίσης να ορίσουμε μαζί μικρότερο χρόνο διατήρησης, αν το προτιμάτε."
-             data-en="Conversation histories are retained for the duration of the cooperation, so you can see stats and the chatbot improves. When the cooperation ends, data is deleted within 30 days, unless you request earlier deletion. We can also agree on a shorter retention period if you prefer.">Τα ιστορικά συνομιλιών διατηρούνται όσο διαρκεί η συνεργασία, ώστε να βλέπετε στατιστικά και να βελτιώνεται το chatbot. Με τη λήξη της συνεργασίας, τα δεδομένα διαγράφονται εντός 30 ημερών, εκτός αν ζητήσετε νωρίτερη διαγραφή. Μπορούμε επίσης να ορίσουμε μαζί μικρότερο χρόνο διατήρησης, αν το προτιμάτε.</p>
+          <p data-el="Τα ιστορικά συνομιλιών διατηρούνται όσο διαρκεί η συνεργασία, ώστε να βλέπετε στατιστικά και να εντοπίζουμε τι δεν μπόρεσε να απαντήσει. Αυτό γίνεται με ανάγνωση των ερωτήσεων — όχι με εκπαίδευση μοντέλου. Με τη λήξη της συνεργασίας, τα δεδομένα διαγράφονται εντός 30 ημερών, εκτός αν ζητήσετε νωρίτερη διαγραφή. Μπορούμε επίσης να ορίσουμε μαζί μικρότερο χρόνο διατήρησης, αν το προτιμάτε."
+             data-en="Conversation histories are retained for the duration of the cooperation, so you can see stats and we can spot what it couldn't answer. That is done by reading the questions — not by training a model. When the cooperation ends, data is deleted within 30 days, unless you request earlier deletion. We can also agree on a shorter retention period if you prefer.">Τα ιστορικά συνομιλιών διατηρούνται όσο διαρκεί η συνεργασία, ώστε να βλέπετε στατιστικά και να εντοπίζουμε τι δεν μπόρεσε να απαντήσει. Αυτό γίνεται με ανάγνωση των ερωτήσεων — όχι με εκπαίδευση μοντέλου. Με τη λήξη της συνεργασίας, τα δεδομένα διαγράφονται εντός 30 ημερών, εκτός αν ζητήσετε νωρίτερη διαγραφή. Μπορούμε επίσης να ορίσουμε μαζί μικρότερο χρόνο διατήρησης, αν το προτιμάτε.</p>
 
           <h3 data-el="Δικαιώματα &amp; διαγραφή" data-en="Rights &amp; deletion">Δικαιώματα &amp; διαγραφή</h3>
           <p data-el="Εσείς και οι επισκέπτες σας έχετε όλα τα δικαιώματα του GDPR: πρόσβαση, διόρθωση, διαγραφή, φορητότητα και εναντίωση. Για οποιοδήποτε αίτημα — δικό σας ή επισκέπτη — στείλτε μας email και το υλοποιούμε χωρίς χρέωση, συνήθως εντός λίγων ημερών."
@@ -181,6 +232,7 @@
         <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
         <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
         <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
+        <a href="/poioi-eimaste" data-el="Ποιοι είμαστε" data-en="About us">Ποιοι είμαστε</a>
         <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
         <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
         <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>
