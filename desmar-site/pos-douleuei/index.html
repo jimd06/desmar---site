@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Πώς δουλεύει — Desmar</title>
-  <meta name="description" content="Από το ερωτηματολόγιο στο live, εντός 48 ωρών.">
+  <meta name="description" content="Από πού ξέρει τις απαντήσεις, τι κάνει μέσα στη συνομιλία, τι δεν κάνει, και τι βλέπετε εσείς.">
   <link rel="canonical" href="https://desmar.ai/pos-douleuei">
   <meta name="theme-color" content="#1E2A55">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -35,6 +35,26 @@
     .legal a{color:var(--gold-dark)}
     .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
     .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
+
+    /* «Τι κάνει / Τι δεν κάνει» — δύο ειλικρινείς στήλες */
+    .does-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.4rem;margin-top:.4rem}
+    .does-col{min-width:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.5rem 1.6rem}
+    .does-col h3{margin:0 0 1rem;font-size:1.05rem;display:flex;align-items:center;gap:.6rem}
+    .does-col ul{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+    .does-col li{display:flex;gap:.7rem;align-items:flex-start;color:var(--muted);line-height:1.55;font-size:.95rem}
+    .does-col li::before{flex:0 0 auto;margin-top:.1rem;font-weight:700;font-size:1rem}
+    .does-yes li::before{content:"+";color:#0B6E4F}
+    .does-no  li::before{content:"\2013";color:#A23B2B}
+    .does-tag{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .55rem;border-radius:999px}
+    .does-yes .does-tag{background:#E9F3EF;color:#0B6E4F}
+    .does-no  .does-tag{background:#FBECEA;color:#A23B2B}
+    .does-note{color:var(--muted);font-size:.92rem;margin:1.4rem auto 0;max-width:62ch;text-align:center}
+
+    /* Πίνακας ενημέρωσης υλικού */
+    .src-list{display:grid;gap:.6rem;margin:.8rem 0 0;padding:0;list-style:none}
+    .src-list li{display:flex;gap:.7rem;align-items:flex-start;color:var(--muted);line-height:1.55;font-size:.95rem}
+    .src-list li::before{content:"\2022";color:var(--gold-dark);font-weight:700;flex:0 0 auto}
+
     @media (max-width:900px){
       .nav-toggle{display:flex}
       .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
@@ -75,11 +95,150 @@
 
   <main id="main">
 
-    <!-- ============ 4. ΠΩΣ ΔΟΥΛΕΥΕΙ ============ -->
+    <!-- ============ 1. ΤΙ ΚΑΝΕΙ, ΜΕ ΑΠΛΑ ΛΟΓΙΑ ============ -->
     <section class="section section--soft" id="pos-douleuei">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</span>
+          <h2 data-el="Απαντά στους πελάτες σας μόνο από το δικό σας υλικό"
+              data-en="It answers your customers from your own material, and nothing else">Απαντά στους πελάτες σας μόνο από το δικό σας υλικό</h2>
+          <p class="lead" data-el="Δεν είναι ένα γενικό AI που ξέρει τα πάντα. Είναι ένας βοηθός που ξέρει <strong>τη δική σας επιχείρηση</strong> — και παραδέχεται ανοιχτά ό,τι δεν ξέρει."
+             data-en="It is not a general AI that knows everything. It is an assistant that knows <strong>your business</strong> — and openly admits whatever it does not know.">Δεν είναι ένα γενικό AI που ξέρει τα πάντα. Είναι ένας βοηθός που ξέρει <strong>τη δική σας επιχείρηση</strong> — και παραδέχεται ανοιχτά ό,τι δεν ξέρει.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-ic" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H15l5 5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z" stroke="#0B6E4F" stroke-width="2" stroke-linejoin="round"/><path d="M14.5 4v5.5H20M8 13h8M8 16.5h5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3 data-el="Από πού ξέρει τις απαντήσεις" data-en="Where its answers come from">Από πού ξέρει τις απαντήσεις</h3>
+            <p data-el="Από το υλικό που μας δίνετε εσείς: το site σας, αρχεία PDF (τιμοκατάλογος, μενού, κανονισμοί, οδηγίες), τις ερωτήσεις που απαντάτε κάθε μέρα. Τίποτε άλλο. Δεν ψάχνει στο ίντερνετ και δεν συμπληρώνει κενά με δικές του εικασίες."
+               data-en="From the material you give us: your website, PDF files (price list, menu, policies, instructions), the questions you answer every day. Nothing else. It does not search the internet and it does not fill gaps with guesses.">Από το υλικό που μας δίνετε εσείς: το site σας, αρχεία PDF (τιμοκατάλογος, μενού, κανονισμοί, οδηγίες), τις ερωτήσεις που απαντάτε κάθε μέρα. Τίποτε άλλο. Δεν ψάχνει στο ίντερνετ και δεν συμπληρώνει κενά με δικές του εικασίες.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-ic" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z" stroke="#0B6E4F" stroke-width="2" stroke-linejoin="round"/><path d="M8 8h9M8 11.5h6" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3 data-el="Τι κάνει μέσα στη συνομιλία" data-en="What it does in a conversation">Τι κάνει μέσα στη συνομιλία</h3>
+            <p data-el="Απαντά σε ερωτήσεις όλο το 24ωρο, στη γλώσσα που του γράφει ο επισκέπτης. Κλείνει ραντεβού και κρατήσεις με πραγματική διαθεσιμότητα, μέσα στο ίδιο παράθυρο. Και όταν κάποιος δείχνει σοβαρό ενδιαφέρον, ζητάει τα στοιχεία του και σας τα στέλνει με email."
+               data-en="It answers questions around the clock, in the language the visitor writes in. It books appointments and reservations against real availability, inside the same window. And when someone shows real interest, it asks for their details and emails them to you.">Απαντά σε ερωτήσεις όλο το 24ωρο, στη γλώσσα που του γράφει ο επισκέπτης. Κλείνει ραντεβού και κρατήσεις με πραγματική διαθεσιμότητα, μέσα στο ίδιο παράθυρο. Και όταν κάποιος δείχνει σοβαρό ενδιαφέρον, ζητάει τα στοιχεία του και σας τα στέλνει με email.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-ic" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0B6E4F" stroke-width="2"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.2 2.4c-.5.2-.7.6-.7 1.1v.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1" fill="#0B6E4F"/></svg>
+            </div>
+            <h3 data-el="Όταν δεν ξέρει κάτι" data-en="When it does not know">Όταν δεν ξέρει κάτι</h3>
+            <p data-el="Το λέει καθαρά και σας περνάει τον πελάτη — δεν εφευρίσκει απάντηση για να μη φανεί ότι δεν ξέρει. Κάθε τέτοια ερώτηση καταγράφεται και εμφανίζεται στην αναφορά σας, ώστε να καλυφθεί το κενό και να μην ξαναμείνει αναπάντητη."
+               data-en="It says so plainly and hands the customer over to you — it does not invent an answer to avoid looking ignorant. Every such question is logged and shows up in your report, so the gap gets filled and is not left unanswered again.">Το λέει καθαρά και σας περνάει τον πελάτη — δεν εφευρίσκει απάντηση για να μη φανεί ότι δεν ξέρει. Κάθε τέτοια ερώτηση καταγράφεται και εμφανίζεται στην αναφορά σας, ώστε να καλυφθεί το κενό και να μην ξαναμείνει αναπάντητη.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. ΠΩΣ ΕΝΗΜΕΡΩΝΕΤΑΙ ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Ενημέρωση" data-en="Staying current">Ενημέρωση</span>
+          <h2 data-el="Όταν αλλάζουν οι τιμές ή οι πληροφορίες σας"
+              data-en="When your prices or information change">Όταν αλλάζουν οι τιμές ή οι πληροφορίες σας</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <h3 data-el="Ό,τι αλλάζει στο site σας" data-en="Anything that changes on your site">Ό,τι αλλάζει στο site σας</h3>
+            <p data-el="Από το πακέτο <strong>Ανάπτυξη</strong> και πάνω, ο βοηθός ξαναδιαβάζει μόνος του το site σας κάθε εβδομάδα και ενημερώνει ό,τι άλλαξε. Δεν χρειάζεται να μας πείτε τίποτα."
+               data-en="From the <strong>Growth</strong> plan upwards, the assistant re-reads your site every week by itself and updates whatever changed. You do not need to tell us anything.">Από το πακέτο <strong>Ανάπτυξη</strong> και πάνω, ο βοηθός ξαναδιαβάζει μόνος του το site σας κάθε εβδομάδα και ενημερώνει ό,τι άλλαξε. Δεν χρειάζεται να μας πείτε τίποτα.</p>
+          </div>
+          <div class="why-card">
+            <h3 data-el="Αρχείο που αλλάζει συχνά" data-en="A file that changes often">Αρχείο που αλλάζει συχνά</h3>
+            <p data-el="Ημερήσιος τιμοκατάλογος, μενού ή λίστα διαθεσιμότητας σε PDF ή Excel: μας στέλνετε τη νέα έκδοση και την περνάμε. Αν το ίδιο αρχείο ανεβαίνει και στο site σας, ο βοηθός το πιάνει μόνος του."
+               data-en="A daily price list, menu or availability sheet in PDF or Excel: send us the new version and we load it. If that same file is published on your site, the assistant picks it up by itself.">Ημερήσιος τιμοκατάλογος, μενού ή λίστα διαθεσιμότητας σε PDF ή Excel: μας στέλνετε τη νέα έκδοση και την περνάμε. Αν το ίδιο αρχείο ανεβαίνει και στο site σας, ο βοηθός το πιάνει μόνος του.</p>
+          </div>
+          <div class="why-card">
+            <h3 data-el="Στο πακέτο Βασικό" data-en="On the Starter plan">Στο πακέτο Βασικό</h3>
+            <p data-el="Μας λέτε τι άλλαξε — με ένα email ή ένα μήνυμα — και το ενημερώνουμε εμείς. Χωρίς χρέωση και χωρίς όριο στο πόσες φορές."
+               data-en="You tell us what changed — by email or a message — and we update it. No charge and no limit on how many times.">Μας λέτε τι άλλαξε — με ένα email ή ένα μήνυμα — και το ενημερώνουμε εμείς. Χωρίς χρέωση και χωρίς όριο στο πόσες φορές.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. ΤΙ ΚΑΝΕΙ / ΤΙ ΔΕΝ ΚΑΝΕΙ ============ -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Ξεκάθαρα" data-en="Plainly">Ξεκάθαρα</span>
+          <h2 data-el="Τι κάνει και τι δεν κάνει" data-en="What it does and what it does not">Τι κάνει και τι δεν κάνει</h2>
+          <p class="lead" data-el="Προτιμάμε να το μάθετε εδώ παρά μετά την υπογραφή."
+             data-en="We would rather you knew this here than after signing.">Προτιμάμε να το μάθετε εδώ παρά μετά την υπογραφή.</p>
+        </div>
+
+        <div class="does-grid">
+          <div class="does-col does-yes">
+            <h3><span class="does-tag" data-el="Κάνει" data-en="Does">Κάνει</span></h3>
+            <ul>
+              <li data-el="Απαντά σε ερωτήσεις πελατών 24 ώρες το 24ωρο, και όταν είστε κλειστά" data-en="Answers customer questions 24 hours a day, including when you are closed">Απαντά σε ερωτήσεις πελατών 24 ώρες το 24ωρο, και όταν είστε κλειστά</li>
+              <li data-el="Μιλάει ελληνικά και αγγλικά — και άλλες 21 γλώσσες από το πακέτο Ανάπτυξη" data-en="Speaks Greek and English — and 21 more languages from the Growth plan">Μιλάει ελληνικά και αγγλικά — και άλλες 21 γλώσσες από το πακέτο Ανάπτυξη</li>
+              <li data-el="Κλείνει ραντεβού και κρατήσεις με πραγματική διαθεσιμότητα" data-en="Books appointments and reservations against real availability">Κλείνει ραντεβού και κρατήσεις με πραγματική διαθεσιμότητα</li>
+              <li data-el="Συλλέγει στοιχεία ενδιαφερομένων και σας ειδοποιεί με email" data-en="Collects enquiry details and notifies you by email">Συλλέγει στοιχεία ενδιαφερομένων και σας ειδοποιεί με email</li>
+              <li data-el="Στέλνει κρατήσεις και leads σε Google Sheet ή Excel, αν το θέλετε" data-en="Sends bookings and leads to a Google Sheet or Excel, if you want">Στέλνει κρατήσεις και leads σε Google Sheet ή Excel, αν το θέλετε</li>
+              <li data-el="Δίνει οδηγίες πρόσβασης με σύνδεσμο Google Maps" data-en="Gives directions with a Google Maps link">Δίνει οδηγίες πρόσβασης με σύνδεσμο Google Maps</li>
+            </ul>
+          </div>
+
+          <div class="does-col does-no">
+            <h3><span class="does-tag" data-el="Δεν κάνει" data-en="Does not">Δεν κάνει</span></h3>
+            <ul>
+              <li data-el="Δεν απαντά για θέματα εκτός της επιχείρησής σας, ούτε για ό,τι δεν του έχετε δώσει" data-en="Does not answer on topics outside your business, or on anything you have not given it">Δεν απαντά για θέματα εκτός της επιχείρησής σας, ούτε για ό,τι δεν του έχετε δώσει</li>
+              <li data-el="Δεν αντικαθιστά άνθρωπο σε σύνθετα ή ευαίσθητα θέματα — σας τα περνάει" data-en="Does not replace a person on complex or sensitive matters — it hands them to you">Δεν αντικαθιστά άνθρωπο σε σύνθετα ή ευαίσθητα θέματα — σας τα περνάει</li>
+              <li data-el="Δεν συνδέεται με Viber, WhatsApp ή Messenger — λειτουργεί στο site σας" data-en="Does not connect to Viber, WhatsApp or Messenger — it runs on your site">Δεν συνδέεται με Viber, WhatsApp ή Messenger — λειτουργεί στο site σας</li>
+              <li data-el="Δεν δέχεται πληρωμές και δεν στέλνει προκαταβολές" data-en="Does not take payments or deposits">Δεν δέχεται πληρωμές και δεν στέλνει προκαταβολές</li>
+              <li data-el="Δεν σηκώνει τηλέφωνο — είναι γραπτή συνομιλία" data-en="Does not answer phone calls — it is written chat">Δεν σηκώνει τηλέφωνο — είναι γραπτή συνομιλία</li>
+              <li data-el="Δεν σας δίνει ζωντανή παρέμβαση μέσα στη συνομιλία — ακόμη" data-en="Does not give you live takeover inside the conversation — not yet">Δεν σας δίνει ζωντανή παρέμβαση μέσα στη συνομιλία — ακόμη</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="does-note" data-el="Ό,τι λείπει σήμερα, θα το βρείτε στη λίστα μας. Αν κάτι από αυτά είναι απαραίτητο για εσάς, πείτε το μας πριν ξεκινήσουμε."
+           data-en="Whatever is missing today is on our list. If any of it is essential for you, tell us before we start.">Ό,τι λείπει σήμερα, θα το βρείτε στη λίστα μας. Αν κάτι από αυτά είναι απαραίτητο για εσάς, πείτε το μας πριν ξεκινήσουμε.</p>
+      </div>
+    </section>
+
+    <!-- ============ 4. ΤΙ ΒΛΕΠΕΤΕ ΕΣΕΙΣ ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Από τη δική σας πλευρά" data-en="On your side">Από τη δική σας πλευρά</span>
+          <h2 data-el="Τι φτάνει σε εσάς, χωρίς να μπείτε πουθενά"
+              data-en="What reaches you, without logging in anywhere">Τι φτάνει σε εσάς, χωρίς να μπείτε πουθενά</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <h3 data-el="Email σε κάθε κίνηση" data-en="An email for every action">Email σε κάθε κίνηση</h3>
+            <p data-el="Κάθε νέα κράτηση και κάθε ενδιαφερόμενος φτάνει στο email σας τη στιγμή που γίνεται. Ο πελάτης παίρνει τη δική του επιβεβαίωση."
+               data-en="Every new booking and every enquiry reaches your inbox the moment it happens. The customer gets their own confirmation.">Κάθε νέα κράτηση και κάθε ενδιαφερόμενος φτάνει στο email σας τη στιγμή που γίνεται. Ο πελάτης παίρνει τη δική του επιβεβαίωση.</p>
+          </div>
+          <div class="why-card">
+            <h3 data-el="Οι κρατήσεις στο κινητό σας" data-en="Your bookings on your phone">Οι κρατήσεις στο κινητό σας</h3>
+            <p data-el="Μια προσωπική σελίδα, χωρίς κωδικούς και χωρίς εφαρμογή. Βλέπετε τι κλείστηκε, ακυρώνετε, αλλάζετε, ή κλείνετε ώρες που δεν σας βολεύουν."
+               data-en="A personal page, no passwords and no app. See what was booked, cancel, change, or block hours that do not suit you.">Μια προσωπική σελίδα, χωρίς κωδικούς και χωρίς εφαρμογή. Βλέπετε τι κλείστηκε, ακυρώνετε, αλλάζετε, ή κλείνετε ώρες που δεν σας βολεύουν.</p>
+          </div>
+          <div class="why-card">
+            <h3 data-el="Η αναφορά σας" data-en="Your report">Η αναφορά σας</h3>
+            <p data-el="Περιοδικό email με τους αριθμούς — πόσες συνομιλίες, πόσες κρατήσεις, πόσοι ενδιαφερόμενοι — και, το πιο χρήσιμο, <strong>τις ερωτήσεις που έμειναν αναπάντητες</strong>."
+               data-en="A periodic email with the numbers — how many conversations, bookings and enquiries — and, most useful of all, <strong>the questions that went unanswered</strong>.">Περιοδικό email με τους αριθμούς — πόσες συνομιλίες, πόσες κρατήσεις, πόσοι ενδιαφερόμενοι — και, το πιο χρήσιμο, <strong>τις ερωτήσεις που έμειναν αναπάντητες</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. ΠΩΣ ΞΕΚΙΝΑΤΕ (τα 4 βήματα) ============ -->
+    <section class="section section--soft" id="pos-xekinate">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-el="Πώς ξεκινάτε" data-en="Getting started">Πώς ξεκινάτε</span>
           <h2 data-el="Από το ερωτηματολόγιο στο live, εντός 48 ωρών"
               data-en="From questionnaire to live, within 48 hours">Από το ερωτηματολόγιο στο live, εντός 48 ωρών</h2>
         </div>
@@ -147,3 +306,4 @@
   <script src="https://api.desmar.ai/widget.js" data-client-id="desmar" async></script>
 </body>
 </html>
+
