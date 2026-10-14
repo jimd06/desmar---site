@@ -161,13 +161,36 @@ function applyLang(lang) {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// Κρατάμε την προέλευση για ΟΛΗ την επίσκεψη, όχι μόνο για τη σελίδα εισόδου.
+// Χωρίς αυτό, ο επισκέπτης που μπαίνει από σύνδεσμο συνεργάτη και περνά από
+// άλλη σελίδα πριν τη φόρμα, φτάνει χωρίς προέλευση — και η σύσταση χάνεται.
+const UTM_KEY = "desmar_utm";
+
 function getUtmParams() {
   const params = new URLSearchParams(window.location.search);
-  return {
+  const fromUrl = {
     source: params.get("utm_source") || "",
     medium: params.get("utm_medium") || "",
     campaign: params.get("utm_campaign") || "",
   };
+
+  if (fromUrl.source || fromUrl.medium || fromUrl.campaign) {
+    try { sessionStorage.setItem(UTM_KEY, JSON.stringify(fromUrl)); } catch (e) {}
+    return fromUrl;
+  }
+
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(UTM_KEY) || "null");
+    if (saved && typeof saved === "object") {
+      return {
+        source: saved.source || "",
+        medium: saved.medium || "",
+        campaign: saved.campaign || "",
+      };
+    }
+  } catch (e) {}
+
+  return fromUrl;
 }
 
 // Αν ο επισκέπτης γράψει "example.gr" χωρίς πρωτόκολλο, προσθέτουμε https://
