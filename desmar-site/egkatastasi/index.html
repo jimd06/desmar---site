@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Εγκατάσταση στο site σας — Desmar</title>
+  <meta name="description" content="Πώς μπαίνει ο ψηφιακός βοηθός της Desmar στο site σας: οδηγίες για WordPress, Wix, Shopify, Squarespace, Webflow, Joomla, Hostinger, GoDaddy και Google Tag Manager.">
+  <link rel="canonical" href="https://desmar.ai/egkatastasi/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Desmar">
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:title" content="Εγκατάσταση στο site σας — Desmar">
+  <meta property="og:description" content="Πώς μπαίνει ο ψηφιακός βοηθός της Desmar στο site σας: οδηγίες για WordPress, Wix, Shopify, Squarespace, Webflow, Joomla, Hostinger, GoDaddy και Google Tag Manager.">
+  <meta property="og:url" content="https://desmar.ai/egkatastasi/">
+  <meta property="og:image" content="https://desmar.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Desmar — AI chatbots, done for you">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1E2A55">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <link rel="stylesheet" href="/assets/css/sections.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    .main-nav{display:flex;gap:1.6rem;align-items:center}
+    .main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .18s ease}
+    .main-nav a:hover{color:var(--gold-dark)}
+    .nav-panel{display:contents}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;margin-left:auto}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+    .site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+    .site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;width:100%;margin:.4rem 0}
+    .footer-links a{color:#C9D3E6;text-decoration:none;font-size:.88rem}
+    .footer-links a:hover{color:#fff}
+    .guide{max-width:820px;margin:0 auto}
+    .guide h2{font-size:1.35rem;margin:2.2rem 0 .7rem}
+    .guide p,.guide li{color:var(--muted);line-height:1.65}
+    .guide a{color:var(--gold-dark)}
+    .guide ol,.guide ul{padding-left:1.25rem;margin:.4rem 0 .8rem}
+    .guide li{margin:.3rem 0}
+    .guide strong{color:var(--ink)}
+    .codebox{background:#0f1730;color:#e8edf8;border-radius:12px;padding:16px 18px;margin:.8rem 0 .4rem;font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
+    .codebar{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-bottom:.4rem}
+    .copybtn{border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;padding:.6rem 1.2rem;cursor:pointer;font-size:.95rem}
+    .copybtn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+    .copied{color:#0B6E4F;font-weight:600;font-size:.92rem}
+    .note{background:#fff8e6;border:1px solid #f1dfae;border-radius:12px;padding:12px 16px;margin:1rem 0;color:#5b4a1b}
+    .note p{color:#5b4a1b;margin:.2rem 0}
+    .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1rem 0 .6rem}
+    .steps3 div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+    .steps3 b{display:block;color:var(--ink);margin-bottom:.2rem}
+    .steps3 span{color:var(--muted);font-size:.95rem;line-height:1.5}
+    details.pf{background:#fff;border:1px solid var(--line);border-radius:12px;margin:.6rem 0;padding:0 16px}
+    details.pf summary{cursor:pointer;font-weight:700;color:var(--ink);padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+    details.pf summary::-webkit-details-marker{display:none}
+    details.pf summary::after{content:"+";font-weight:700;color:var(--muted)}
+    details.pf[open] summary::after{content:"−"}
+    details.pf .body{padding:0 0 12px}
+    details.pf .req{font-size:.9rem;color:var(--muted);margin:.2rem 0 .6rem}
+    code.k{background:#eef1f6;border-radius:5px;padding:1px 6px;font-size:.92em;color:var(--ink)}
+    @media (max-width:700px){.steps3{grid-template-columns:1fr}}
+    .legal{max-width:760px;margin:0 auto}
+    .legal h3{margin:1.6rem 0 .5rem;font-size:1.15rem}
+    .legal p{color:var(--muted);margin:.4rem 0;line-height:1.6}
+    .legal a{color:var(--gold-dark)}
+    .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
+    .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
+    @media (max-width:900px){
+      .nav-toggle{display:flex}
+      .nav-panel{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--line);box-shadow:0 10px 24px rgba(30,42,85,.10);gap:.3rem}
+      .site-header.nav-open .nav-panel{display:flex}
+      .nav-panel .main-nav{flex-direction:column;gap:0;width:100%}
+      .nav-panel .main-nav a{padding:.75rem 0;border-bottom:1px solid var(--line);width:100%}
+      .nav-panel .header-actions{gap:1rem;padding-top:.7rem;width:100%}
+    }
+  </style>
+  <script src="/assets/js/animations.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-el="Μετάβαση στο περιεχόμενο" data-en="Skip to content">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Desmar"><img src="/assets/img/logo.svg" alt="Desmar" width="171" height="27"></a>
+      <button class="nav-toggle" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-panel">
+        <nav class="main-nav" aria-label="Κύριο μενού">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="FAQ" data-en="FAQ">FAQ</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" data-el-aria="Επιλογή γλώσσας" data-en-aria="Language selector" aria-label="Επιλογή γλώσσας">
+            <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="true">ΕΛ</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn--sm" href="/#demo" data-el="Δωρεάν demo" data-en="Free demo">Δωρεάν demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section"><div class="container"><div class="guide">
+    <span class="eyebrow" data-el="Οδηγός" data-en="Guide">Οδηγός</span>
+    <h1 class="h1-as-h2" data-el="Πώς μπαίνει ο βοηθός στο site σας" data-en="How to add the assistant to your website">Πώς μπαίνει ο βοηθός στο site σας</h1>
+    <p data-el="Χρειάζεται να μπει &lt;strong&gt;μία γραμμή κώδικα&lt;/strong&gt; στο site σας, μία φορά. Παίρνει περίπου 5 λεπτά και δεν χρειάζεται να είστε προγραμματιστής. Αν το site σας το φτιάχνει κάποιος συνεργάτης, απλά προωθήστε του αυτή τη σελίδα." data-en="You need to add &lt;strong&gt;one line of code&lt;/strong&gt; to your website, once. It takes about 5 minutes and you don&#x27;t need to be a developer. If someone else manages your site, just forward them this page.">Χρειάζεται να μπει <strong>μία γραμμή κώδικα</strong> στο site σας, μία φορά. Παίρνει περίπου 5 λεπτά και δεν χρειάζεται να είστε προγραμματιστής. Αν το site σας το φτιάχνει κάποιος συνεργάτης, απλά προωθήστε του αυτή τη σελίδα.</p>
+    <div class="steps3"><div><b data-el="1. Αντιγράψτε" data-en="1. Copy">1. Αντιγράψτε</b><span data-el="τη γραμμή κώδικα (παρακάτω ή στο email μας)." data-en="the line of code (below, or in our email).">τη γραμμή κώδικα (παρακάτω ή στο email μας).</span></div><div><b data-el="2. Επικολλήστε" data-en="2. Paste">2. Επικολλήστε</b><span data-el="στο σημείο που δείχνουν οι οδηγίες της πλατφόρμας σας." data-en="where your platform&#x27;s instructions show.">στο σημείο που δείχνουν οι οδηγίες της πλατφόρμας σας.</span></div><div><b data-el="3. Ελέγξτε" data-en="3. Check">3. Ελέγξτε</b><span data-el="ότι εμφανίζεται το κουμπί κάτω δεξιά." data-en="that the button appears at the bottom right.">ότι εμφανίζεται το κουμπί κάτω δεξιά.</span></div></div>
+    <h2 data-el="Η γραμμή κώδικα" data-en="Your line of code">Η γραμμή κώδικα</h2>
+    <div id="code-known" hidden><p data-el="Αυτή είναι η δική σας γραμμή — αντιγράψτε την ακριβώς όπως είναι:" data-en="This is your own line — copy it exactly as it is:">Αυτή είναι η δική σας γραμμή — αντιγράψτε την ακριβώς όπως είναι:</p><div class="codebox" id="codebox"></div><div class="codebar"><button type="button" class="copybtn" id="copybtn" data-el="Αντιγραφή κώδικα" data-en="Copy code">Αντιγραφή κώδικα</button><span class="copied" id="copied" hidden role="status" data-el="Αντιγράφηκε" data-en="Copied">Αντιγράφηκε</span></div></div>
+    <div id="code-unknown"><p data-el="Τη δική σας γραμμή κώδικα θα τη βρείτε στο email που σας στείλαμε. Μοιάζει έτσι (το &lt;strong&gt;xxxx&lt;/strong&gt; είναι διαφορετικό για κάθε επιχείρηση):" data-en="You&#x27;ll find your own line of code in the email we sent you. It looks like this (&lt;strong&gt;xxxx&lt;/strong&gt; is different for every business):">Τη δική σας γραμμή κώδικα θα τη βρείτε στο email που σας στείλαμε. Μοιάζει έτσι (το <strong>xxxx</strong> είναι διαφορετικό για κάθε επιχείρηση):</p><div class="codebox">&lt;script src="https://api.desmar.ai/widget.js" data-client-id="<strong style="color:#ffd27a">xxxx</strong>" async&gt;&lt;/script&gt;</div></div>
+    <div class="note"><p data-el="&lt;strong&gt;Μία φορά, σε ένα σημείο.&lt;/strong&gt; Ο κώδικας μπαίνει μία φορά για όλο το site — όχι σε κάθε σελίδα. Αν τον βάλετε κατά λάθος και σε δεύτερο σημείο, δεν χαλάει τίποτα: θα εμφανιστεί πάλι ένα κουμπί." data-en="&lt;strong&gt;Once, in one place.&lt;/strong&gt; The code goes in once for the whole site — not on every page. If you accidentally add it in a second place, nothing breaks: you&#x27;ll still see just one button."><strong>Μία φορά, σε ένα σημείο.</strong> Ο κώδικας μπαίνει μία φορά για όλο το site — όχι σε κάθε σελίδα. Αν τον βάλετε κατά λάθος και σε δεύτερο σημείο, δεν χαλάει τίποτα: θα εμφανιστεί πάλι ένα κουμπί.</p></div>
+    <h2 data-el="Οδηγίες ανά πλατφόρμα" data-en="Instructions by platform">Οδηγίες ανά πλατφόρμα</h2>
+    <p data-el="Διαλέξτε σε τι είναι φτιαγμένο το site σας. Αν δεν το ξέρετε, ρωτήστε όποιον σας το έφτιαξε — ή στείλτε μας τη διεύθυνση του site και θα σας πούμε εμείς." data-en="Pick what your site is built with. If you&#x27;re not sure, ask whoever built it — or send us your site&#x27;s address and we&#x27;ll tell you.">Διαλέξτε σε τι είναι φτιαγμένο το site σας. Αν δεν το ξέρετε, ρωτήστε όποιον σας το έφτιαξε — ή στείλτε μας τη διεύθυνση του site και θα σας πούμε εμείς.</p>
+    <details class="pf" open><summary>WordPress</summary><div class="body">
+<p class="req" data-el="Για sites σε δική σας φιλοξενία (WordPress.org). Στο WordPress.com χρειάζεται πληρωμένο πλάνο που επιτρέπει plugins· στο δωρεάν πλάνο δεν γίνεται." data-en="For self-hosted sites (WordPress.org). On WordPress.com you need a paid plan that allows plugins; it isn&#x27;t possible on the free plan.">Για sites σε δική σας φιλοξενία (WordPress.org). Στο WordPress.com χρειάζεται πληρωμένο πλάνο που επιτρέπει plugins· στο δωρεάν πλάνο δεν γίνεται.</p>
+<ol><li data-el="Μπείτε στη διαχείριση του site (συνήθως &lt;code class=&quot;k&quot;&gt;το-site-σας.gr/wp-admin&lt;/code&gt;)." data-en="Log in to your site&#x27;s admin (usually &lt;code class=&quot;k&quot;&gt;your-site.com/wp-admin&lt;/code&gt;).">Μπείτε στη διαχείριση του site (συνήθως <code class="k">το-site-σας.gr/wp-admin</code>).</li><li data-el="Πηγαίνετε &lt;strong&gt;Πρόσθετα → Προσθήκη νέου&lt;/strong&gt; (Plugins → Add New), ψάξτε &lt;strong&gt;WPCode&lt;/strong&gt;, πατήστε &lt;strong&gt;Εγκατάσταση&lt;/strong&gt; και μετά &lt;strong&gt;Ενεργοποίηση&lt;/strong&gt;. Είναι δωρεάν." data-en="Go to &lt;strong&gt;Plugins → Add New&lt;/strong&gt;, search for &lt;strong&gt;WPCode&lt;/strong&gt;, click &lt;strong&gt;Install&lt;/strong&gt; and then &lt;strong&gt;Activate&lt;/strong&gt;. It&#x27;s free.">Πηγαίνετε <strong>Πρόσθετα → Προσθήκη νέου</strong> (Plugins → Add New), ψάξτε <strong>WPCode</strong>, πατήστε <strong>Εγκατάσταση</strong> και μετά <strong>Ενεργοποίηση</strong>. Είναι δωρεάν.</li><li data-el="Από το αριστερό μενού: &lt;strong&gt;Code Snippets → Header &amp;amp; Footer&lt;/strong&gt;." data-en="From the left menu: &lt;strong&gt;Code Snippets → Header &amp;amp; Footer&lt;/strong&gt;.">Από το αριστερό μενού: <strong>Code Snippets → Header &amp; Footer</strong>.</li><li data-el="Επικολλήστε τη γραμμή στο κουτί &lt;strong&gt;Footer&lt;/strong&gt; (το τελευταίο από τα τρία)." data-en="Paste the line into the &lt;strong&gt;Footer&lt;/strong&gt; box (the last of the three).">Επικολλήστε τη γραμμή στο κουτί <strong>Footer</strong> (το τελευταίο από τα τρία).</li><li data-el="Πατήστε &lt;strong&gt;Save Changes&lt;/strong&gt;." data-en="Click &lt;strong&gt;Save Changes&lt;/strong&gt;.">Πατήστε <strong>Save Changes</strong>.</li><li data-el="Αν έχετε plugin ταχύτητας (π.χ. WP Rocket, LiteSpeed Cache, W3 Total Cache), καθαρίστε την cache του — αλλιώς το κουμπί μπορεί να αργήσει να φανεί." data-en="If you use a speed/caching plugin (e.g. WP Rocket, LiteSpeed Cache, W3 Total Cache), clear its cache — otherwise the button may take a while to appear.">Αν έχετε plugin ταχύτητας (π.χ. WP Rocket, LiteSpeed Cache, W3 Total Cache), καθαρίστε την cache του — αλλιώς το κουμπί μπορεί να αργήσει να φανεί.</li></ol>
+<p data-el="Αν το θέμα σας έχει ήδη δικό του πεδίο για κώδικα (π.χ. Divi → Theme Options → Integration, ή Elementor Pro → Custom Code), μπορείτε να τον βάλετε εκεί αντί για το WPCode — αρκεί σε ένα σημείο." data-en="If your theme already has its own code field (e.g. Divi → Theme Options → Integration, or Elementor Pro → Custom Code), you can use that instead of WPCode — just one place is enough.">Αν το θέμα σας έχει ήδη δικό του πεδίο για κώδικα (π.χ. Divi → Theme Options → Integration, ή Elementor Pro → Custom Code), μπορείτε να τον βάλετε εκεί αντί για το WPCode — αρκεί σε ένα σημείο.</p>
+</div></details>
+    <details class="pf"><summary>Wix</summary><div class="body">
+<p class="req" data-el="Χρειάζεται site δημοσιευμένο με δικό σας domain (όχι διεύθυνση τύπου wixsite.com)." data-en="Your site must be published with your own domain (not a wixsite.com address).">Χρειάζεται site δημοσιευμένο με δικό σας domain (όχι διεύθυνση τύπου wixsite.com).</p>
+<ol><li data-el="Στον πίνακα ελέγχου του site πατήστε &lt;strong&gt;Settings&lt;/strong&gt; (Ρυθμίσεις)." data-en="In your site&#x27;s dashboard click &lt;strong&gt;Settings&lt;/strong&gt;.">Στον πίνακα ελέγχου του site πατήστε <strong>Settings</strong> (Ρυθμίσεις).</li><li data-el="Στην ενότητα &lt;strong&gt;Development &amp;amp; integrations&lt;/strong&gt; πατήστε &lt;strong&gt;Custom Code&lt;/strong&gt;." data-en="In the &lt;strong&gt;Development &amp;amp; integrations&lt;/strong&gt; section click &lt;strong&gt;Custom Code&lt;/strong&gt;.">Στην ενότητα <strong>Development &amp; integrations</strong> πατήστε <strong>Custom Code</strong>.</li><li data-el="Πάνω δεξιά: &lt;strong&gt;+ Add Custom Code&lt;/strong&gt;." data-en="Top right: &lt;strong&gt;+ Add Custom Code&lt;/strong&gt;.">Πάνω δεξιά: <strong>+ Add Custom Code</strong>.</li><li data-el="Επικολλήστε τη γραμμή και δώστε ένα όνομα, π.χ. «Desmar»." data-en="Paste the line and give it a name, e.g. &quot;Desmar&quot;.">Επικολλήστε τη γραμμή και δώστε ένα όνομα, π.χ. «Desmar».</li><li data-el="Στο &lt;strong&gt;Add Code to Pages&lt;/strong&gt; διαλέξτε &lt;strong&gt;All pages&lt;/strong&gt; και «Load code on each new page»." data-en="Under &lt;strong&gt;Add Code to Pages&lt;/strong&gt; choose &lt;strong&gt;All pages&lt;/strong&gt; and &quot;Load code on each new page&quot;.">Στο <strong>Add Code to Pages</strong> διαλέξτε <strong>All pages</strong> και «Load code on each new page».</li><li data-el="Στο &lt;strong&gt;Place Code in&lt;/strong&gt; διαλέξτε &lt;strong&gt;Body - end&lt;/strong&gt; και πατήστε &lt;strong&gt;Apply&lt;/strong&gt;." data-en="Under &lt;strong&gt;Place Code in&lt;/strong&gt; choose &lt;strong&gt;Body - end&lt;/strong&gt; and click &lt;strong&gt;Apply&lt;/strong&gt;.">Στο <strong>Place Code in</strong> διαλέξτε <strong>Body - end</strong> και πατήστε <strong>Apply</strong>.</li></ol>
+</div></details>
+    <details class="pf"><summary>Shopify</summary><div class="body">
+<ol><li data-el="Στη διαχείριση: &lt;strong&gt;Online Store → Themes&lt;/strong&gt;." data-en="In your admin: &lt;strong&gt;Online Store → Themes&lt;/strong&gt;.">Στη διαχείριση: <strong>Online Store → Themes</strong>.</li><li data-el="Δίπλα στο ενεργό θέμα πατήστε &lt;strong&gt;…&lt;/strong&gt; και μετά &lt;strong&gt;Edit code&lt;/strong&gt;." data-en="Next to your live theme click &lt;strong&gt;…&lt;/strong&gt; and then &lt;strong&gt;Edit code&lt;/strong&gt;.">Δίπλα στο ενεργό θέμα πατήστε <strong>…</strong> και μετά <strong>Edit code</strong>.</li><li data-el="Αριστερά, στον φάκελο &lt;strong&gt;Layout&lt;/strong&gt;, ανοίξτε το αρχείο &lt;strong&gt;theme.liquid&lt;/strong&gt;." data-en="On the left, in the &lt;strong&gt;Layout&lt;/strong&gt; folder, open &lt;strong&gt;theme.liquid&lt;/strong&gt;.">Αριστερά, στον φάκελο <strong>Layout</strong>, ανοίξτε το αρχείο <strong>theme.liquid</strong>.</li><li data-el="Βρείτε τη γραμμή &lt;code class=&quot;k&quot;&gt;&amp;lt;/body&amp;gt;&lt;/code&gt; (συνήθως προς το τέλος) και επικολλήστε τη γραμμή κώδικα &lt;strong&gt;ακριβώς πριν&lt;/strong&gt; από αυτήν." data-en="Find the &lt;code class=&quot;k&quot;&gt;&amp;lt;/body&amp;gt;&lt;/code&gt; line (usually near the end) and paste the code &lt;strong&gt;right before&lt;/strong&gt; it.">Βρείτε τη γραμμή <code class="k">&lt;/body&gt;</code> (συνήθως προς το τέλος) και επικολλήστε τη γραμμή κώδικα <strong>ακριβώς πριν</strong> από αυτήν.</li><li data-el="Πατήστε &lt;strong&gt;Save&lt;/strong&gt;." data-en="Click &lt;strong&gt;Save&lt;/strong&gt;.">Πατήστε <strong>Save</strong>.</li></ol>
+<p data-el="Αν αλλάξετε θέμα αργότερα, ο κώδικας πρέπει να μπει ξανά στο νέο θέμα." data-en="If you change theme later, the code needs to be added to the new theme again.">Αν αλλάξετε θέμα αργότερα, ο κώδικας πρέπει να μπει ξανά στο νέο θέμα.</p>
+</div></details>
+    <details class="pf"><summary>Squarespace</summary><div class="body">
+<p class="req" data-el="Το site-wide Code Injection υπάρχει στα πλάνα Core, Plus, Advanced (και στα παλιότερα Business / Commerce)· όχι στο Basic." data-en="Site-wide Code Injection is available on the Core, Plus and Advanced plans (and the older Business / Commerce plans); not on Basic.">Το site-wide Code Injection υπάρχει στα πλάνα Core, Plus, Advanced (και στα παλιότερα Business / Commerce)· όχι στο Basic.</p>
+<ol><li data-el="Αριστερά πατήστε &lt;strong&gt;Website&lt;/strong&gt; και κατεβείτε στο &lt;strong&gt;Website Tools&lt;/strong&gt;." data-en="On the left click &lt;strong&gt;Website&lt;/strong&gt; and scroll down to &lt;strong&gt;Website Tools&lt;/strong&gt;.">Αριστερά πατήστε <strong>Website</strong> και κατεβείτε στο <strong>Website Tools</strong>.</li><li data-el="Πατήστε &lt;strong&gt;Code Injection&lt;/strong&gt;." data-en="Click &lt;strong&gt;Code Injection&lt;/strong&gt;.">Πατήστε <strong>Code Injection</strong>.</li><li data-el="Επικολλήστε τη γραμμή στο κουτί &lt;strong&gt;Footer&lt;/strong&gt;." data-en="Paste the line into the &lt;strong&gt;Footer&lt;/strong&gt; box.">Επικολλήστε τη γραμμή στο κουτί <strong>Footer</strong>.</li><li data-el="Αποθηκεύστε (Save) και ελέγξτε το δημοσιευμένο site — όχι τον επεξεργαστή." data-en="Save, then check your live site — not the editor.">Αποθηκεύστε (Save) και ελέγξτε το δημοσιευμένο site — όχι τον επεξεργαστή.</li></ol>
+</div></details>
+    <details class="pf"><summary>Webflow</summary><div class="body">
+<p class="req" data-el="Χρειάζεται πληρωμένο site plan· ο κώδικας εμφανίζεται μόνο στο δημοσιευμένο site." data-en="Requires a paid site plan; the code only shows on the published site.">Χρειάζεται πληρωμένο site plan· ο κώδικας εμφανίζεται μόνο στο δημοσιευμένο site.</p>
+<ol><li data-el="Ανοίξτε τις ρυθμίσεις του site (&lt;strong&gt;Site settings&lt;/strong&gt;) και την καρτέλα &lt;strong&gt;Custom code&lt;/strong&gt;." data-en="Open your &lt;strong&gt;Site settings&lt;/strong&gt; and the &lt;strong&gt;Custom code&lt;/strong&gt; tab.">Ανοίξτε τις ρυθμίσεις του site (<strong>Site settings</strong>) και την καρτέλα <strong>Custom code</strong>.</li><li data-el="Επικολλήστε τη γραμμή στο &lt;strong&gt;Footer code&lt;/strong&gt;." data-en="Paste the line into &lt;strong&gt;Footer code&lt;/strong&gt;.">Επικολλήστε τη γραμμή στο <strong>Footer code</strong>.</li><li data-el="Πατήστε &lt;strong&gt;Save changes&lt;/strong&gt; και μετά &lt;strong&gt;Publish&lt;/strong&gt;." data-en="Click &lt;strong&gt;Save changes&lt;/strong&gt; and then &lt;strong&gt;Publish&lt;/strong&gt;.">Πατήστε <strong>Save changes</strong> και μετά <strong>Publish</strong>.</li></ol>
+</div></details>
+    <details class="pf"><summary>Joomla</summary><div class="body">
+<ol><li data-el="Πολλά θέματα Joomla έχουν στις ρυθμίσεις τους πεδίο για κώδικα: &lt;strong&gt;System → Site Template Styles&lt;/strong&gt; → το θέμα σας → καρτέλα τύπου &lt;strong&gt;Custom Code&lt;/strong&gt;, πεδίο για το τέλος της σελίδας (π.χ. «Body Custom Code» / «Before &amp;lt;/body&amp;gt;»)." data-en="Many Joomla templates have a code field in their settings: &lt;strong&gt;System → Site Template Styles&lt;/strong&gt; → your template → a tab like &lt;strong&gt;Custom Code&lt;/strong&gt;, field for the end of the page (e.g. &quot;Body Custom Code&quot; / &quot;Before &amp;lt;/body&amp;gt;&quot;).">Πολλά θέματα Joomla έχουν στις ρυθμίσεις τους πεδίο για κώδικα: <strong>System → Site Template Styles</strong> → το θέμα σας → καρτέλα τύπου <strong>Custom Code</strong>, πεδίο για το τέλος της σελίδας (π.χ. «Body Custom Code» / «Before &lt;/body&gt;»).</li><li data-el="Επικολλήστε τη γραμμή εκεί και αποθηκεύστε." data-en="Paste the line there and save.">Επικολλήστε τη γραμμή εκεί και αποθηκεύστε.</li><li data-el="Αν το θέμα σας δεν έχει τέτοιο πεδίο, μην πειράξετε τα αρχεία του θέματος μόνοι σας — ζητήστε το από όποιον σας έφτιαξε το site, ή από εμάς." data-en="If your template has no such field, don&#x27;t edit the template files yourself — ask whoever built your site, or us.">Αν το θέμα σας δεν έχει τέτοιο πεδίο, μην πειράξετε τα αρχεία του θέματος μόνοι σας — ζητήστε το από όποιον σας έφτιαξε το site, ή από εμάς.</li></ol>
+</div></details>
+    <details class="pf"><summary>Hostinger Website Builder</summary><div class="body">
+<ol><li data-el="Στον builder ανοίξτε &lt;strong&gt;Website settings → Integrations&lt;/strong&gt;." data-en="In the builder open &lt;strong&gt;Website settings → Integrations&lt;/strong&gt;.">Στον builder ανοίξτε <strong>Website settings → Integrations</strong>.</li><li data-el="Επικολλήστε τη γραμμή στο πεδίο &lt;strong&gt;Custom code&lt;/strong&gt;. Αν υπάρχει ήδη κώδικας εκεί, βάλτε τη δική μας γραμμή από κάτω — όχι μέσα στον άλλο κώδικα." data-en="Paste the line into the &lt;strong&gt;Custom code&lt;/strong&gt; field. If there&#x27;s already code there, put our line below it — not inside the other code.">Επικολλήστε τη γραμμή στο πεδίο <strong>Custom code</strong>. Αν υπάρχει ήδη κώδικας εκεί, βάλτε τη δική μας γραμμή από κάτω — όχι μέσα στον άλλο κώδικα.</li><li data-el="Αποθηκεύστε και πατήστε &lt;strong&gt;Update website&lt;/strong&gt;. Το κουμπί φαίνεται στην προεπισκόπηση ή στο δημοσιευμένο site, όχι μέσα στον επεξεργαστή." data-en="Save and click &lt;strong&gt;Update website&lt;/strong&gt;. The button shows in preview or on the live site, not inside the editor.">Αποθηκεύστε και πατήστε <strong>Update website</strong>. Το κουμπί φαίνεται στην προεπισκόπηση ή στο δημοσιευμένο site, όχι μέσα στον επεξεργαστή.</li></ol>
+</div></details>
+    <details class="pf"><summary>GoDaddy Website Builder</summary><div class="body">
+<ol><li data-el="Ο GoDaddy Website Builder δεν έχει ένα σημείο για κώδικα σε όλο το site: ο κώδικας μπαίνει ανά σελίδα, με ενότητα &lt;strong&gt;HTML&lt;/strong&gt; (Add Section → HTML → Custom Code)." data-en="GoDaddy Website Builder has no single place for site-wide code: code is added per page, with an &lt;strong&gt;HTML&lt;/strong&gt; section (Add Section → HTML → Custom Code).">Ο GoDaddy Website Builder δεν έχει ένα σημείο για κώδικα σε όλο το site: ο κώδικας μπαίνει ανά σελίδα, με ενότητα <strong>HTML</strong> (Add Section → HTML → Custom Code).</li><li data-el="Επειδή έτσι ο βοηθός μπορεί να φορτώνει μέσα σε πλαίσιο της σελίδας και όχι κάτω δεξιά, &lt;strong&gt;επικοινωνήστε μαζί μας πριν το βάλετε&lt;/strong&gt; — θα το δοκιμάσουμε μαζί." data-en="Because the assistant may then load inside a page frame instead of the bottom-right corner, &lt;strong&gt;contact us before adding it&lt;/strong&gt; — we&#x27;ll test it together.">Επειδή έτσι ο βοηθός μπορεί να φορτώνει μέσα σε πλαίσιο της σελίδας και όχι κάτω δεξιά, <strong>επικοινωνήστε μαζί μας πριν το βάλετε</strong> — θα το δοκιμάσουμε μαζί.</li></ol>
+</div></details>
+    <details class="pf"><summary>Google Tag Manager</summary><div class="body">
+<p class="req" data-el="Αν το site σας έχει ήδη Google Tag Manager, αυτός είναι ο πιο εύκολος τρόπος." data-en="If your site already uses Google Tag Manager, this is the easiest way.">Αν το site σας έχει ήδη Google Tag Manager, αυτός είναι ο πιο εύκολος τρόπος.</p>
+<ol><li data-el="Στο Tag Manager: &lt;strong&gt;Tags → New&lt;/strong&gt;." data-en="In Tag Manager: &lt;strong&gt;Tags → New&lt;/strong&gt;.">Στο Tag Manager: <strong>Tags → New</strong>.</li><li data-el="Tag Configuration: &lt;strong&gt;Custom HTML&lt;/strong&gt; — επικολλήστε τη γραμμή κώδικα." data-en="Tag Configuration: &lt;strong&gt;Custom HTML&lt;/strong&gt; — paste the line of code.">Tag Configuration: <strong>Custom HTML</strong> — επικολλήστε τη γραμμή κώδικα.</li><li data-el="Triggering: &lt;strong&gt;All Pages&lt;/strong&gt;." data-en="Triggering: &lt;strong&gt;All Pages&lt;/strong&gt;.">Triggering: <strong>All Pages</strong>.</li><li data-el="Δώστε όνομα (π.χ. «Desmar»), πατήστε &lt;strong&gt;Save&lt;/strong&gt;, μετά &lt;strong&gt;Submit&lt;/strong&gt; και &lt;strong&gt;Publish&lt;/strong&gt;. Χωρίς Publish δεν φτάνει στους επισκέπτες." data-en="Name it (e.g. &quot;Desmar&quot;), click &lt;strong&gt;Save&lt;/strong&gt;, then &lt;strong&gt;Submit&lt;/strong&gt; and &lt;strong&gt;Publish&lt;/strong&gt;. Without Publish it won&#x27;t reach visitors.">Δώστε όνομα (π.χ. «Desmar»), πατήστε <strong>Save</strong>, μετά <strong>Submit</strong> και <strong>Publish</strong>. Χωρίς Publish δεν φτάνει στους επισκέπτες.</li></ol>
+</div></details>
+    <details class="pf"><summary><span data-el="Άλλη πλατφόρμα ή site φτιαγμένο από προγραμματιστή" data-en="Other platform or custom-built site">Άλλη πλατφόρμα ή site φτιαγμένο από προγραμματιστή</span></summary><div class="body">
+<ol><li data-el="Ο κώδικας μπαίνει στο κοινό πρότυπο όλων των σελίδων, ιδανικά ακριβώς πριν το &lt;code class=&quot;k&quot;&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;. Δουλεύει και μέσα στο &lt;code class=&quot;k&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt;." data-en="The code goes into the shared template of all pages, ideally right before &lt;code class=&quot;k&quot;&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;. It also works inside &lt;code class=&quot;k&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt;.">Ο κώδικας μπαίνει στο κοινό πρότυπο όλων των σελίδων, ιδανικά ακριβώς πριν το <code class="k">&lt;/body&gt;</code>. Δουλεύει και μέσα στο <code class="k">&lt;head&gt;</code>.</li><li data-el="Δεν χρειάζεται τίποτα άλλο: ούτε βιβλιοθήκες, ούτε cookies, ούτε αλλαγές στο CSS." data-en="Nothing else is needed: no libraries, no cookies, no CSS changes.">Δεν χρειάζεται τίποτα άλλο: ούτε βιβλιοθήκες, ούτε cookies, ούτε αλλαγές στο CSS.</li><li data-el="Αν το site έχει Content Security Policy, επιτρέψτε το &lt;code class=&quot;k&quot;&gt;https://api.desmar.ai&lt;/code&gt; στα &lt;code class=&quot;k&quot;&gt;script-src&lt;/code&gt; και &lt;code class=&quot;k&quot;&gt;connect-src&lt;/code&gt;." data-en="If the site has a Content Security Policy, allow &lt;code class=&quot;k&quot;&gt;https://api.desmar.ai&lt;/code&gt; in &lt;code class=&quot;k&quot;&gt;script-src&lt;/code&gt; and &lt;code class=&quot;k&quot;&gt;connect-src&lt;/code&gt;.">Αν το site έχει Content Security Policy, επιτρέψτε το <code class="k">https://api.desmar.ai</code> στα <code class="k">script-src</code> και <code class="k">connect-src</code>.</li></ol>
+<p data-el="Στο Google Sites δεν γίνεται: δεν επιτρέπει κώδικα σε όλο το site. Επικοινωνήστε μαζί μας για εναλλακτική λύση." data-en="It isn&#x27;t possible on Google Sites: it doesn&#x27;t allow site-wide code. Contact us for an alternative.">Στο Google Sites δεν γίνεται: δεν επιτρέπει κώδικα σε όλο το site. Επικοινωνήστε μαζί μας για εναλλακτική λύση.</p>
+</div></details>
+    <h2 data-el="Πώς ελέγχετε ότι μπήκε" data-en="How to check it&#x27;s working">Πώς ελέγχετε ότι μπήκε</h2>
+    <ol><li data-el="Ανοίξτε το site σας σε &lt;strong&gt;ανώνυμο παράθυρο&lt;/strong&gt; (Ctrl+Shift+N στον Chrome) — έτσι δεν σας μπερδεύει η cache." data-en="Open your site in a &lt;strong&gt;private/incognito window&lt;/strong&gt; (Ctrl+Shift+N in Chrome) — so the cache doesn&#x27;t confuse you.">Ανοίξτε το site σας σε <strong>ανώνυμο παράθυρο</strong> (Ctrl+Shift+N στον Chrome) — έτσι δεν σας μπερδεύει η cache.</li><li data-el="Κάτω δεξιά πρέπει να δείτε ένα &lt;strong&gt;στρογγυλό κουμπί&lt;/strong&gt; στο χρώμα της επιχείρησής σας." data-en="At the bottom right you should see a &lt;strong&gt;round button&lt;/strong&gt; in your brand colour.">Κάτω δεξιά πρέπει να δείτε ένα <strong>στρογγυλό κουμπί</strong> στο χρώμα της επιχείρησής σας.</li><li data-el="Πατήστε το και κάντε μια ερώτηση, π.χ. για το ωράριο. Δοκιμάστε το και από το κινητό." data-en="Tap it and ask a question, e.g. about your opening hours. Try it on your phone too.">Πατήστε το και κάντε μια ερώτηση, π.χ. για το ωράριο. Δοκιμάστε το και από το κινητό.</li><li data-el="Αν δοκιμάσετε και ένα ραντεβού, θα σας έρθει email όπως σε κάθε πραγματικό αίτημα. Ακυρώστε το μετά από τη σελίδα διαχείρισης." data-en="If you also try a booking, you&#x27;ll get an email like for any real request. Cancel it afterwards from your management page.">Αν δοκιμάσετε και ένα ραντεβού, θα σας έρθει email όπως σε κάθε πραγματικό αίτημα. Ακυρώστε το μετά από τη σελίδα διαχείρισης.</li></ol>
+    <h2 data-el="Δεν εμφανίζεται το κουμπί;" data-en="The button doesn&#x27;t show?">Δεν εμφανίζεται το κουμπί;</h2>
+    <ol><li data-el="&lt;strong&gt;Cache:&lt;/strong&gt; καθαρίστε την cache του site (plugin ταχύτητας, Cloudflare ή φιλοξενίας) και ξαναδοκιμάστε σε ανώνυμο παράθυρο μετά από 1–2 λεπτά." data-en="&lt;strong&gt;Cache:&lt;/strong&gt; clear your site&#x27;s cache (speed plugin, Cloudflare or hosting) and try again in a private window after 1–2 minutes."><strong>Cache:</strong> καθαρίστε την cache του site (plugin ταχύτητας, Cloudflare ή φιλοξενίας) και ξαναδοκιμάστε σε ανώνυμο παράθυρο μετά από 1–2 λεπτά.</li><li data-el="&lt;strong&gt;«Καθυστέρηση JavaScript»:&lt;/strong&gt; plugins όπως το WP Rocket (Delay JavaScript execution), το LiteSpeed Cache ή το NitroPack μπορεί να κρατούν τον κώδικα μέχρι να κουνηθεί το ποντίκι. Προσθέτετε το &lt;code class=&quot;k&quot;&gt;widget.js&lt;/code&gt; στις εξαιρέσεις τους (στο WP Rocket: &lt;strong&gt;File Optimization → Excluded JavaScript Files&lt;/strong&gt;)." data-en="&lt;strong&gt;&quot;Delay JavaScript&quot;:&lt;/strong&gt; plugins such as WP Rocket (Delay JavaScript execution), LiteSpeed Cache or NitroPack may hold the code until the mouse moves. Add &lt;code class=&quot;k&quot;&gt;widget.js&lt;/code&gt; to their exclusions (in WP Rocket: &lt;strong&gt;File Optimization → Excluded JavaScript Files&lt;/strong&gt;)."><strong>«Καθυστέρηση JavaScript»:</strong> plugins όπως το WP Rocket (Delay JavaScript execution), το LiteSpeed Cache ή το NitroPack μπορεί να κρατούν τον κώδικα μέχρι να κουνηθεί το ποντίκι. Προσθέτετε το <code class="k">widget.js</code> στις εξαιρέσεις τους (στο WP Rocket: <strong>File Optimization → Excluded JavaScript Files</strong>).</li><li data-el="&lt;strong&gt;Εργαλείο cookies:&lt;/strong&gt; αν το εργαλείο συγκατάθεσης μπλοκάρει αυτόματα scripts (π.χ. Cookiebot, CookieYes), δηλώστε τον βοηθό ως λειτουργικό/απαραίτητο. Ο βοηθός δεν βάζει cookies διαφήμισης ούτε παρακολούθησης." data-en="&lt;strong&gt;Cookie tool:&lt;/strong&gt; if your consent tool auto-blocks scripts (e.g. Cookiebot, CookieYes), mark the assistant as functional/necessary. The assistant sets no advertising or tracking cookies."><strong>Εργαλείο cookies:</strong> αν το εργαλείο συγκατάθεσης μπλοκάρει αυτόματα scripts (π.χ. Cookiebot, CookieYes), δηλώστε τον βοηθό ως λειτουργικό/απαραίτητο. Ο βοηθός δεν βάζει cookies διαφήμισης ούτε παρακολούθησης.</li><li data-el="&lt;strong&gt;Άλλη διεύθυνση:&lt;/strong&gt; ο βοηθός δουλεύει μόνο στο domain που μας δηλώσατε (και στο www). Αν δοκιμάζετε σε δοκιμαστική διεύθυνση (π.χ. staging), πείτε μας τη να την προσθέσουμε." data-en="&lt;strong&gt;Different address:&lt;/strong&gt; the assistant only works on the domain you told us (and its www). If you&#x27;re testing on a temporary address (e.g. staging), tell us so we can add it."><strong>Άλλη διεύθυνση:</strong> ο βοηθός δουλεύει μόνο στο domain που μας δηλώσατε (και στο www). Αν δοκιμάζετε σε δοκιμαστική διεύθυνση (π.χ. staging), πείτε μας τη να την προσθέσουμε.</li><li data-el="&lt;strong&gt;Ad blocker:&lt;/strong&gt; δοκιμάστε με απενεργοποιημένο το ad blocker του browser σας." data-en="&lt;strong&gt;Ad blocker:&lt;/strong&gt; try with your browser&#x27;s ad blocker turned off."><strong>Ad blocker:</strong> δοκιμάστε με απενεργοποιημένο το ad blocker του browser σας.</li></ol>
+    <div class="note"><p data-el="Κόλλησε κάπου; Στείλτε μας τη διεύθυνση του site σας στο &lt;a href=&quot;mailto:office@desmar.ai&quot;&gt;office@desmar.ai&lt;/a&gt; — το ελέγχουμε εμείς και σας λέμε τι ακριβώς να πατήσετε." data-en="Stuck? Send your site&#x27;s address to &lt;a href=&quot;mailto:office@desmar.ai&quot;&gt;office@desmar.ai&lt;/a&gt; — we&#x27;ll check it and tell you exactly what to click.">Κόλλησε κάπου; Στείλτε μας τη διεύθυνση του site σας στο <a href="mailto:office@desmar.ai">office@desmar.ai</a> — το ελέγχουμε εμείς και σας λέμε τι ακριβώς να πατήσετε.</p></div>
+    <h2 data-el="Ασφάλεια" data-en="Security">Ασφάλεια</h2>
+    <ul><li data-el="Ο κώδικας φορτώνει μόνο τον βοηθό. Δεν διαβάζει τις φόρμες σας, δεν βλέπει κωδικούς ή πληρωμές και δεν αλλάζει τίποτα άλλο στη σελίδα." data-en="The code only loads the assistant. It doesn&#x27;t read your forms, can&#x27;t see passwords or payments, and doesn&#x27;t change anything else on the page.">Ο κώδικας φορτώνει μόνο τον βοηθό. Δεν διαβάζει τις φόρμες σας, δεν βλέπει κωδικούς ή πληρωμές και δεν αλλάζει τίποτα άλλο στη σελίδα.</li><li data-el="Δεν επιβαρύνει την ταχύτητα: φορτώνει ασύγχρονα (&lt;code class=&quot;k&quot;&gt;async&lt;/code&gt;), αφού εμφανιστεί η σελίδα." data-en="It doesn&#x27;t slow your site: it loads asynchronously (&lt;code class=&quot;k&quot;&gt;async&lt;/code&gt;), after the page appears.">Δεν επιβαρύνει την ταχύτητα: φορτώνει ασύγχρονα (<code class="k">async</code>), αφού εμφανιστεί η σελίδα.</li><li data-el="Η σελίδα διαχείρισης με τα ραντεβού σας ανοίγει μόνο με τον προσωπικό σας σύνδεσμο. Μην τον δημοσιεύετε." data-en="Your bookings management page opens only with your personal link. Don&#x27;t publish it.">Η σελίδα διαχείρισης με τα ραντεβού σας ανοίγει μόνο με τον προσωπικό σας σύνδεσμο. Μην τον δημοσιεύετε.</li></ul>
+    <h2 data-el="Αν θέλετε να τον βγάλετε" data-en="If you want to remove it">Αν θέλετε να τον βγάλετε</h2>
+    <p data-el="Σβήνετε τη γραμμή κώδικα από το σημείο που την βάλατε (και καθαρίζετε την cache). Ο βοηθός εξαφανίζεται αμέσως, χωρίς να μείνει τίποτα στο site σας." data-en="Delete the line of code from where you added it (and clear the cache). The assistant disappears immediately, leaving nothing behind on your site.">Σβήνετε τη γραμμή κώδικα από το σημείο που την βάλατε (και καθαρίζετε την cache). Ο βοηθός εξαφανίζεται αμέσως, χωρίς να μείνει τίποτα στο site σας.</p>
+    </div></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="width:100%;font-weight:600;margin:0 0 .4rem" data-el="AI chatbots, done for you." data-en="AI chatbots, done for you.">AI chatbots, done for you.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/pos-douleuei" data-el="Πώς δουλεύει" data-en="How it works">Πώς δουλεύει</a>
+        <a href="/times" data-el="Τιμές" data-en="Pricing">Τιμές</a>
+        <a href="/demos" data-el="Demos" data-en="Demos">Demos</a>
+        <a href="/faq" data-el="Συχνές ερωτήσεις" data-en="FAQ">Συχνές ερωτήσεις</a>
+        <a href="/poioi-eimaste" data-el="Ποιοι είμαστε" data-en="About us">Ποιοι είμαστε</a>
+        <a href="/gdpr" data-el="Ασφάλεια &amp; GDPR" data-en="Security &amp; GDPR">Ασφάλεια &amp; GDPR</a>
+        <a href="/epikoinonia" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <a href="/privacy" data-el="Απόρρητο" data-en="Privacy">Απόρρητο</a>
+        <a href="/terms" data-el="Όροι χρήσης" data-en="Terms">Όροι χρήσης</a>
+      </nav>
+      <img src="/assets/img/logo-light.svg" alt="Desmar" width="139" height="22">
+      <p data-el="© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website." data-en="© 2026 Desmar. AI chatbot for any business with a website.">© 2026 Desmar. AI chatbot για κάθε επιχείρηση με website.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-toggle');
+    if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});}})();
+  </script>
+
+  <script>
+    (function () {
+      var id = new URLSearchParams(location.search).get("id") || "";
+      if (!/^[a-z0-9][a-z0-9-]{2,62}$/.test(id)) return;
+      var code = '<script src="https://api.desmar.ai/widget.js" data-client-id="' + id + '" async></' + 'script>';
+      document.getElementById("codebox").textContent = code;
+      document.getElementById("code-known").hidden = false;
+      document.getElementById("code-unknown").hidden = true;
+      var btn = document.getElementById("copybtn"), ok = document.getElementById("copied");
+      btn.addEventListener("click", function () {
+        function done() { ok.hidden = false; setTimeout(function () { ok.hidden = true; }, 2500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(code).then(done, fallback);
+        } else { fallback(); }
+        function fallback() {
+          var r = document.createRange(); r.selectNodeContents(document.getElementById("codebox"));
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+          try { document.execCommand("copy"); done(); } catch (e) {}
+        }
+      });
+    })();
+  </script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://api.desmar.ai/widget.js" data-client-id="desmar" async></script>
+</body>
+</html>
