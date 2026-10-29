@@ -296,6 +296,7 @@ a { color: var(--emerald); }
 }
 
 /* Κατάσταση animation: τα μηνύματα κρύβονται και εμφανίζονται διαδοχικά */
+.msg--pick .pick-k { display: block; font-size: .72em; font-weight: 600; opacity: .8; margin-bottom: 2px; letter-spacing: .01em; }
 .chat-body.is-anim .msg { display: none; }
 .chat-body.is-anim .msg.is-in { display: block; animation: msg-in 0.3s ease both; }
 @keyframes msg-in {
