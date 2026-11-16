@@ -78,7 +78,7 @@
     <div class="sec" id="plan-sec"><span>Το πλάνο σας</span></div>
     <div class="field" id="plan-field">
       <label class="q">Ποιο πλάνο σας ενδιαφέρει; <span class="req">*</span>
-        <span class="hint">Στην πιλοτική φάση το χρησιμοποιείτε δωρεάν. Οι τιμές ισχύουν με την επίσημη έναρξη (1ο τρίμηνο 2027).</span></label>
+        <span class="hint">Στην πιλοτική φάση το χρησιμοποιείτε δωρεάν. Οι τιμές ισχύουν με την επίσημη έναρξη (1ο τρίμηνο 2027), και όσοι μπαίνουν τώρα κλειδώνουν −20% για όσο μένουν μαζί μας. Η επιλογή δεν σας δεσμεύει: πριν από την έναρξη σας ρωτάμε αν θέλετε να συνεχίσετε.</span></label>
       <select id="plan-select">
         <option value="">Επιλέξτε πλάνο…</option>
         <option value="vasiko">Βασικό — 69 €/μήνα (μετά την πιλοτική)</option>
@@ -244,6 +244,12 @@
     <div class="field"><label class="q">Οτιδήποτε άλλο θέλετε να ξέρουμε; (προαιρετικό)</label>
       <textarea name="Anything else"></textarea></div>
 
+    <div class="field" id="terms-field">
+      <input type="hidden" name="Έκδοση όρων δεδομένων" value="16/11/2026">
+      <label class="optline" style="align-items:flex-start;color:var(--ink)"><input type="checkbox" id="terms" name="Αποδοχή όρων δεδομένων" value="Ναι" required style="margin-top:.2rem;flex-shrink:0"> <span>Αποδέχομαι τους <a href="/oroi-dedomenon/" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700">όρους επεξεργασίας δεδομένων</a> της Desmar. <span class="req">*</span>
+        <span class="hint">Αφορούν τα στοιχεία των δικών σας πελατών που θα περνούν από τον βοηθό: είναι δικά σας, τα επεξεργαζόμαστε μόνο για να λειτουργεί.</span></span></label>
+    </div>
+
     <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου</button>
     <div class="err" id="err">Κάτι πήγε στραβά. Δοκιμάστε ξανά ή στείλτε μας email.</div>
     <p class="micro">Στην πιλοτική φάση δεν υπάρχει καμία χρέωση. Τα στοιχεία σας χρησιμοποιούνται μόνο για τη δημιουργία του chatbot σας.</p>
@@ -362,6 +368,10 @@
     if(!requireGroup('Tone','Επιλέξτε ύφος επικοινωνίας.')) return;
     if(!requireGroup('Language','Επιλέξτε γλώσσα απαντήσεων.')) return;
     if(!requireGroup('When it does not know','Επιλέξτε τι κάνει το bot όταν δεν ξέρει κάτι.')) return;
+    if(!document.getElementById('terms').checked){
+      document.getElementById('terms-field').scrollIntoView({behavior:'smooth',block:'center'});
+      showErr('Για να προχωρήσουμε χρειάζεται η αποδοχή των όρων επεξεργασίας δεδομένων.');return;
+    }
     btn.disabled=true;btn.textContent='Αποστολή…';
     try{
       const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
