@@ -46,6 +46,15 @@
   .dd-panel{display:none;margin-top:.55rem}
   .dd.open .dd-panel{display:block}
   .dd-panel .opt:last-child{margin-bottom:0}
+  .opt.locked{opacity:.5;cursor:not-allowed;background:#F6F7FB}
+  .opt.locked:hover{border-color:var(--line)}
+  .opt .ptag{margin-left:auto;flex-shrink:0;font-size:.72rem;font-weight:800;color:var(--gold-dark);background:#FBF6E9;border-radius:99px;padding:.15rem .55rem;white-space:nowrap;align-self:center}
+  .opt span.lbl{flex:1}
+  .addlink{background:none;border:1.5px dashed var(--line);border-radius:10px;color:var(--navy);font:inherit;font-weight:700;font-size:.9rem;padding:.5rem .8rem;cursor:pointer;width:100%}
+  .addlink:hover{border-color:var(--navy)}
+  .files-list{list-style:none;margin:.5rem 0 0;padding:0;font-size:.88rem;color:var(--muted)}
+  .files-list li{padding:.15rem 0}
+  .linkbtn{background:none;border:0;color:var(--navy);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:.4rem}
   .plan-top{background:#FBF6E9;color:var(--gold-dark);font-weight:800;border-radius:10px;padding:.7rem .9rem;margin:0 0 .2rem;font-size:.95rem}
   .submit{width:100%;background:var(--gold);color:var(--navy);border:0;border-radius:12px;padding:.95rem;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer;margin-top:1.4rem;transition:background .15s}
   .submit:hover{background:var(--gold-dark);color:#fff}.submit:disabled{opacity:.6;cursor:default}
@@ -68,22 +77,20 @@
 
 <div class="wrap">
   <form id="f">
-    <input type="hidden" name="access_key" value="04695959-be1e-4c33-9bef-e9e9e61eab23">
-    <input type="hidden" name="subject" value="Νέα εγγραφή πιλοτικού — Desmar">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
     <input type="hidden" name="Πλάνο" id="paid-plan">
 
-    <p class="plan-top" id="plan-top" style="display:none"></p>
+    <p class="plan-top" id="plan-top" style="display:none"><span id="plan-top-txt"></span><button type="button" class="linkbtn" id="plan-change">Αλλαγή</button></p>
 
     <div class="sec" id="plan-sec"><span>Το πλάνο σας</span></div>
     <div class="field" id="plan-field">
       <label class="q">Ποιο πλάνο σας ενδιαφέρει; <span class="req">*</span>
-        <span class="hint">Στην πιλοτική φάση το χρησιμοποιείτε δωρεάν. Οι τιμές ισχύουν με την επίσημη έναρξη (1ο τρίμηνο 2027), και όσοι μπαίνουν τώρα κλειδώνουν −20% για όσο μένουν μαζί μας. Η επιλογή δεν σας δεσμεύει: πριν από την έναρξη σας ρωτάμε αν θέλετε να συνεχίσετε.</span></label>
+        <span class="hint">Τώρα δεν πληρώνετε τίποτα και δεν δίνετε κάρτα. Το πλάνο ορίζει μόνο τι θα σας στήσουμε. Πριν από την επίσημη έναρξη (1ο τρίμηνο 2027) σας ρωτάμε αν θέλετε να συνεχίσετε, με −20% για όσους μπαίνουν τώρα.</span></label>
       <select id="plan-select">
         <option value="">Επιλέξτε πλάνο…</option>
-        <option value="vasiko">Βασικό — 69 €/μήνα (μετά την πιλοτική)</option>
-        <option value="anaptyxi">Ανάπτυξη — 149 €/μήνα (μετά την πιλοτική)</option>
-        <option value="pro">Pro — 299 €/μήνα (μετά την πιλοτική)</option>
+        <option value="vasiko">Βασικό · δωρεάν τώρα, 69 €/μήνα από την έναρξη</option>
+        <option value="anaptyxi">Ανάπτυξη · δωρεάν τώρα, 149 €/μήνα από την έναρξη</option>
+        <option value="pro">Pro · δωρεάν τώρα, 299 €/μήνα από την έναρξη</option>
       </select>
     </div>
 
@@ -110,15 +117,18 @@
 
     <div class="field">
       <label class="q">Άλλες πηγές (προαιρετικό)
-        <span class="hint">Ένα link ανά πεδίο: Google Business, Facebook, Instagram, e-shop… (νέο πεδίο εμφανίζεται καθώς συμπληρώνετε).</span></label>
+        <span class="hint">Ένα link ανά πεδίο: Google Business, Facebook, Instagram, e-shop…</span></label>
       <div id="sources">
         <input type="text" class="src-input" name="Other source 1" placeholder="π.χ. facebook.com/...">
       </div>
+      <button type="button" class="addlink" id="add-src">+ Προσθήκη άλλου link</button>
     </div>
 
     <div class="field">
       <label class="q">Έχετε κάποιο χρήσιμο αρχείο; (προαιρετικό)
-        <span class="hint">π.χ. τιμοκατάλογο, PDF, κατάλογο υπηρεσιών. Θα σας το ζητήσουμε με email αφού λάβουμε τη φόρμα.</span></label>
+        <span class="hint">π.χ. τιμοκατάλογο, μενού, κατάλογο υπηρεσιών. Έως 5 αρχεία, έως 10 MB το καθένα (PDF, Word, Excel, κείμενο, εικόνες).</span></label>
+      <input type="file" id="files" name="files" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.odt,.ods,.jpg,.jpeg,.png,.webp">
+      <ul class="files-list" id="files-list"></ul>
     </div>
 
     <div class="field"><label class="q">Σε τι είναι φτιαγμένο το site; (προαιρετικό)</label>
@@ -208,13 +218,16 @@
     <div class="sec"><span>Δεδομένα, ειδοποίηση &amp; όρια</span></div>
 
     <div class="field"><label class="q">Πού θέλετε να καταλήγουν κρατήσεις &amp; leads; (προαιρετικό)
-      <span class="hint">Πάντα σας έρχονται με email. Επιπλέον, προαιρετικά, τα περνάμε αυτόματα και εδώ (το ρυθμίζουμε μαζί σας στο στήσιμο).</span></label>
+        <span class="hint">Πάντα σας έρχονται με email. Οι επιλογές σε γκρι ανήκουν σε μεγαλύτερο πλάνο από αυτό που διαλέξατε.</span></label>
       <div class="dd" data-multi="1">
         <button type="button" class="dd-toggle"><span class="dd-summary empty">Επιλέξτε…</span><svg class="dd-chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="dd-panel">
-          <label class="opt"><input type="checkbox" name="Data destinations" value="Μόνο email"><span>Μόνο email (προεπιλογή)</span></label>
-          <label class="opt"><input type="checkbox" name="Data destinations" value="Google Sheet"><span>Google Sheet</span></label>
-          <label class="opt"><input type="checkbox" name="Data destinations" value="Excel σε OneDrive"><span>Excel σε OneDrive</span></label>
+          <label class="opt" data-min="vasiko"><input type="checkbox" name="Data destinations" value="Μόνο email"><span class="lbl">Μόνο email</span><span class="ptag"></span></label>
+          <label class="opt" data-min="vasiko"><input type="checkbox" name="Data destinations" value="Σελίδα διαχείρισης κρατήσεων"><span class="lbl">Σελίδα διαχείρισης κρατήσεων (υπολογιστής και κινητό)</span><span class="ptag"></span></label>
+          <label class="opt" data-min="anaptyxi"><input type="checkbox" name="Data destinations" value="Google Sheet"><span class="lbl">Google Sheet</span><span class="ptag"></span></label>
+          <label class="opt" data-min="anaptyxi"><input type="checkbox" name="Data destinations" value="Excel σε OneDrive"><span class="lbl">Excel σε OneDrive</span><span class="ptag"></span></label>
+          <label class="opt" data-min="anaptyxi"><input type="checkbox" name="Data destinations" value="Google Calendar"><span class="lbl">Google Calendar</span><span class="ptag"></span></label>
+          <label class="opt" data-min="pro"><input type="checkbox" name="Data destinations" value="Πλήρες κέντρο με leads και στατιστικά"><span class="lbl">Πλήρες κέντρο με ημερολόγιο, leads και στατιστικά</span><span class="ptag"></span></label>
         </div>
       </div>
     </div>
@@ -251,14 +264,14 @@
     </div>
 
     <button type="submit" class="submit" id="btn">Στείλτε τα στοιχεία μου</button>
-    <div class="err" id="err">Κάτι πήγε στραβά. Δοκιμάστε ξανά ή στείλτε μας email.</div>
+    <div class="err" id="err"></div>
     <p class="micro">Στην πιλοτική φάση δεν υπάρχει καμία χρέωση. Τα στοιχεία σας χρησιμοποιούνται μόνο για τη δημιουργία του chatbot σας.</p>
   </form>
 
   <div class="done" id="done" style="display:none" tabindex="-1">
     <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9 17.5 20 6.5" stroke="#1E7A46" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <h2>Λάβαμε τα στοιχεία σας!</h2>
-    <p>Ξεκινάμε το πιλοτικό σας chatbot — εντελώς <strong>δωρεάν</strong>, χωρίς δέσμευση. Θα επικοινωνήσουμε σύντομα και θα σας το παραδώσουμε <strong>εντός 48 ωρών</strong>.</p>
+    <p>Ξεκινάμε το πιλοτικό σας chatbot, <strong>δωρεάν</strong> και χωρίς δέσμευση. Θα επικοινωνήσουμε σύντομα μαζί σας για το στήσιμο.</p>
     <p style="font-size:.9rem">Οποιαδήποτε απορία: <a href="mailto:office@desmar.ai" style="color:var(--gold-dark);font-weight:600">office@desmar.ai</a></p>
   </div>
 
@@ -270,18 +283,52 @@
   // Σημ.: στην πιλοτική φάση ΔΕΝ υπάρχει πληρωμή. Με την επίσημη έναρξη (2027) θα ξαναμπεί
   // ανακατεύθυνση σε Stripe Payment Link ανά πλάνο εδώ.
 
-  // Δυναμικά «άλλες πηγές»
-  const srcWrap=document.getElementById('sources');
+  const f=document.getElementById('f'), btn=document.getElementById('btn'), err=document.getElementById('err');
+  function showErr(m){err.textContent=m;err.style.display='block';}
+
+  // «Άλλες πηγές»: νέο πεδίο όταν γεμίζει το τελευταίο ή με το κουμπί (έως 8)
+  const srcWrap=document.getElementById('sources'), addSrc=document.getElementById('add-src');
+  function srcInputs(){return [...srcWrap.querySelectorAll('input')];}
+  function addSource(focus){
+    const inputs=srcInputs();
+    const empty=inputs.find(function(i){return i.value.trim()==='';});
+    if(empty){ if(focus) empty.focus(); return; }
+    if(inputs.length>=8) return;
+    const inp=document.createElement('input');
+    inp.type='text'; inp.className='src-input';
+    inp.name='Other source '+(inputs.length+1);
+    inp.placeholder='π.χ. instagram.com/...';
+    srcWrap.appendChild(inp);
+    if(focus) inp.focus();
+    addSrc.style.display=srcInputs().length>=8?'none':'block';
+  }
   srcWrap.addEventListener('input',function(e){
-    const inputs=[...srcWrap.querySelectorAll('input')];
-    const last=inputs[inputs.length-1];
-    if(e.target===last && last.value.trim()!=='' && inputs.length<8){
-      const inp=document.createElement('input');
-      inp.type='text'; inp.className='src-input';
-      inp.name='Other source '+(inputs.length+1);
-      inp.placeholder='π.χ. instagram.com/...';
-      srcWrap.appendChild(inp);
+    const inputs=srcInputs();
+    if(e.target===inputs[inputs.length-1] && e.target.value.trim()!=='') addSource(false);
+  });
+  addSrc.addEventListener('click',function(){ addSource(true); });
+
+  // Αρχεία: έως 5, έως 10 MB, γνωστοί τύποι
+  const MAX_FILES=5, MAX_MB=10, OK_EXT=['pdf','doc','docx','xls','xlsx','csv','txt','odt','ods','jpg','jpeg','png','webp'];
+  const filesInp=document.getElementById('files'), filesList=document.getElementById('files-list');
+  function filesProblem(){
+    const fs=[...filesInp.files];
+    if(fs.length>MAX_FILES) return 'Έως '+MAX_FILES+' αρχεία. Κρατήστε τα πιο χρήσιμα.';
+    for(const x of fs){
+      const ext=(x.name.split('.').pop()||'').toLowerCase();
+      if(OK_EXT.indexOf(ext)<0) return 'Το «'+x.name+'» δεν είναι σε τύπο που δεχόμαστε (PDF, Word, Excel, κείμενο, εικόνα).';
+      if(x.size>MAX_MB*1024*1024) return 'Το «'+x.name+'» είναι πάνω από '+MAX_MB+' MB.';
     }
+    return '';
+  }
+  filesInp.addEventListener('change',function(){
+    filesList.innerHTML='';
+    [...filesInp.files].forEach(function(x){
+      const li=document.createElement('li');
+      li.textContent=x.name+' · '+(x.size<1024*1024?Math.max(1,Math.round(x.size/1024))+' KB':(x.size/1048576).toFixed(1)+' MB');
+      filesList.appendChild(li);
+    });
+    const p=filesProblem(); err.style.display='none'; if(p) showErr(p);
   });
   // «Δεν έχω website»
   const nosite=document.getElementById('nosite'), website=document.getElementById('website'), extra=document.getElementById('nosite-extra');
@@ -303,7 +350,20 @@
   var planSelect=document.getElementById('plan-select');
   var paidPlan=document.getElementById('paid-plan');
   var chosenPlan='';
-  function setPlan(slug){ chosenPlan=slug||''; paidPlan.value=PLAN_NAMES[slug]||''; }
+  var PLAN_RANK={vasiko:1,anaptyxi:2,pro:3};
+  var PLAN_TAG={vasiko:'Όλα τα πλάνα',anaptyxi:'Ανάπτυξη και Pro',pro:'Μόνο Pro'};
+  function applyPlanLocks(){
+    var rank=PLAN_RANK[chosenPlan]||0;
+    document.querySelectorAll('.opt[data-min]').forEach(function(o){
+      var need=o.dataset.min, inp=o.querySelector('input'), tag=o.querySelector('.ptag');
+      var locked=rank>0 && PLAN_RANK[need]>rank;
+      tag.textContent=locked?PLAN_TAG[need]:(rank>0?'Στο '+PLAN_NAMES[chosenPlan]:PLAN_TAG[need]);
+      o.classList.toggle('locked',locked); inp.disabled=locked;
+      if(locked) inp.checked=false;
+    });
+    document.querySelectorAll('.dd').forEach(function(dd){ if(window.ddSummary) ddSummary(dd); });
+  }
+  function setPlan(slug){ chosenPlan=PLAN_NAMES[slug]?slug:''; paidPlan.value=chosenPlan; applyPlanLocks(); }
   planSelect.addEventListener('change',function(){ setPlan(planSelect.value); });
   (function(){
     var p=(new URLSearchParams(location.search).get('plan')||'').toLowerCase();
@@ -312,10 +372,16 @@
       document.getElementById('plan-sec').style.display='none';
       document.getElementById('plan-field').style.display='none';
       var top=document.getElementById('plan-top');
-      top.textContent='Πλάνο που σας ενδιαφέρει: '+PLAN_NAMES[p]+' · Δωρεάν στην πιλοτική φάση';
+      document.getElementById('plan-top-txt').textContent='Πλάνο: '+PLAN_NAMES[p]+' · δωρεάν στην πιλοτική, χωρίς κάρτα.';
       top.style.display='block';
-    }
+    } else applyPlanLocks();
   })();
+  document.getElementById('plan-change').addEventListener('click',function(){
+    document.getElementById('plan-top').style.display='none';
+    document.getElementById('plan-sec').style.display='';
+    document.getElementById('plan-field').style.display='';
+    planSelect.focus();
+  });
 
   // ——— Dropdown ομάδες ———
   function ddSummary(dd){
@@ -347,8 +413,6 @@
   });
 
   // ——— Υποβολή: στέλνει στοιχεία → μήνυμα επιτυχίας (ΧΩΡΙΣ πληρωμή στην πιλοτική φάση) ———
-  const f=document.getElementById('f'), btn=document.getElementById('btn'), err=document.getElementById('err');
-  function showErr(m){err.textContent=m;err.style.display='block';}
   function requireGroup(name,msg){
     if(f.querySelectorAll('input[name="'+name+'"]:checked').length>0) return true;
     var input=f.querySelector('input[name="'+name+'"]');
@@ -372,18 +436,22 @@
       document.getElementById('terms-field').scrollIntoView({behavior:'smooth',block:'center'});
       showErr('Για να προχωρήσουμε χρειάζεται η αποδοχή των όρων επεξεργασίας δεδομένων.');return;
     }
-    btn.disabled=true;btn.textContent='Αποστολή…';
+    var fp=filesProblem();
+    if(fp){ filesInp.closest('.field').scrollIntoView({behavior:'smooth',block:'center'}); showErr(fp); return; }
+    btn.disabled=true;btn.textContent=filesInp.files.length?'Αποστολή αρχείων…':'Αποστολή…';
     try{
-      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
-      const data=await res.json();
-      if(data.success){
+      const res=await fetch('https://api.desmar.ai/api/v1/signup',{method:'POST',body:new FormData(f)});
+      let data={}; try{ data=await res.json(); }catch(_){}
+      if(res.ok && data.ok){
         f.style.display='none';
         var done=document.getElementById('done');
         done.style.display='block';
         window.scrollTo({top:0,behavior:'smooth'});
         done.focus();
       } else {
-        showErr('Σφάλμα: '+(data.message||'άγνωστο')+'. Δοκιμάστε ξανά ή στείλτε μας email.');
+        showErr(res.status===429?'Πολλές αποστολές μαζί. Δοκιμάστε ξανά σε ένα λεπτό.':
+                res.status===413?'Τα αρχεία είναι πολύ μεγάλα συνολικά. Αφαιρέστε κάποιο και δοκιμάστε ξανά.':
+                (data.error||'Κάτι πήγε στραβά. Δοκιμάστε ξανά σε λίγο.'));
         btn.disabled=false;btn.textContent='Στείλτε τα στοιχεία μου';
       }
     }catch(_){
