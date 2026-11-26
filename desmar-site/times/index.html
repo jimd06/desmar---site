@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Τιμές — Desmar</title>
-  <meta name="description" content="Απλή μηνιαία συνδρομή. Από 69 €/μήνα. Δείτε αναλυτικά κάθε πλάνο.">
+  <meta name="description" content="Απλή μηνιαία συνδρομή. Από 69 €/μήνα +ΦΠΑ. Δείτε αναλυτικά κάθε πλάνο.">
   <link rel="canonical" href="https://desmar.ai/times">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Desmar">
   <meta property="og:locale" content="el_GR">
   <meta property="og:title" content="Τιμές — Desmar">
-  <meta property="og:description" content="Απλή μηνιαία συνδρομή. Από 69 €/μήνα. Δείτε αναλυτικά κάθε πλάνο.">
+  <meta property="og:description" content="Απλή μηνιαία συνδρομή. Από 69 €/μήνα +ΦΠΑ. Δείτε αναλυτικά κάθε πλάνο.">
   <meta property="og:url" content="https://desmar.ai/times">
   <meta property="og:image" content="https://desmar.ai/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -47,6 +47,7 @@
     .contact-info{text-align:center;margin:1.2rem 0 2rem;font-size:1.05rem}
     .contact-info a{color:var(--gold-dark);font-weight:600;text-decoration:none}
     /* Νέο: link «Αναλυτικά» + λωρίδα limit + Enterprise strip */
+    .price-vat{font-size:.78rem;color:var(--muted);margin:.15rem 0 .4rem}
     .price-limit{font-size:.82rem;color:var(--muted);margin:.1rem 0 .9rem}
     .price-details{display:inline-block;margin-top:.7rem;color:var(--gold-dark);font-weight:700;font-size:.92rem;text-decoration:none}
     .price-details:hover{text-decoration:underline}
@@ -159,6 +160,8 @@
                 <li data-el="Απαντήσεις 24/7 στη γλώσσα του επισκέπτη" data-en="24/7 answers in the visitor's language">Απαντήσεις 24/7 στη γλώσσα του επισκέπτη</li>
                 <li data-el="Ραντεβού &amp; κρατήσεις μέσα στη συνομιλία" data-en="Appointments &amp; bookings inside the chat">Ραντεβού &amp; κρατήσεις μέσα στη συνομιλία</li>
                 <li data-el="Έλεγχος διαθεσιμότητας — καμία διπλοκράτηση" data-en="Availability checks — no double bookings">Έλεγχος διαθεσιμότητας — καμία διπλοκράτηση</li>
+                <li data-el="Αίτημα ραντεβού για όσους έχουν δικό τους σύστημα κρατήσεων" data-en="Appointment requests for businesses with their own booking system">Αίτημα ραντεβού για όσους έχουν δικό τους σύστημα κρατήσεων</li>
+                <li data-el="Σύνδεση με Google Calendar" data-en="Google Calendar sync">Σύνδεση με Google Calendar</li>
                 <li data-el="Αυτόματη ενημέρωση από το site σας κάθε 24ωρο" data-en="Automatic update from your site every 24h">Αυτόματη ενημέρωση από το site σας κάθε 24ωρο</li>
                 <li data-el="Σελίδα διαχείρισης ραντεβού (κινητό &amp; υπολογιστή)" data-en="Booking management page (mobile &amp; desktop)">Σελίδα διαχείρισης ραντεβού (κινητό &amp; υπολογιστή)</li>
                 <li data-el="Email για κάθε νέο ραντεβού ή ενδιαφερόμενο" data-en="Email for every new booking or lead">Email για κάθε νέο ραντεβού ή ενδιαφερόμενο</li>
@@ -195,15 +198,17 @@
           <!-- ΒΑΣΙΚΟ -->
           <div class="price-card">
             <h3 class="price-name" data-el="Βασικό" data-en="Basic">Βασικό</h3>
-            <div class="price-amount">69 € <span data-el="/ μήνα" data-en="/ month">/ μήνα</span></div>
+            <div class="price-amount">69 € <span data-el="/ μήνα +ΦΠΑ" data-en="/ month + VAT">/ μήνα +ΦΠΑ</span></div>
+            <p class="price-vat" data-el="85,56 € με ΦΠΑ 24%" data-en="€85.56 incl. 24% VAT">85,56 € με ΦΠΑ 24%</p>
             <p class="price-for" data-el="Για να ξεκινήσετε" data-en="To get started">Για να ξεκινήσετε</p>
             <p class="price-limit" data-el="Έως 500 συνομιλίες/μήνα · μετά +10 €/100, δεν σταματά ποτέ" data-en="Up to 500 conversations/mo · then +€10/100, never stops">Έως 500 συνομιλίες/μήνα · μετά +10 €/100, δεν σταματά ποτέ</p>
             <ul class="price-feats">
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Απαντά 24/7 στη γλώσσα του επισκέπτη — ελληνικά, αγγλικά και άλλες — μόνο με το δικό σας υλικό" data-en="Answers 24/7 in the visitor’s language — Greek, English and more — from your material only">Απαντά 24/7 στη γλώσσα του επισκέπτη — ελληνικά, αγγλικά και άλλες — μόνο με το δικό σας υλικό</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Κρατήσεις/ραντεβού μέσα από το chat + οδηγίες Google Maps" data-en="Bookings/appointments inside the chat + Google Maps directions">Κρατήσεις/ραντεβού μέσα από το chat + οδηγίες Google Maps</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Σελίδα διαχείρισης κρατήσεων — υπολογιστή &amp; κινητό, χωρίς κωδικούς" data-en="Booking management page — desktop &amp; mobile, no passwords">Σελίδα διαχείρισης κρατήσεων — υπολογιστή &amp; κινητό, χωρίς κωδικούς</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Συλλογή leads + email για κάθε νέο ενδιαφερόμενο" data-en="Lead capture + email for every new contact">Συλλογή leads + email για κάθε νέο ενδιαφερόμενο</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Μηνιαίο email με στατιστικά" data-en="Monthly email with your stats">Μηνιαίο email με στατιστικά</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Ραντεβού μέσα από το chat: στο ημερολόγιο της Desmar ή ως αίτημα που επιβεβαιώνετε εσείς (αν έχετε δικό σας σύστημα)" data-en="Appointments inside the chat: in the Desmar calendar or as a request you confirm (if you have your own system)">Ραντεβού μέσα από το chat: στο ημερολόγιο της Desmar ή ως αίτημα που επιβεβαιώνετε εσείς (αν έχετε δικό σας σύστημα)</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Αυτόματη υπενθύμιση email 24ω πριν το ραντεβού + οδηγίες Google Maps" data-en="Automatic email reminder 24h before + Google Maps directions">Αυτόματη υπενθύμιση email 24ω πριν το ραντεβού + οδηγίες Google Maps</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Κέντρο διαχείρισης: ραντεβού, ενδιαφερόμενοι, συνομιλίες, στατιστικά — κινητό &amp; υπολογιστής, χωρίς κωδικούς" data-en="Management center: bookings, leads, conversations, stats — mobile &amp; desktop, no passwords">Κέντρο διαχείρισης: ραντεβού, ενδιαφερόμενοι, συνομιλίες, στατιστικά — κινητό &amp; υπολογιστής, χωρίς κωδικούς</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Email για κάθε νέο ραντεβού ή ενδιαφερόμενο · μηνιαία αναφορά" data-en="Email for every new booking or lead · monthly report">Email για κάθε νέο ραντεβού ή ενδιαφερόμενο · μηνιαία αναφορά</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Στα χρώματα της επιχείρησής σας · ενημέρωση από το site σας κάθε 24ωρο" data-en="In your brand colors · updates from your site every 24h">Στα χρώματα της επιχείρησής σας · ενημέρωση από το site σας κάθε 24ωρο</span></li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Εγκατάσταση από εμάς · GDPR · δήλωση AI στον επισκέπτη" data-en="Setup done by us · GDPR · AI disclosure to visitors">Εγκατάσταση από εμάς · GDPR · δήλωση AI στον επισκέπτη</span></li>
             </ul>
             <a class="btn" href="/start/?plan=vasiko" data-el="Ξεκινήστε δωρεάν" data-en="Start free">Ξεκινήστε δωρεάν</a>
@@ -214,17 +219,18 @@
           <div class="price-card price-card--featured">
             <span class="price-badge" data-el="Δημοφιλές" data-en="Popular">Δημοφιλές</span>
             <h3 class="price-name" data-el="Ανάπτυξη" data-en="Growth">Ανάπτυξη</h3>
-            <div class="price-amount">149 € <span data-el="/ μήνα" data-en="/ month">/ μήνα</span></div>
+            <div class="price-amount">129 € <span data-el="/ μήνα +ΦΠΑ" data-en="/ month + VAT">/ μήνα +ΦΠΑ</span></div>
+            <p class="price-vat" data-el="159,96 € με ΦΠΑ 24%" data-en="€159.96 incl. 24% VAT">159,96 € με ΦΠΑ 24%</p>
             <p class="price-for" data-el="Για συνεχή ροή πελατών &amp; ραντεβού" data-en="For steady customer flow &amp; appointments">Για συνεχή ροή πελατών &amp; ραντεβού</p>
             <p class="price-limit" data-el="Έως 1.500 συνομιλίες/μήνα" data-en="Up to 1,500 conversations/mo">Έως 1.500 συνομιλίες/μήνα</p>
             <ul class="price-feats">
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Όλα του Βασικού" data-en="Everything in Basic">Όλα του Βασικού</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Google Calendar + σύνδεση κρατήσεων με Sheets/Excel" data-en="Google Calendar + booking sync with Sheets/Excel">Google Calendar + σύνδεση κρατήσεων με Sheets/Excel</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Αυτόματη υπενθύμιση 24ω πριν το ραντεβού (email)" data-en="Automatic 24h reminder before the appointment (email)">Αυτόματη υπενθύμιση 24ω πριν το ραντεβού (email)</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Υπενθυμίσεις SMS <span style='opacity:.55'>— έρχεται με την έναρξη</span>" data-en="SMS reminders <span style='opacity:.55'>— coming at launch</span>">Υπενθυμίσεις SMS <span style='opacity:.55'>— έρχεται με την έναρξη</span></span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Αυτόματο αίτημα κριτικής Google" data-en="Automatic Google review request">Αυτόματο αίτημα κριτικής Google</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Αυτόματη ενημέρωση από το site σας κάθε 24ωρο" data-en="Automatic update from your website every 24h">Αυτόματη ενημέρωση από το site σας κάθε 24ωρο</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Έξυπνη αξιολόγηση leads (ποιον να καλέσετε πρώτο)" data-en="Smart lead scoring (who to call first)">Έξυπνη αξιολόγηση leads (ποιον να καλέσετε πρώτο)</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Σύνδεση με το Google Calendar σας: βλέπει live τις πιασμένες ώρες και γράφει εκεί τα νέα ραντεβού" data-en="Google Calendar sync: sees your busy times live and writes new appointments there">Σύνδεση με το Google Calendar σας: βλέπει live τις πιασμένες ώρες και γράφει εκεί τα νέα ραντεβού</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Αυτόματη καταχώριση κρατήσεων &amp; ενδιαφερομένων σε Google Sheets ή Excel" data-en="Bookings &amp; leads sent automatically to Google Sheets or Excel">Αυτόματη καταχώριση κρατήσεων &amp; ενδιαφερομένων σε Google Sheets ή Excel</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Αυτόματο αίτημα κριτικής Google μετά το ραντεβού" data-en="Automatic Google review request after the appointment">Αυτόματο αίτημα κριτικής Google μετά το ραντεβού</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Επαναφορά πελατών: email σε όσους δεν έχουν ξανάρθει" data-en="Win-back: email to customers who haven’t returned">Επαναφορά πελατών: email σε όσους δεν έχουν ξανάρθει</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Έξυπνη αξιολόγηση ενδιαφερόμενων (ποιον να καλέσετε πρώτο)" data-en="Smart lead scoring (who to call first)">Έξυπνη αξιολόγηση ενδιαφερόμενων (ποιον να καλέσετε πρώτο)</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="100 SMS υπενθυμίσεων/μήνα <span style='opacity:.55'>— έρχεται με την έναρξη</span>" data-en="100 SMS reminders/mo <span style='opacity:.55'>— coming at launch</span>">100 SMS υπενθυμίσεων/μήνα <span style='opacity:.55'>— έρχεται με την έναρξη</span></span></li>
             </ul>
             <a class="btn" href="/start/?plan=anaptyxi" data-el="Ξεκινήστε δωρεάν" data-en="Start free">Ξεκινήστε δωρεάν</a>
             <a class="price-details" href="/times/anaptyxi" data-el="Αναλυτικά το Ανάπτυξη →" data-en="See Growth in detail →">Αναλυτικά το Ανάπτυξη →</a>
@@ -233,15 +239,15 @@
           <!-- PRO -->
           <div class="price-card">
             <h3 class="price-name" data-el="Pro" data-en="Pro">Pro</h3>
-            <div class="price-amount">299 € <span data-el="/ μήνα" data-en="/ month">/ μήνα</span></div>
+            <div class="price-amount">249 € <span data-el="/ μήνα +ΦΠΑ" data-en="/ month + VAT">/ μήνα +ΦΠΑ</span></div>
+            <p class="price-vat" data-el="308,76 € με ΦΠΑ 24%" data-en="€308.76 incl. 24% VAT">308,76 € με ΦΠΑ 24%</p>
             <p class="price-for" data-el="Πλήρης έλεγχος &amp; αυτοματισμός" data-en="Full control &amp; automation">Πλήρης έλεγχος &amp; αυτοματισμός</p>
             <p class="price-limit" data-el="Έως 3.000 συνομιλίες/μήνα" data-en="Up to 3,000 conversations/mo">Έως 3.000 συνομιλίες/μήνα</p>
             <ul class="price-feats">
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Όλα της Ανάπτυξης" data-en="Everything in Growth">Όλα της Ανάπτυξης</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Ημερολόγιο κρατήσεων (μέρα / εβδομάδα / μήνας)" data-en="Booking calendar (day / week / month)">Ημερολόγιο κρατήσεων (μέρα / εβδομάδα / μήνας)</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Πλήρες κέντρο με leads &amp; στατιστικά" data-en="Full center with leads &amp; stats">Πλήρες κέντρο με leads &amp; στατιστικά</span></li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="AI σύμβουλος: μηνιαίο email με 3–5 πρακτικές προτάσεις" data-en="AI advisor: monthly email with 3–5 practical suggestions">AI σύμβουλος: μηνιαίο email με 3–5 πρακτικές προτάσεις</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="AI σύμβουλος: μηνιαίο email με 3–5 πρακτικές προτάσεις από τις συνομιλίες σας" data-en="AI advisor: monthly email with 3–5 practical suggestions from your conversations">AI σύμβουλος: μηνιαίο email με 3–5 πρακτικές προτάσεις από τις συνομιλίες σας</span></li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Το chatbot 100% δικό σας (χωρίς «Powered by Desmar»)" data-en="The chatbot 100% yours (no “Powered by Desmar”)">Το chatbot 100% δικό σας (χωρίς «Powered by Desmar»)</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="Για μεγάλο όγκο: έως 3.000 συνομιλίες τον μήνα" data-en="For high volume: up to 3,000 conversations a month">Για μεγάλο όγκο: έως 3.000 συνομιλίες τον μήνα</span></li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-el="300 SMS υπενθυμίσεων/μήνα <span style='opacity:.55'>— έρχεται με την έναρξη</span>" data-en="300 SMS reminders/mo <span style='opacity:.55'>— coming at launch</span>">300 SMS υπενθυμίσεων/μήνα <span style='opacity:.55'>— έρχεται με την έναρξη</span></span></li>
             </ul>
             <a class="btn" href="/start/?plan=pro" data-el="Ξεκινήστε δωρεάν" data-en="Start free">Ξεκινήστε δωρεάν</a>
@@ -271,7 +277,7 @@
           </ul>
         </div>
 
-        <p class="pricing-fineprint" data-el="Τιμές σε ευρώ. Στην πιλοτική φάση δεν υπάρχει χρέωση — η τιμολόγηση ξεκινά με την επίσημη έναρξη." data-en="Prices in euros. There is no charge during the pilot phase — billing starts at the official launch.">Τιμές σε ευρώ. Στην πιλοτική φάση δεν υπάρχει χρέωση — η τιμολόγηση ξεκινά με την επίσημη έναρξη.</p>
+        <p class="pricing-fineprint" data-el="Τιμές σε ευρώ, χωρίς ΦΠΑ 24% (οι περισσότερες επιχειρήσεις τον συμψηφίζουν). Στην πιλοτική φάση δεν υπάρχει χρέωση — η τιμολόγηση ξεκινά με την επίσημη έναρξη." data-en="Prices in euros, excluding 24% VAT (most businesses can reclaim it). There is no charge during the pilot phase — billing starts at the official launch.">Τιμές σε ευρώ, χωρίς ΦΠΑ 24% (οι περισσότερες επιχειρήσεις τον συμψηφίζουν). Στην πιλοτική φάση δεν υπάρχει χρέωση — η τιμολόγηση ξεκινά με την επίσημη έναρξη.</p>
       </div>
     </section>
 
@@ -310,7 +316,7 @@
           <div class="calc-result" role="status" aria-live="polite">
             <span class="calc-amount" id="calc-amount">—</span>
             <p id="calc-text" data-el="Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας." data-en="Lost revenue per month, based on your numbers.">Χαμένα έσοδα τον μήνα, με βάση τα νούμερά σας.</p>
-            <p><strong data-el="Η Desmar ξεκινά από 69 €/μήνα." data-en="Desmar starts at €69/month.">Η Desmar ξεκινά από 69 €/μήνα.</strong></p>
+            <p><strong data-el="Η Desmar ξεκινά από 69 €/μήνα +ΦΠΑ." data-en="Desmar starts at €69/month + VAT.">Η Desmar ξεκινά από 69 €/μήνα +ΦΠΑ.</strong></p>
           </div>
           <p class="calc-note" data-el="Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά."
              data-en="Calculation assumption: about 3 in 10 missed contacts would have become customers. The calculation runs on your device — nothing is sent anywhere.">Παραδοχή υπολογισμού: περίπου 3 στις 10 αναπάντητες επαφές θα γίνονταν πελάτες. Ο υπολογισμός γίνεται στη συσκευή σας — δεν αποστέλλεται πουθενά.</p>
